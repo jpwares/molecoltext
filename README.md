@@ -1,5 +1,5 @@
 # molecoltext
-molecular ecology text, started march 2020
+molecular ecology text, started march 2020. note it is *not done* as of march 2021 but putting files here to renew my github skills!
 
 this text is being developed for the cross-listed ECOL/GENE 4530/6530 at university of georgia to improve the experiential nature of learning the methods necessary for the field of 'molecular ecology'. maintaining it as an .Rmd allows direct analytical opportunities and the ability to incorporate some simple simulation tools using Shiny.
 
