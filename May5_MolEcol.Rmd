@@ -91,7 +91,7 @@ This will be less a textbook that you read for complete comprehension, and more 
 For other users of this document, please note: I use a lot of examples I am familiar with, meaning they are often projects I'm an author on, or was on that person's committee, or whatever. There is so much other *fantastic* science out there, this isn't about ego though: it's just my ability to immediately dig deeper with those as examples not just of how the science *can* be done, but also about when it *could have been done better*. Also, I'm a marine ecologist; when I talk about plants, it is basically because of great colleagues who have entranced me with their weird and important terrestrial photosynthetic life, and mammals and fish similarly: I credit cool colleagues who have brought me into the fold. If you end up using this as an instructor, I encourage you to think about including your own, even better, examples.
 
 
-## What is Molecular Ecology?
+##1.1 What is Molecular Ecology?
 
 The phrase 'molecular ecology' is nothing new; it is in many ways synonymous with 'ecological genetics' as first applied by pioneers like Dobzhansky, Ford, and others (en.wikipedia.org/wiki/Molecular_ecology). Maybe the question of terminology comes down to people *who identify as geneticists but want to solve ecological concerns* (Phil Hedrick and his work on Florida panthers in 1995? I've not met him to verify how he identifies as a scientist), or people *who identify as ecologists but recognize how to use genomic data as a means to greater understanding* (can't help my bias, I think of Rick Grosberg doing a number of deep explorations into behavioral ecology via understanding genome-wide kinship, see Fig 1.1). The journal ***Molecular Ecology*** (https://onlinelibrary.wiley.com/journal/1365294x) began in 1991; the field is not new, but the attention given to it from a broader spectrum of scientists seems to be. Before giving an overview of what may be included in this topic, it is probably first important to acknowledge that there are "molecular" approaches to addressing ecological questions that are often *not* included in this field.
 
@@ -105,24 +105,27 @@ Thus, this text will follow some basic outlines that you may find in other books
 
 Finally, I'll note something I'm trying out in terms of verbiage. For a long time, people have talked about population *genetics* and conservation *genetics* and ecological *genetics.* However, with part of my appointment being in a Department of *Genetics*, I can see that for the most part we are not asking questions about how diversity is inherited or the cellular processes that interact as much as we are about how the diversity across a genome (or portions of it), and how it is distributed, indicate the evolutionary and ecological processes acting on it. This applies to early work in *Drosophila pseudoobscura* and chromosome rearrangements straight through to modern RAD-seq approaches and whole-genome resequencing. The distinction between "genetics" and "genomics" is not, to me, about the precise number of markers you are studying but in the intent of analysis. I may not want to know anything about the identity of a gene that is an outlier in terms of cytonuclear disequilibria, because I don't want to resolve how a nuclear gene and a mitochondrial gene are interacting. That is for somebody else. The fact that they interact gives each of them special identity in helping us see patterns that are driven by the environment and interactions with the environment, and so **the patterns are for us**. It's a distinction that is open for discussion of course.
 
-## Overall structure, a work in progress...
+##1.2 Overall structure, a work in progress...
 
-1. barcoding, eDNA, and community ordination: a simple starting point of distribution and abundance
-  a. [**BOX 1:** How molecular data are obtained]
-2. What are the basic elements of asking about alpha and beta diversity - that is, the diversity at a single location and the diversity across locations? As ecology is often focused on the distribution and abundance, these approaches let us more accurately define the prevalence of certain subsets of biodiversity so we can more accurately assign locations to distinct communities or systems. The 'space for time' argument applies both ecologically and genetically throught he process of drift *at a minimum* (Hubbell, whats his name) so that we expect different locations to have different diversity in part because they are demographically independent; of course migration (and gene flow) will affect this and that is one of our major goals to understand in this field
-3. What are molecular markers - extending to diploid and to cost-effective ways to explore genomes, what do they cost in time and money, and what sampling guidelines should we consider? Some elements of sampling won't make sense until we get into the types of inference and analysis used with particular questions, so in some places these will be left as questions for us to return to.[**BOX 1**]
-4. Basic evolutionary mechanisms and what they can do to molecular diversity; an overview on finite population size: Ne and all the distinct ways it is measured, WHY IT AFFECTS DIVERGENCE RATE, and all the distinct ways it is only kind-of useful, from Hare et al 2011 (and Waples before him) to human evolution and even taking a swing at Turner et al 2002 and Alo et al 2004 (which is more likely correct given the distinctions). Mutation accumulation and biogeography to get at mu, basic info from Kinlan & Gaines on movement in the sea based on genomic diversity and so on, what we know of recombimation, what we know of selection is that many traits are super polygenic. 
-5. Generalizable population models and how to tell when the data indicate a more complex model, e.g. ***HWE and the coalescent***.
-6. Considering more complex models - movement, adaptation, and environmental response; complexities of landscape, seascape, rivers
-6b. Quantitative vs molecular diversity and what we know from longleaf pines.
-7. Mating and behavior - collective as well as individual. I'd imagine talking about Mendelson's work, as well as about the recent work on salmonid errant river returns (communal behaviors) as the last vestiges of occasional gene flow among systems. Also turtle barnacles of course, and more on Hill numbers again.
-8. responding to the environment - RNA, epigenomic markers
-9. applications to conservation and climate change, what *decisions* can be made based on these types of data? Closing chapter: The reason I taught OTS course in ConservatioN AND BIODIVERSITY geneticd” is that I feel the idea of conservation is addressing our failures; the biodiversity genetics, the molecular ecology - is about finding there is still more to learn from.... https://link.springer.com/chapter/10.1007/13836_2020_72
-10. particular loci and their effects on the 'extended phenotype'
-11. ancient DNA, museum specimens, and modern technology ("have your cake and eat it too" paper on using ethanol from preserved specimesn and batch lots!) - to wrap it back to natural history (Travis 2020), using Zokan as an example that you continue to struggle with in terms of how to do it **right**.
-12. coda on "molecular ecology" and how understanding nutrient and metabolic flow may be really key (Rand MPI, the theory on how symbiontws remain in corals is the adaptive balance cannot think of name of theory right now but involves metabolism interacting with molecular availability, catching new symbionts like colds, Pespeni/other work on changes in development with pH, and so on)
+**Chapter 2** will deal with how molecular markers are generated (What are molecular markers - extending to diploid and to cost-effective ways to explore genomes, what do they cost in time and money, and what sampling guidelines should we consider? Some elements of sampling won't make sense until we get into the types of inference and analysis used with particular questions, so in some places these will be left as questions for us to return to), and how they can be applied using barcoding, environmental DNA, and community ordination to understand distribution and abundance. 
 
-*N.B.* I am aiming this at upper-level undergrads in ecology or evolutionary biology who may have had some introductory genetics or evolution; but, I am going to do my best to not assume you remember everything from those classes. Beginning grad students may also benefit, but should be encouraged to lead the class in paper discussions or experiential workshops to help build their depth of understanding. Also, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away.
+**Chapter 3** will provide additional grounding in how mutations and diversity are generated - pretty key, especially for students with less exposure to introductory genetics coursework.
+
+**Chapter 4** is about the basic elements of alpha and beta diversity -- that is, the diversity at a single location and the difference in diversity across locations. As ecology is often focused on the distribution and abundance, these approaches let us more accurately define the prevalence of certain subsets of biodiversity so we can more accurately assign locations to distinct communities or systems. The 'space for time' argument applies both ecologically and genetically through the process of drift *at a minimum* (Hubbell, Vellend) so that we expect different locations to have different diversity in part because they are demographically independent; of course migration (and gene flow) will affect this and that is one of our major goals to understand in this field.
+
+**Chapter 5 and 6** deal with basic evolutionary mechanisms and what they can do to molecular diversity; Generalizable population models and how to tell when the data indicate a more complex model, e.g. ***HWE and the coalescent***; an overview on finite population size: Ne and all the distinct ways it is measured, WHY IT AFFECTS DIVERGENCE RATE, and all the distinct ways it is only kind-of useful, from Hare et al 2011 (and Waples before him) to human evolution and even taking a swing at Turner et al 2002 and Alo et al 2004 (which is more likely correct given the distinctions). We will talk about population models, mutation accumulation and biogeography to get at $\mu$, basic info on movement in the sea based on genomic diversity and so on, what we know of recombination, and this all lets us get to ...
+
+**Chapter 7** where we deal somewhat with how knowing this baseline information helps us think about what selection does across distinct environments. This is often a target for research, but it takes so much baseline information to really understand outlier molecular diversity. 
+
+That sets us up for **Chapter 8** which gets into quantitative genetics and the association with genomic data, because what we know of selection is that many traits are super polygenic. We will discuss and work with RNA expression data, learn a bit about epigenomic markers as well, and discuss 'keystone loci' that have effects on the 'extended phenotype' of populations.
+
+**Chapter 9** will give us time to explore mating and behavior - collective as well as individual. 
+
+**Chapter 10** deals with where the field is going and spends some time focusing on the 'natural history awareness' of the analyses we have learned; often key insights come from seeing how data behave or misbehave given your preconceptions.
+
+*N.B.* I am aiming this at upper-level undergrads in ecology or evolutionary biology who may have had some introductory genetics or evolution; but, I am going to do my best to not assume you remember everything from those classes. Beginning grad students will also benefit, but should be encouraged to lead the class in paper discussions or experiential workshops to help build their depth of understanding.
+
+Also, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away.
 
 **Week 1 reading:**
 
@@ -137,7 +140,7 @@ Govindarajan et al. 2015 https://peerj.com/articles/926/# to consider how diverg
 
 *To wrap this up, a photo of one of the invasive Loricariid catfish mentioned earlier. More info on the system can be found at https://news.cornell.edu/stories/2013/08/freeing-pet-catfish-can-devastate-ecosystems . Can you think of how studying genomic diversity of these catfish - as well as the source populations from which they come - could be useful?*
 
-*Resources cited in this section*
+*Resources cited in this section - I will typically cite in-line actually*
 
 Avise 2000
 
@@ -807,8 +810,9 @@ we will read Prunier et al 2013 Optimizing the trade-off between spatial and gen
 
 Now we have the basic building blocks for analysis of genomic data in molecular ecology: how much diversity is there in a sample, and how distinct is one sample from another? A key element of how to use these metrics, however, lies in the questions we ask about movement, mating, and variation in fitness - the realities of biology that will affect the fit of genomic data to our 'null' expectations. In this chapter we will talk about the scale at which individuals move among sampling locations, and how that leads to distinctions that can be quantified as "populations" that have some demographic and evolutionary independence from one another - and perhaps distinct interactions with the environment or with other organisms in their ecosystems.
 
+# 5. We call them populations as a way to simplify 'where things are'
 
-# 5.1 Population models and movement basics
+## 5.1 Population models and movement basics
 
 The figure below (5.1) shows some very basic schemes for how individuals might be thought to move from location to location in a regional study. Very few natural systems will fit these schemes well, but they can be a starting point for thinking about overall movement of organisms, their offspring, or their propagules between generations. They capture these basics of movement in several ways. First, a "mainland-island" model was developed in the field of biogeography (Macarthur & Wilson) to consider the probabilities of diversity from a large mainland ecosystem moving to or invading a smaller offshore habitat, with probabilities of movement being dependent on distance from the mainland, size of the island, and so on. This model is useful for considering source-sink dynamics in population genetics (Robinson et al 2013 *Molecular Ecology*). An "island" model assumes all the habitats are of similar size with similar or equal probabilities of individuals moving among each site, while "stepping-stone" models assume migration only happens between neighboring sites.
 
@@ -853,7 +857,7 @@ knitr::include_graphics('MEImages/wp08_2c.jpg')
 
 Ultimately our goal in using molecular data to understand *how organisms move* will help us better understand how life history variation has consequences for evolution and adaptation. As noted above, how organisms move affects how genomic diversity is distributed through a species' range, and even how much genomic diversity there is to respond to environmental challenges. Within the context of this set of questions then, we first may want to ask about whether diversity is distributed *continuously* or *hierarchically* across this spatial range.
 
-# 5.2 dispersal as an equilibrium model, limits to dispersal as violations of that model
+## 5.2 dispersal as an equilibrium model, limits to dispersal as violations of that model
 
 When Dr. Wares was in graduate school, a brilliant but intimidating faculty mentor once pointed out to him that the genomic diversity captured through sequencing or genotyping at different locations may be distinct from one another, but we can ask whether or not that diversity is consistent with an equilibrium between mutation, drift, and migration capability alone. This is related to the stepping-stone models of movement noted above, and is often called *isolation by distance* or IBD (Wright, 1943). 
 
@@ -901,7 +905,7 @@ I'm serious. Some programs (e.g. **Arlequin**) will refer to this with the subsc
 
 For some organisms, there may be an excess of homozygosity at each locus because of life history strategy like self-fertilization and this is diagnosed in part by a non-zero $F_{IS}$ which refers to inbreeding at the level of the individual relative to the sample. Other hierarchical levels can be defined if sampling is sufficient enough to ask about additional ways in which diversity is partitioned across a system; the key here is that with this approach, your partitions (regions, samples, etc) are in part chosen or defined by the researcher - they are hypotheses to be tested (particularly regional groups of samples).
 
-# 5.3 letting the data tell you how individuals 'belong' to distinct populations
+## 5.3 letting the data tell you how individuals 'belong' to distinct populations
 
 So when we define a spatial model, we are asking about how our genomic data 'fit' that model; if there are two or more regions that have limited movement among them, we expect to see a high value of $F_{CT}$ overall as well as some high values of $F_{ST}$ (for comparisons of sites on either side of those environmental or geographic boundaries) and some low values of $F_{ST}$ (for pairwise comparisons among sites within the same region, for example). These approaches may miss, however, the true pattern of movement and introgression among sites because considerable genomic and genotypic variation may be found within the same spatial or temporal sample.
 
@@ -940,7 +944,7 @@ knitr::include_graphics('MEImages/Bradburdfig1.jpg')
 
 ***Experiential*** lets take a look at POPPR tutorial PartII.6-10, through "discriminant analysis of principal components" and the information on particular loci and types of data will be explored in this next chapter. Use the practice data they provide so that you have the ability to run such data, as we start discussing what they mean for our ability to infer demography, movement, and evolution in natural populations. 
 
-# 5.4 Why all this complexity?
+## 5.4 Why all this complexity?
 
 We want to understand how genomic diversity is distributed across a landscape because it tells us a lot about how natural history variation - types of dispersal (even polymorphism in dispersal type! Zakas & Wares 2012), mating, competition and conflict, or even disequilibrium patterns caused by responses of populations after glaciation, introduction, or other environmental changes - can be more fully characterized. The better we understand this distribution of diversity because of shifts in available habitat and movement, the better we will be able to understand how different parts of a genome respond to the environment through adaptation (later chapter), and so gain a more complete understanding of why diversity in genomes, in populations, in species, in communities -- is distributed on this planet the way it is (Eo et al 2008).
 
@@ -1230,11 +1234,16 @@ shinyAppFile("shiny_popgen-master/Quant-Gen/additive_alleles_app.R",options=list
 ## 8.3 conservation, phenotype, species, protection, traits vs neutral diversity
 
 good time to include DOI: 10.1111/eva.12687 to discuss
+particular loci and their effects on the 'extended phenotype'
+
+applications to conservation and climate change, what *decisions* can be made based on these types of data? Closing chapter: The reason I taught OTS course in ConservatioN AND BIODIVERSITY geneticd” is that I feel the idea of conservation is addressing our failures; the biodiversity genetics, the molecular ecology - is about finding there is still more to learn from.... https://link.springer.com/chapter/10.1007/13836_2020_72
 
 #9 kinship, parentage (Hill humbers, discrimination and assignment)
 #  more behavior and interaction eg voles and mating, diversity and disease
 
 Mendelson and others come in here as behavior and kinship and everything come back together on the species question and altruism and so much more
+
+Mating and behavior - collective as well as individual. I'd imagine talking about Mendelson's work, as well as about the recent work on salmonid errant river returns (communal behaviors) as the last vestiges of occasional gene flow among systems. Also turtle barnacles of course, and more on Hill numbers again.
 
 and how this takes us to the beginning, that the natural history is what is important to know, that we are trying to fill in gaps. don't get a big ego - its mostly just paying close attention to recipes as complicated as toll house cookies, but repeatedly and with attention to detail and purpose of each component. This will be a case-studies section taht includes
  
@@ -1256,9 +1265,13 @@ develop skepticism and understanding depth of what is *happening* with your data
 
 # extra put this into earlier chapter on Ne?? EDGE dynamics and range shift variance in alleles, growth OR THIS IS A CASE STUDY PROBLEM RELEVANT TO EARLIER STUFF and unit 10 is basically 1-2 more paper to read together, fading towards end of a semester after all LOL.
 
+also: ancient DNA, museum specimens, and modern technology ("have your cake and eat it too" paper on using ethanol from preserved specimesn and batch lots!) - to wrap it back to natural history (Travis 2020), using Zokan as an example that you continue to struggle with in terms of how to do it **right**.
+12. coda on "molecular ecology" and how understanding nutrient and metabolic flow may be really key (Rand MPI, the theory on how symbiontws remain in corals is the adaptive balance cannot think of name of theory right now but involves metabolism interacting with molecular availability, catching new symbionts like colds, Pespeni/other work on changes in development with pH, and so on)
+
 # ACKNOWLEDGEMENTS
 
-Still working on all proper citations but already have much thanks to Silas Tittes for Shiny apps, to Justin Bagley and many others for help with R code checking, to my entire lab group in 2019-2021 for their patience, to my entire Molecular Ecology class in 2020 for *their* patience, to Natalia Bayona-Vasquez and Todd Pierson for their assistance getting me worked towards the experiential mode of teachign this class, 
+Still working on all proper citations but already have much thanks to Silas Tittes for Shiny apps, to Justin Bagley and many others for help with R code checking, to my entire lab group in 2019-2021 for their patience, to my entire Molecular Ecology class in 2020 for *their* patience, to Natalia Bayona-Vasquez and Todd Pierson for their assistance getting me worked towards the experiential mode of teachign this class, to Paula Pappalardo and CHristine Ewers-Saucedo who guided me in many ways as a cautious coder and exploring new pathways of analysis, to Rick Grosberg and Rob Toonen and Alex Wilson and so many others.
+
 # dangling notes
 
 **HOLY CROW DO NOT FORGET ABOUT THE 2018 SLIDES YOU HAVE, and 2020 resources as well**
