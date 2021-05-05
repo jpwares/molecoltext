@@ -17,13 +17,11 @@ print(getwd())
 
 # 0. What is this?
 
-This text may be used following these guidelines: https://creativecommons.org/licenses/by-nc-sa/4.0/
+Written by **J.P. Wares**, Professor, University of Georgia, jpwares [at] uga.edu
 
-Written by J.P. Wares, Professor, University of Georgia, jpwares at uga.edu
+This is shared *by-nc-sa/4.0*, I'm not writing it to be some polished final thing but something that shifts through new ideas and new people using or modifying parts of it. This text may be used following these guidelines: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-This is shared *by-nc-sa/4.0*, I'm not writing it to be some polished final thing but something that shifts through new ideas and new people using or modifying parts of it. 
-
-This document is being developed for the cross-listed ECOL/GENE 4530/6530 at university of georgia to improve the experiential nature of learning the methods necessary for the field of 'molecular ecology'. maintaining it as an .Rmd allows direct analytical opportunities (and familiarity with basic statistical coding approaches) and the ability to incorporate some simple simulation tools using Shiny.
+This document is being developed for the cross-listed ECOL/GENE 4530/6530 at University of Georgia to improve the experiential nature of learning the methods necessary for the field of "*molecular ecology*". Maintaining it as an .Rmd allows direct analytical opportunities (and familiarity with basic statistical coding approaches) and the ability to incorporate some simple simulation tools using Shiny. It will also let me update as needed in a straightforward way.
 
 ## 0.1 Why write this?
 
@@ -41,7 +39,7 @@ knitr::include_graphics("MEImages/IMG_1549.jpeg")
 
 # 1. Introduction
 
-The first day of class we will prep our computers - I'm sorry, ChromeOS I do not know how to install R onto - for using R/RStudio for a major resource in this class. If at all possible, before the class begins you should install R:
+The first day of classes we will prep our computers for using R/RStudio for a major resource in this class. If at all possible, before the class begins you should install R:
 
 https://www.r-project.org
 
@@ -49,7 +47,7 @@ and RStudio (free version):
 
 https://rstudio.com/products/rstudio/
 
-Please note the risk in all of this is that *packages* and *versions* of software are constantly changing, and sometimes code that has been working will stop (and vice-versa) because of these changes. Additionally, a key element of making this work - currently - is making sure that the *path* is set correctly so that this .Rmd file can find figures and code to interact with. This next code block is where you can set this, or you can use the Session/Set Working Directory dropdown in the RStudio environment.
+Please note the risk in all of this is that *packages* and *versions* of software are constantly changing, and sometimes code that has been working will stop (and vice-versa) because of these changes. Additionally, a key element of making this work - currently - is making sure that the *path* is set correctly so that this .Rmd file can find figures and code to interact with. I'm hoping I've set this up so that everything works from the directory you downloaded, but we will double-check today.
 
 ```{r setup2, include=FALSE}
 
@@ -66,7 +64,7 @@ if(length(miss)) install.packages(miss, dependencies = TRUE)
 # going to try shiny_popgen but not sure how to include in Rmd yet...
 
 #install.packages("devtools")
-devtools::install_github("hadley/emo")
+#devtools::install_github("hadley/emo")
 
 ```
 
@@ -74,7 +72,7 @@ devtools::install_github("hadley/emo")
 
 This is an R Markdown document, with Shiny apps built in. At this point in time, the Shiny apps are all written by the talented Dr. Silas Tittes and are available at https://github.com/silastittes/shiny_popgen. 
 
-What does that mean? Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. Adding the Shiny apps means that the document is *interactive*. The only downside is that it means that users must have **R** and **RStudio** installed, plus a few R packages, on their computer. The upside is that it is more of a living document. It means that as data change, the output of analysis can change. It also means that R code can be built directly into the document so that you can see how some figures or modules are generated, and you can build on this knowledge. You can embed an R code chunk like this:
+What does that mean? Markdown is a simple formatting syntax for authoring HTML, PDF, and Microsoft Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. Adding the Shiny apps means that the document is *interactive*. The only downside is that it means that users must have **R** and **RStudio** installed, plus a few R packages, on their computer. The upside is that it is more of a living document. It means that as data change, the output of analysis can change. It also means that R code can be built directly into the document so that you can see how some figures or modules are generated, and you can build on this knowledge. You can embed an R code chunk like this:
 
 ```{r driftsim}
 
@@ -88,9 +86,9 @@ I'm putting this text together using R Markdown in particular so that examples c
 
 Because I'm using **Shiny** code, you cannot "Knit" this document, but instead will hit "Run Document" once it is loaded into R and that will generate a text that is dynamic in some places to let *you* run the simulations. It is a work in progress, but for now it does mean that to work with this you must have access to a computer that will run R and RStudio, at a minimum.
 
-This will be less a textbook that you read for complete comprehension, and more something you read to generate questions that we discuss; I am trying to flip the classroom and organize for future classes at the same time. Some aspects will need to be explained in class or using diverse media to make sense. When I was a sophomore learning cell biology, I know that I tested well on the subject but in the end, had zero clue what gel electrophoresis meant until I did it on a daily basis. (super basic intro to "electrophoresis": https://www.youtube.com/watch?v=ZDZUAleWX78) So, **your job is to ask questions!** That way, we learn more completely not just from me, but from each other and from our inquiry.
+This will be less a textbook that you read for complete comprehension, and more something you read to generate questions that we discuss; I am trying to "flip the classroom" and organize for future classes at the same time. Some aspects will need to be explained in class or using diverse media to make sense. When I was a sophomore learning cell biology, I know that I tested well on the subject but in the end, had zero clue what gel electrophoresis meant until I did it on a daily basis. (super basic intro to "electrophoresis": https://www.youtube.com/watch?v=ZDZUAleWX78) So, **your job is to ask questions!** That way, we learn more completely not just from me, but from each other and from our inquiry.
 
-For other users of this document, please note: I use a lot of examples I am familiar with, meaning they are often projects I'm an author on, or was on that person's committee, or whatever. There is so much other *fantastic* science out there, this isn't about ego though: it's just my ability to immediately dig deeper with those as examples not just of how the science *can* be done, but also about when it *could have been done better*. Also, I'm a marine ecologist; when I talk about plants, it is basically because of great colleagues who have entranced me with their weird terrestrial photosynthetic life, and mammals and fish similarly: I credit cool colleagues who have brought me into the fold. If you end up using this as an instructor, I encourage you to think about including your own, even better, examples.
+For other users of this document, please note: I use a lot of examples I am familiar with, meaning they are often projects I'm an author on, or was on that person's committee, or whatever. There is so much other *fantastic* science out there, this isn't about ego though: it's just my ability to immediately dig deeper with those as examples not just of how the science *can* be done, but also about when it *could have been done better*. Also, I'm a marine ecologist; when I talk about plants, it is basically because of great colleagues who have entranced me with their weird and important terrestrial photosynthetic life, and mammals and fish similarly: I credit cool colleagues who have brought me into the fold. If you end up using this as an instructor, I encourage you to think about including your own, even better, examples.
 
 
 ## What is Molecular Ecology?
