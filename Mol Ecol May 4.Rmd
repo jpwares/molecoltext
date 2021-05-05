@@ -1284,5 +1284,4 @@ go ahead and build in the 2 papers to discuss in week 1. it is not so much a boo
 
 
 
-
 *notes to self: What about a chapter on somatic mutations and clonality - new paper you JUST TWEETED today (3/13 ish) on estimating mutaiton rate in a tree, and Don Levitan, and Sarah Otto, and other studies of mutation accumulaton, and fungus size - along with biogeography, should follow right after the community and “phylogeography” bit because the dating, the µ,  comes from that. Mutational differences are differences i time - and we are trying to use our best modes of inference to understand that relationship. That’s it. Panama, Arctic, Koskinen (as an example of where divergence and evolution of traits gets involved), red drum, whatever. Matt Hare and evolution per genertaion via drift. Put all of this as the stuff that gets in front of the equilibriuam stuff, the sampling-effective stuff. So this is the µ and t chapter, and … this hjust sets up variation in repro success. It does feel like all of this has to come before the silly pop gen stuff that you can make inference from.*
