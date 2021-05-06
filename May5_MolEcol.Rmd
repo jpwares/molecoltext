@@ -1236,12 +1236,14 @@ shinyAppFile("shiny_popgen-master/Quant-Gen/additive_alleles_app.R",options=list
 good time to include DOI: 10.1111/eva.12687 to discuss
 particular loci and their effects on the 'extended phenotype'
 
-the point of conservation si the phenotype - the chemical products, the appearance, the value we place on simply seeing it. so, that's where i've put this part.
+*the point of conservation si the phenotype - the chemical products, the appearance, the value we place on simply seeing it. so, that's where i've put this part.*
 
-applications to conservation and climate change, what *decisions* can be made based on these types of data? Closing chapter: The reason I taught OTS course in ConservatioN AND BIODIVERSITY geneticd” is that I feel the idea of conservation is addressing our failures; the biodiversity genetics, the molecular ecology - is about finding there is still more to learn from.... https://link.springer.com/chapter/10.1007/13836_2020_72
+applications to conservation and climate change, what *decisions* can be made based on these types of data?  The reason I taught OTS course in ConservatioN AND BIODIVERSITY geneticd” is that I feel the idea of conservation is addressing our failures; the biodiversity genetics, the molecular ecology - is about finding there is still more to learn from.... https://link.springer.com/chapter/10.1007/13836_2020_72
 
-#9 kinship, parentage (Hill humbers, discrimination and assignment)
-#  more behavior and interaction eg voles and mating, diversity and disease
+come back to the painted bunting - what is special to us? Lets realize that all of these are amazing birds. So what is the value of each lineage - and what is the cost of exploring and documenting this? how do we maximize the ecological value of our work for future generations? hippy-dippy but sure.
+
+# 9 kinship, parentage (Hill humbers, discrimination and assignment)
+## 9.1 more behavior and interaction eg voles and mating, diversity and disease
 
 Mendelson and others come in here as behavior and kinship and everything come back together on the species question and altruism and so much more
 
