@@ -101,6 +101,8 @@ div.blue { background-color:##f5b642; border-radius: 10px; padding: 40px;}
 
 For other users of this document, please note: I use a lot of examples I am familiar with, meaning they are often projects I'm an author on, or was on that person's committee, or whatever. There is so much other *fantastic* science out there, this isn't about ego though: it's just my ability to immediately dig deeper with those as examples not just of how the science *can* be done, but also about when it *could have been done better*. Also, I'm a marine ecologist; when I talk about plants, it is basically because of great colleagues who have entranced me with their weird and important terrestrial photosynthetic life, and mammals and fish similarly: I credit cool colleagues who have brought me into the fold. If you end up using this as an instructor, I encourage you to think about including your own, even better, examples.
 
+Plus, I can imagine now I can just look in here for some of the papers I want others to refer to, you know - what was that paper I cited about XXXXXX? Oh yeah it was in chapter 4...
+
 </div>
 
 ## 1.1 What is Molecular Ecology?
@@ -424,7 +426,7 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "green">
 
-Your task with this simulator is to learn about a key understanding about random genetic drift. Remember, at this point in time all diversity has no effect on **fitness**. You can see from the app above that you can change population size (*N*), the initial allele frequency, how long (generations) to run the simulation; *as well as "bottleneck time" and "bottleneck pop. size". Don't worry about these last two, but be sure to set "bottleneck time" to be greater or equal to "generations".
+Your task with this simulator is to learn about a key understanding about random genetic drift. Remember, at this point in time all diversity we have talked about has no known effect on **fitness**. You can see from the app above that you can change population size (*N*), the initial allele frequency, how long (generations) to run the simulation; *as well as "bottleneck time" and "bottleneck pop. size". Don't worry about these last two, but be sure to set "bottleneck time" to be greater or equal to "generations".
 
 Now, varying *N*, starting allele frequency, generations, and number of replicates - I'd like for you to set up some simple observational experiments to *quantify* the probability that the allele we are tracking (it is at the frequency you set; the other allele is, of course, at (1-*freq*) in frequency) goes to fixation (frequency 100%). I suggest starting with small population sizes, but then see if it changes as *N* increases.
 
