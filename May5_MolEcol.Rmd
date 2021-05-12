@@ -1000,6 +1000,21 @@ After you have evaluated the data - thinking about the goals of the data as well
 
 So, a first approach to take with real data is often about exploration of the data in terms of deviating from the simplest model: *panmixia*, or an inability to reject the null hypothesis that *location* provides no additional information about the diversity sampled at that location.
 
+PLACE FOR A REMINDER SHINY ON GENE FLOW? I don't have that I do have PopG... have them pair PopG with the Shiny Fst given end frequencies thanks to migration.
+
+1. download and install Joe Felsenstein's PopG: https://evolution.gs.washington.edu/popg/ 
+
+2. varying population size and migration rate only for 2 populations, what are the conditions under which the resultant Fst is <0.1 consistently? use the Shiny app below for generating Fst given random population samples for 2 populations with the end allele frequencies in your simulation. How is *time* involved?
+
+```{r secondlookfst} 
+
+
+shinyAppFile("shiny_popgen-master/FST/fst_app.R",options=list(width="130%",height=500))
+
+```
+
+And, of course, be sure to recognize that if you repeat this pure simulation analysis many times, how often are the answers dependent on which simulation, and what sample size, and so on? Remember: these results are *purely neutral* in terms of how drift is changing diversity over time. That means quite stochastic!
+
 How we explore the data to begin with typically depends on the type of data, of course. A study that returns DNA sequence data might explore with basic questions of whether *location* provides information about diversity using a metric like Hudson's Snn or PhiST, in each case there is a prior assumption being made that *location* ("site") has potential to be informative about evolutionary populations. These metrics as declared above are asking about overall deviation from *panmixia*. Snn is asking if the genetic similarity between pairs of sequences is related to the location (same location or not), and has a null expectation of 1/*n* where there are *n* locations sampled. Of course, your sampling scheme may make such an expectation of little value but the goal of such a metric is simply to maximize the value of DNA sequence diversity (many variable sites) given a small sample size. Similarly, Xst metrics overall may tell us if there is deviation from Xst=0 but don't tell us much about patterns in the data that can be explored hierarchically or continuously.
 
 Continuing with sequence data, then, it may make sense to evaluate all pairs of locations sampled to generate a matrix that describes the deviation from null/panmixia in all possible ways. Examining such a matrix often begins to tell us a lot about where there are subtleties or larger patterns that will need to be considered. Of course, data that is allelic - microsatellites, SNPs, or similar - that can be considered with pairwise Xst approaches (the X depends on the model, which often depends on the marker, you will recall) will also apply here. 
