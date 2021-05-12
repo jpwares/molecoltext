@@ -1,7 +1,7 @@
 ---
 title: "Molecular Ecology"
 author: "J. P. Wares"
-date: "5/5/2021"
+date: "5/12/2021"
 output: html_document
 runtime: shiny 
  
@@ -1000,7 +1000,7 @@ After you have evaluated the data - thinking about the goals of the data as well
 
 So, a first approach to take with real data is often about exploration of the data in terms of deviating from the simplest model: *panmixia*, or an inability to reject the null hypothesis that *location* provides no additional information about the diversity sampled at that location.
 
-PLACE FOR A REMINDER SHINY ON GENE FLOW? I don't have that I do have PopG... have them pair PopG with the Shiny Fst given end frequencies thanks to migration.
+A REMINDER ON GENE FLOW
 
 1. download and install Joe Felsenstein's PopG: https://evolution.gs.washington.edu/popg/ 
 
@@ -1254,6 +1254,8 @@ knitr::include_graphics('MEImages/amnatlangurgillespie.jpg')
 # 8 phenotype.
 
 HUH what if you put this earlier, and then move current ch8 back because it involves having more prior information and or more data, really... the questions revolve around that. Hell, given your expertise lets deal with phenotypic variation and heritability in one chapter, so that is my quant gen and point vigorously at folks who can do that better than this can do!
+
+I'd say this is good place to bring in the *Thymallus* paper by Koskinen et al - 25 generations of zero migration, all start from same presumably panmictic sample of local grayling diversity. How do traits and alleles change over time, and what does this tell us about selection?
 
 we start getting into students finding papers that influence how they think and their questions and they give 3-5 minute overviews with one key visual. so the semester becomes more student-driven with their data presentations and paper presentations.
 
