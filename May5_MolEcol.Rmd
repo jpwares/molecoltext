@@ -649,7 +649,9 @@ Here we won't try to exhaustively work our way through metrics, but try to estab
 
 For now, your job is to read and follow directions in Part I of the "population genetics and genomics in R" tutorial written by the developers of the R package 'poppr': https://grunwaldlab.github.io/Population_Genetics_in_R/Getting_ready_to_use_R.html [ref] This will help you install several other useful packages that we will be using more and more as the semester progresses.
 
+# 4.0 Diversity in and among individuals
 
+I'm adding this late - thus the odd numbering - because I realized I hadnt addressed one peculiarity of sampling diversity. **It is harder to compare individuals than it is to compare samples of individuals.** One of the key reasons for this is that the diversity we are dealing with is often diploid (or worse). That means that a heterozygous variant in one individual can be difficult to categorize in terms of how distinct it is from the genotype of another individual, especially another heterozygous individual. Which pairs of haplotypes are contrasted? Methods like Bowcock's (1994) "proportion of shared alleles" and other methods have been attempted to obtain *genetic distances* among individuals when codominant markers are used, but they involve abstractions of the data that aren't very satisfactory (Robinson et al 2013). Recent approaches have tried using Hill numbers (more on them in this chapter) [ https://www.nature.com/articles/s41598-020-62362-8 ] to make hierarchical contrasts between individuals with respect to the patterns and frequency of polymorphism variation among them; I'll leave it for now to say it gets complicated and this is often why we characterize diversity for samples or populations as our primary tool. 
 
 ## 4.1 Diversity in a single sample.
 
@@ -1213,7 +1215,7 @@ The other thing that gets important about being able to summarize such complex d
 
 That is a fairly simple evolutionary question; what about complex evolutionary ecology, how can that be incorporated in a useful way? Well, using more summary statistics and massive computational effort to simulate distinct possible (and sometimes nested) histories to determine whether there is enough information to reject one of those histories as being likely. John Robinson asked about metapopulations; strictly, a Levins model for a metapopulation is that each habitat for a species has a probability of extinction (that is the same across all habitats in the area), and a probability of recolonization from elsewhere in the domain (the same probability for all such sites). Of course that is an overly simplified model, but there are often so many complexities to consider. Robinson et al (2013) were curious whether a documented 'metapopulation' of the cladoceran *Daphnia magna* could be evaluated for whether they fit a strict metapopulation model, or whether there were some sites (e.g. deeper or larger pools of water) that were more likely to persist and thus more likely to seed other habitats with propagules. In other words, more closely fitting a 'source-sink' model as described by Pulliam.
 
-To do this, Robinson collected data from 14 microsatellite loci. So, in this case, the *stepwise mutation model* (have we dealt with that?) was used to assume that two alleles of similar length are more likely closely related than two alleles that differ more in length. In other words, an allele with 7 nucleotide motif repeats is perhaps only one mutational event away from an allele with 8 repeats, and more mutational steps away from an allele that has 12 such repeats. Using that model, a variety of summary statistics could be calculated from the observed data - in this case, total number of alleles in the data set (K), mean and range across loci of variance in repeat number ${\sigma^2_A}$, mean and range of pairwise difference in repeat number $\tau$, mean $F_{ST}$ and $F_{IS}$, and locus quantiles for some of these statistics. These were compared to coalescent simulations following the "Approximate Bayesian Computation" approach.
+To do this, Robinson collected data from 14 microsatellite loci. So, in this case, the *stepwise mutation model* (have we dealt with that? yes, see chapters 3 and 5 though brief in each case - a previous iteration of this class wrote the initial entry on Wikipedia: https://en.wikipedia.org/wiki/Stepwise_mutation_model ; oddly there was also not yet an entry for the *infinite sites model* at that time and this was in 2016...I can see the initial edits made by my most recent lab graduate, Dr. Karen Bobier!) was used to assume that two alleles of similar length are more likely closely related than two alleles that differ more in length. In other words, an allele with 7 nucleotide motif repeats is perhaps only one mutational event away from an allele with 8 repeats, and more mutational steps away from an allele that has 12 such repeats. Using that model, a variety of summary statistics could be calculated from the observed data - in this case, total number of alleles in the data set (K), mean and range across loci of variance in repeat number ${\sigma^2_A}$, mean and range of pairwise difference in repeat number $\tau$, mean $F_{ST}$ and $F_{IS}$, and locus quantiles for some of these statistics. These were compared to coalescent simulations following the "Approximate Bayesian Computation" approach.
 
 In the "Approximate Bayesian Computation" (ABC) approach, each parameter has a range of possible values used for the simulations. Each simulation generates its own set of summary statistics, and those that are within a certain mathematical/Euclidean distance from the observed *actual* values are kept. In this way, it is Bayesian because the posterior distribution of likely histories is generated from their fit to observed data.
 
@@ -1265,6 +1267,8 @@ Mendelson comes in here as a marker
 
 RNAseq variation as a tool for how orgs respond, take some time with tis...
 
+buyt also note that setting up these experiments has to be VERY careful - which tissues, what time of day or season, and how to deal with variation in environment? 
+https://royalsocietypublishing.org/doi/abs/10.1098/rspb.2020.2968 notes that many lab experiments may poorly capture how organisms respond to variation in the environment so think carefully with your experiment!
 
 ## 8.2  pop gen x quant gen
 Shiny app for this! we ran through the other stuff to set up our understanding of how true quantitative traits will be very difficult to determine from molecular markers alone. That Daphnia paper, Vilas, genome size, whole genomes and quantity of individuals....
@@ -1281,11 +1285,13 @@ shinyAppFile("shiny_popgen-master/Quant-Gen/additive_alleles_app.R",options=list
 good time to include DOI: 10.1111/eva.12687 to discuss
 particular loci and their effects on the 'extended phenotype'
 
-*the point of conservation si the phenotype - the chemical products, the appearance, the value we place on simply seeing it. so, that's where i've put this part.*
+*the point of conservation si the phenotype - the chemical products, the appearance, the value we place on simply seeing it. so, that's where i've put this part.* We should be mindful of what we are conserving beyond e.g. unique haplotypes of course.
 
 applications to conservation and climate change, what *decisions* can be made based on these types of data?  The reason I taught OTS course in ConservatioN AND BIODIVERSITY geneticd” is that I feel the idea of conservation is addressing our failures; the biodiversity genetics, the molecular ecology - is about finding there is still more to learn from.... https://link.springer.com/chapter/10.1007/13836_2020_72
 
 come back to the painted bunting - what is special to us? Lets realize that all of these are amazing birds. So what is the value of each lineage - and what is the cost of exploring and documenting this? how do we maximize the ecological value of our work for future generations? hippy-dippy but sure.
+
+maybe the Hoban stuff and how metadiversity is used in conservation at highest levels  https://doi.org/10.1101/2020.08.28.254672.
 
 # 9 kinship, parentage (Hill humbers, discrimination and assignment)
 ## 9.1 more behavior and interaction eg voles and mating, diversity and disease
