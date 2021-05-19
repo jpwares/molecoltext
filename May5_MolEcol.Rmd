@@ -33,7 +33,11 @@ This document is being developed for the cross-listed ECOL/GENE 4530/6530 at Uni
 knitr::include_graphics("MEImages/IMG_1549.jpeg")
 ```
 
-**Surely you already have some thoughts on how turtles move, and what that could mean for the spatial distribution of diverse phenotypes and molecular diversity within their range? (photo: J. Wares) **
+**Surely you already have some thoughts on how turtles move, and what that could mean for the spatial distribution of diverse phenotypes and molecular diversity within their range? (photo: J. Wares)** 
+
+## 0.2 Why would I use this?
+
+I *think*... I think... I'm writing this in a way that more advanced students can skim the first few chapters and gain something from focusing on the latter ones; a more novice course might only get through the first several chapters and then just read appropriate-focused papers. I want to think about how to *teach* molecular ecology, not just about how to do it. It seems there has to be some coding expertise that comes into play at this point, and some experiential practice. So, I think this is what is going to work. I hope.
 
 
 
