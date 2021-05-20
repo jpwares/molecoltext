@@ -3,6 +3,8 @@ molecular ecology text, started march 2020. note it is *not done* as of may 2021
 
 this text is being developed for the cross-listed ECOL/GENE 4530/6530 at university of georgia to improve the experiential nature of learning the methods necessary for the field of 'molecular ecology'. maintaining it as an .Rmd allows direct analytical opportunities and the ability to incorporate some simple simulation tools using Shiny.
 
+I'm not a pro at this - at all. But my understanding is you can be at this link, download this directory, and with a little guidance be running the text and code inside of it. This is my goal, because access to data and the ability to experiment with "what should happen" can be really hard to do on the fly while teaching the fundamentals of population genetics and how they apply to these problems.
+
 Currently the Shiny simulators are not mine; I have included https://github.com/silastittes/shiny_popgen in this archive from Silas Tittes who wrote the Shiny apps. If you download the Zip of this repository it should maintain the file structure within that directory so that all will work, just open the main .Rmd file in RStudio.
 
 Please recognize that coding is not my first love or top skill :)
