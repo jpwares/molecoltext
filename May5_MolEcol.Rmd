@@ -404,8 +404,8 @@ These examples from bacteria, trees, and corals are natural examples of "mutatio
 Estimating the mutation rate, $\mu$ , from these long-term isolated populations requires that we make one additional assumption. Since we are only looking at the end-point of many hundreds or thousands of generations of isolation, many mutations will have arisen - and some will disappear quickly, some will stay in the population as segregating diversity, and some will go to 'fixation' (the novel mutation is now present in all members of the population). If we assume that the mutation has absolutely no good or bad qualities with respect to the survival or reproduction of individuals ("fitness"), then whether it increases in frequency each generation or decreases is pure stochastic luck. It depends on the fact that populations are finite in size, and that for unpredictable reasons not all individuals will have the same number of offspring - some zero, some one, some many. Because of this simple fact of variation in reproduction, the frequency of a mutation changes randomly each generation as shown in this simulation of **genetic drift**:
 
 ```{r driftsim2,eval=FALSE}
-#library(learnPopGen)
-#driftplot<-drift.selection(p0=0.2,Ne=500,w=c(1,1,1),ngen=2000,nrep=15)
+library(learnPopGen)
+driftplot<-drift.selection(p0=0.2,Ne=500,w=c(1,1,1),ngen=2000,nrep=10)
 #this is terrible slow code
 library(ggplot2)
 
