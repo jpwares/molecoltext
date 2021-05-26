@@ -12,6 +12,7 @@ setwd("~/GitHub/molecoltext/")
 library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 #print(getwd())
+today<-Sys.Date()
 ```
 
 
@@ -179,7 +180,7 @@ ________________________________________________________________________________
 
 # 2. Sampling the 'simplest' genomic data
 
-I'm going to start this text in a very different place than I've started teaching this class before; I have tended to start at the beginning and work through the history to reach the present. My efforts at re-organizing my class in 2020 led me to see this as a funny choice. For one, it means we may spend some time talking about methods that are currently DOA, even if we learned a lot from them at the time. At this point, there is simply no reason for me to re-hash AFLP markers (I won't even define the acronym). Even the most in-vogue methods of 2020 will not be as exciting in 5 years. But our efforts to learn this material should be generic to the specific means of obtaining data, anyway. 
+I'm going to start this text in a very different place than I've started teaching this class before; I have tended to start at the beginning and work through the history to reach the present. My efforts at re-organizing my class in 2020 led me to see this as a funny choice. For one, it means we may spend some time talking about methods that are currently DOA, even if we learned a lot from them at the time. At this point, there is simply no reason for me to re-hash AFLP markers (I won't even define the acronym). Even the most in-vogue methods of `r format(today, format="%Y")` will not be as exciting in 5 years. But our efforts to learn this material should be generic to the specific means of obtaining data, anyway. 
 
 Additionally, I've recognized that some applications of molecular data have been treated as distinct, and separated in other texts or in previous versions of my class, even though their basic methodology aligns pretty clearly with understanding some simple basics about DNA sequence data and how it evolves within and among populations of biodiversity. I hope that is clear from this first data-focused chapter, which itself raises some questions about how we observe and quantify patterns of diversity in nature. 
 
