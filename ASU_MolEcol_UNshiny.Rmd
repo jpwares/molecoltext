@@ -3,6 +3,7 @@ title: "Molecular Ecology Chaps 0-3 UnShiny"
 author: "John Wares"
 date: "5/26/2021"
 output:
+  word_document: default
   html_document:
     df_print: paged
 ---
