@@ -6,7 +6,6 @@ output: html_document
 runtime: shiny 
  
 ---
-
 ```{r setup, echo=FALSE}
 #setwd("~/GitHub/molecoltext/")
 library(knitr)
