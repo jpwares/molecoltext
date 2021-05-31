@@ -7,7 +7,7 @@ runtime: shiny
 
 ---
 ```{r setup, include=FALSE}
-#setwd("~/GitHub/molecoltext/")
+#setwd("~/GitHub/molecoltext/") #don't forget to set working directory yourself
 library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 print(getwd())
@@ -55,7 +55,7 @@ Additionally, I've recognized that some applications of molecular data have been
 ![**Fig.2.1 - 9 gorgeous orange quadrats, photo credit J. Wares but quadrats and note thanks to Dr. Marjorie Wonham, I believe. **](MEImages/marsquadrats.jpg)
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics("/Users/johnwares/GitHub/molecoltext/MEImages/marsquadrats.jpg")
+#knitr::include_graphics("/Users/johnwares/GitHub/molecoltext/MEImages/marsquadrats.jpg")
 ```
 
 ## 2.2. Our sampling effort
@@ -308,7 +308,7 @@ Now, varying *N*, starting allele frequency, generations, and number of replicat
 
 Second, now that you have run that experiment and described your approach and results (you will email this to Dr. Wares), identify the conditions (including how many loci or observations or replicates are necessary) that allow an allele starting at frequency 0.01 to go to fixation. If you increase *N* to 1000, does the likelihood of fixation change? Or does the time required for fixation change?
 
-Again, email these results to Dr. Wares *before you read ahead*! If you are stumped, its OK to email a classmate or email me `r emo::ji("smile")`
+Again, email these results to Dr. Wares *before you read ahead*! If you are stumped, its OK to email a classmate or email me :)
 
 
 </div>
@@ -350,7 +350,7 @@ On more recent time scales however, we can make some simplifying assumptions tha
 
  
 
-![**Fig.3-3. Cost per base pair on different DNA sequencing platforms; figure by N. Bayona-Vasquez, 2018 - things changing SO fast though, can now (2020) get 110gigabases of data for <$1500 (e.g. HiSeqX at novogene.com `r emo::ji("smile")`) but Sanger sequencing costs have not improved `r emo::ji("frown")` **](MEImages/BayonaPicture2.png)
+![**Fig.3-3. Cost per base pair on different DNA sequencing platforms; figure by N. Bayona-Vasquez, 2018 - things changing SO fast though, can now (2020) get 110gigabases of data for <$1500 (e.g. HiSeqX at novogene.com :) but Sanger sequencing costs have not improved :(  **](MEImages/BayonaPicture2.png)
 
 
 However, until only about 10 years ago, to study multiple loci via actual DNA sequencing (per locus, per individual) was increasingly prohibitive in time and money because of the cost of Sanger sequencing and the effort to get reliable PCR amplicons for highly variable genome regions (Fig 3-3, see **Box 1**, e.g. Wares et al 2009 put a great deal of effort into having data from 5 loci across roughly 50 individual chthamalid barnacles). So, an alternative for finding highly polymorphic loci might be simple-seqeunce repeat (SSR) or "microsatellite" markers, where mutations caused by *in vivo* polymerase error lead to heritable fragment length polymorphisms that are codominant - both alleles can be known for a locus from a single PCR and electrophoretic analysis - and could even be multiplexed for reasonable costs per locus per individual (many studies having 10-20 distinct loci for 10s or 100s of individual organisms). The drawback to microsatellite markers was often in their specificity to a particular species, so great effort went into developing them - and by not evaluating the actual DNA sequence (and length homoplasy being a common problem), mutational differences among alleles have to be estimated with something like a **stepwise mutation model** (SMM; where fragments of similar length are assumed to have a more recent common ancestor than with a fragment of very distinct length) or they are treated as having *unknown* relationships under an **infinite alleles model**.
@@ -453,7 +453,7 @@ So why have we been working our way through short fragments of haploid DNA, and 
 ![**Fig.3-5. A simple view of recombination between homologous chromosomes, not only is this a mechanism that adds overall diversity to genomes but it means that parts of a chromosome will have a distinct evolutionary/coalescent/mutational history than other parts of a chromosome, as shown at right. https://www.khanacademy.org/science/biology/classical-genetics/chromosomal-basis-of-genetics/a/linkage-mapping **](MEImages/recomb.jpg)
 
 
-I'm leaving this section short because you didn't sign up for a genetics class `r emo::ji("smile")` Recombination complicates things in some ways, but it also helps us narrow the possible explanations for the data we see. Mathematically, it is complicated because it changes our bifurcating 'trees' expressing the coalescent history of a sample of whole chromosomes into a graph, where different portions of the DNA sequence *actually have different histories*. To the extent we recognize this, however, it means that distinct loci - whether SNPs obtained by RADseq (**BOX 1**), or allozymes (protein electrophoretic alleles), or sequences derived from targeted PCR fragments - are statistically independent views of the process of evolution in a population or set of populations, some of them influenced by effects on fitness or mate choice but most of them acting as independent observations of the process of genealogical descent and mutation (drift, coalescence). We can home in on a more accurate understanding of the history of a population when we have multiple loci.
+I'm leaving this section short because you didn't sign up for a genetics class :) Recombination complicates things in some ways, but it also helps us narrow the possible explanations for the data we see. Mathematically, it is complicated because it changes our bifurcating 'trees' expressing the coalescent history of a sample of whole chromosomes into a graph, where different portions of the DNA sequence *actually have different histories*. To the extent we recognize this, however, it means that distinct loci - whether SNPs obtained by RADseq (**BOX 1**), or allozymes (protein electrophoretic alleles), or sequences derived from targeted PCR fragments - are statistically independent views of the process of evolution in a population or set of populations, some of them influenced by effects on fitness or mate choice but most of them acting as independent observations of the process of genealogical descent and mutation (drift, coalescence). We can home in on a more accurate understanding of the history of a population when we have multiple loci.
 
 
 ## 2.7 The what-is-a-species problem
