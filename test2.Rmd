@@ -3,7 +3,7 @@ title: "June 1 - ASU Mussels"
 author: "John Wares"
 date: "5/28/2021"
 output: html_document
-runtime: shiny
+
 
 ---
 ```{r setup, include=FALSE}
@@ -183,6 +183,8 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "green">
 
+**FOR ASU STUDENTS the below is not our goal right now but once you have access to Geneious, I'd first recommend taking the self-tour of what it can do and then writing me to ask any questions you have!**
+
 *For your exercise this week*, we will (a) learn how to use the free software Geneious at a basic level; (b) download DNA sequence data for a group of organisms of your choosing (roughly 8-10 sequences per species for 4-5 related species is a good size); (c) align the sequence data (we will do this in class); (d) use the resultant distance matrix data to plot your own "barcode gap" histogram (*with more guidance on how to use the R code above*) and ask how well this model of interindividual and interspecific divergence applies to the *taxonomic* diversity of your chosen group of organisms - what are the reasons it might not, and how could this understanding be applied to a question of distribution, abundance, or interactions?
 
 </div>
@@ -289,11 +291,13 @@ library(ggplot2)
 
 The plot shown is based on simulating drift, as we have done before in this class. In this case, the starting frequency was low (0.2) -- but not as low as a new mutation -- and the population size *N* is 500. So that we refresh in our minds how this works, there is also a Shiny app that lets you control these parameters (nb unless otherwise noted, the Shiny popgen apps are by Silas Tittes https://github.com/silastittes/shiny_popgen).
 
+**NOT INCLUDED HERE**
+
 ```{r driftshiny}
 
 library(ggplot2)
 
-shinyAppFile("shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=700))
+#shinyAppFile("shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=700))
 
 ```
 
@@ -413,7 +417,7 @@ So, lets talk about the Wright-Fisher model. This means that you have a populati
 
 
 ```{r minicoalescent} 
-shinyAppFile("shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
+#shinyAppFile("shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
 
 ```
 
@@ -433,7 +437,7 @@ The top panel is a static image of the Shiny simulation built in below it. If yo
 #if(length(miss)) install.packages(miss, dependencies = TRUE)
 # going to try shiny_popgen but not sure how to include in Rmd yet...
 
-shinyAppFile("shiny_popgen-master/Coalescence/continuous_coalescence_app.R",options=list(width="100%",height=600))
+#shinyAppFile("shiny_popgen-master/Coalescence/continuous_coalescence_app.R",options=list(width="100%",height=600))
 
 
 ```
