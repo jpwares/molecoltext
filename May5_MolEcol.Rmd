@@ -1234,6 +1234,11 @@ knitr::include_graphics('MEImages/robinson.jpg')
 
 ## 7.4 even more complex?
 
+Once we really start thinking about the distribution of how individuals are sampled, of course it becomes more and more of a question how their distribution is non-random across the landscape and their movement is non-random across the landscape, regardless of their dispersal potential. Dispersal is also a trait of the individual and may be heritable or sex-determined.
+
+*(Here review Cancellare et al 2021: https://peerj.com/articles/11498/)*
+
+
 the fancy places Hickerson has gone to estimate co-divergence and more NOte you dealt w EDWARDS AND BEERLI EARLIER, skyline plots and more, mixed hierarchical/IBD models and more, but really we will get into such things in chapter 9 so this is the wrap-up on ch7... I would think combine CHAPS 8 and 9 into one so you more quickly get to RNA/methylation questions, quant gen, behavioral (combining 2 ideas there)
 
 ### note edits in order below could be argued you BRIEFLY deal with what is listed as 8/8contd down there to finish up 7, and take a week to read CURRENT literature so that we start thinking about it in terms of process moving forwards rather than 'what has been done', it is about null hypoth and what exceeds that and how you test that. lets move faster towards the other fun stuff.
