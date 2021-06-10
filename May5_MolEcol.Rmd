@@ -39,7 +39,27 @@ knitr::include_graphics("MEImages/IMG_1549.jpeg")
 
 I *think*... I think... I'm writing this in a way that more advanced students can skim the first few chapters and gain something from focusing on the latter ones; a more novice course might only get through the first several chapters and then just read appropriate-focused papers (e.g. in the undergrad/grad mix I expect to teach, the course will move at one pace but the grads at another and with a distinct type of guidance, starting to use more time later in semester to present on methods or case studies). I want to think about how to *teach* molecular ecology, not just about how to do it. It seems there has to be some coding expertise that comes into play at this point, and some experiential practice. So, I think this is what is going to work. I hope.
 
+## 0.3 Organization (Syllabus)
 
+### below are expectations for all students
+
+Build in *individual* 5-min talks on a recent paper in the journal *Molecular Ecology* or equivalent; your job is to do this by end of semester, just give me a heads-up a week or so in advance so I can schedule. You are basically giving a lightning talk with 1-2 figures and putting into context of what we are learning or have learned, and why you find it interesting. (10%)
+
+"One-pagers" will be assigned 3-4 times during semester to write a one-page essay (single spaced) on your questions related to class and your understanding about those topics and how to address them, with 1-2 references. When assigned they are due in 48 hours. (10%)
+
+Analytical exercises are contract-graded, turn in on time for full credit so I can understand how the material is reaching everybody; when assigned they are due in 48 hours (20%)
+
+Draft 1 proposal: 3 page proposal on a topic of interest to you in the field of molecular ecology, with citations, appropriate figures, methods, and background. Turning it in on time is 10% of your grade, this will be peer-reviewed (10%)
+
+Doing peer review for another student is 10% of your grade
+
+Draft 2 proposal: maybe reverse 1 and 2, this one graded/guided by me (10%)
+
+Final proposal: (20%) with a budget of $5k inclusive of travel, consumables etc.
+
+### expectations for graduate students
+
+1. on top of above, must identify and reanalyze an available (can be published) data set and present on your findings
 
 # 1. Introduction
 
