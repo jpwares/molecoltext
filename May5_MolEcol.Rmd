@@ -1252,7 +1252,7 @@ knitr::include_graphics('MEImages/robinson.jpg')
 ```
 **Fig.7-4, from Robinson et al. 2013**
 
-## 7.4 even more complex?
+## 7.4 landscape and ecology
 
 Once we really start thinking about the distribution of how individuals are sampled, of course it becomes more and more of a question how their distribution is non-random across the landscape and their movement is non-random across the landscape, regardless of their dispersal potential. Dispersal is also a trait of the individual and may be heritable or sex-determined.
 
@@ -1263,13 +1263,13 @@ the fancy places Hickerson has gone to estimate co-divergence and more NOte you 
 
 ### note edits in order below could be argued you BRIEFLY deal with what is listed as 8/8contd down there to finish up 7, and take a week to read CURRENT literature so that we start thinking about it in terms of process moving forwards rather than 'what has been done', it is about null hypoth and what exceeds that and how you test that. lets move faster towards the other fun stuff.
 
-# 7.4.1 evaluating selection once you know how things are demographically linked, and how change in pop size is linked
+### 7.4.1 evaluating selection once you know how things are demographically linked, and how change in pop size is linked
 Ch7 evaluating selection ONCE YOU KNOW HOW THINHS MOVE
 the idea being that if most of the genome says X and a subset says Y they might be under different rules, how do we infer this subset - and what is the likelihood we are right without doing an actual linkage study?
 
 you might want to wrap up Balanus here to show that it appears to be demographic and held by environment, rather than outliers driving some type of selection. they are "species-like".
 
-# 7.4.2 contind. Complicated versions of all fo this
+### 7.4.2 contind. Complicated versions of all fo this
 
 Rachael Bay, Gideon Bradford, cool new stuff
 Mol ecol text treat invasions and domesticated in a linkage disequilibrium framework
