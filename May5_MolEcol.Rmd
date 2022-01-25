@@ -8,17 +8,17 @@ runtime: shiny
 ---
 ```{r setup, echo=FALSE}
 #setwd("~/GitHub/molecoltext/")
-library(knitr)
 
 # ***** IMPORTANT ****
 # user must use install packages to add:
-# knitr
-# learnPopGen
-# ggplot2
-# tidyverse
-# shiny
-# wesanderson
-# devtools
+
+library(knitr)
+library(learnPopGen)
+library(ggplot2)
+library(tidyverse)
+library(shiny)
+library(wesanderson)
+library(devtools)
 
 
 knitr::opts_chunk$set(echo = TRUE)
