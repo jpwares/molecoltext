@@ -9,6 +9,18 @@ runtime: shiny
 ```{r setup, echo=FALSE}
 #setwd("~/GitHub/molecoltext/")
 library(knitr)
+
+# ***** IMPORTANT ****
+# user must use install packages to add:
+# knitr
+# learnPopGen
+# ggplot2
+# tidyverse
+# shiny
+# wesanderson
+# devtools
+
+
 knitr::opts_chunk$set(echo = TRUE)
 #print(getwd())
 today<-Sys.Date()
@@ -78,13 +90,13 @@ Please note the risk in all of this is that *packages* and *versions* of softwar
 
 # students should make these lines active to install packages that they may need.
 #get package names
-pckgs <- c("tidyverse", "shiny", "wesanderson","devtools","learnPopGen")
+#pckgs <- c("tidyverse", "shiny", "wesanderson","devtools","learnPopGen")
 
 #determine if packages are installed already
-miss <- pckgs[!pckgs %in% installed.packages()]
+#miss <- pckgs[!pckgs %in% installed.packages()]
 
 #install missing packages
-if(length(miss)) install.packages(miss, dependencies = TRUE)
+#if(length(miss)) install.packages(miss, dependencies = TRUE)
 # going to try shiny_popgen but not sure how to include in Rmd yet...
 
 #install.packages("devtools")
