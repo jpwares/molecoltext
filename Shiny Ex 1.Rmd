@@ -3,6 +3,7 @@ title: "Shiny Ex 1"
 author: "John Wares"
 date: "1/26/2022"
 output: html_document
+runtime: shiny
 ---
 
 ```{r setup, include=FALSE}
@@ -26,23 +27,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The examples in Chapter 3 of our text from bacteria, trees, and corals are natural examples of "mutation accumulation" (MA) studies, which can easily be done (with time!) in lab organisms with short generation times, such as *Arabidopsis*, yeasts, and so on. Often of course, in order to do such work you not only need a short-generation organism that is amenable to culturing in the lab, but also the resources to sequence large amounts of the genome since the *location* of the mutations will also be, for the most part, random. To understand how mutation happens in the rest of diversity, biologists have looked at well-known **geographic** features that separated ancestral populations into two or more descendant populations, and can ask similar questions about how many mutations distinguish those populations.
 
-Estimating the mutation rate, $\mu$ , from these long-term isolated populations requires that we make one additional assumption. Since we are only looking at the end-point of many hundreds or thousands of generations of isolation, many mutations will have arisen - and some will disappear quickly, some will stay in the population as segregating diversity, and some will go to 'fixation' (the novel mutation is now present in all members of the population). If we assume that the mutation has absolutely no good or bad qualities with respect to the survival or reproduction of individuals ("fitness"), then whether it increases in frequency each generation or decreases is pure stochastic luck. It depends on the fact that populations are finite in size, and that for unpredictable reasons not all individuals will have the same number of offspring - some zero, some one, some many. Because of this simple fact of variation in reproduction, the frequency of a mutation changes randomly each generation as shown in this simulation of **genetic drift**:
+Estimating the mutation rate, $\mu$ , from these long-term isolated populations requires that we make one additional assumption. Since we are only looking at the end-point of many hundreds or thousands of generations of isolation, many mutations will have arisen - and some will disappear quickly, some will stay in the population as segregating diversity, and some will go to 'fixation' (the novel mutation is now present in all members of the population). If we assume that the mutation has absolutely no good or bad qualities with respect to the survival or reproduction of individuals ("fitness"), then whether it increases in frequency each generation or decreases is pure stochastic luck. It depends on the fact that populations are finite in size, and that for unpredictable reasons not all individuals will have the same number of offspring - some zero, some one, some many. Because of this simple fact of variation in reproduction, the frequency of a mutation changes randomly each generation as shown in the simulation of **genetic drift** shown in Chapter 3. However, that simulator is *extremely* slow. In this case, the starting frequency was low (0.2) -- but not as low as a new mutation -- and the population size *N* is 500. 
 
-```{r driftsim2,eval=FALSE}
-library(learnPopGen)
-driftplot<-drift.selection(p0=0.2,Ne=500,w=c(1,1,1),ngen=2000,nrep=10)
-#this is terrible slow code
-library(ggplot2)
-
-#shinyAppFile("/shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=600))
-# how do I get it to start off with frequency 0.2, certain generations and so on?
-#run it and download the .csv, read back in and plot it!
-
-#pop500<-read.csv("drift-simA.csv",header=T)
-#ggplot(data = pop500, aes(x=generation, y=freq)) + geom_line(aes(colour=sim))
-```
-
-The plot shown is based on simulating drift, as we have done before in this class. In this case, the starting frequency was low (0.2) -- but not as low as a new mutation -- and the population size *N* is 500. So that we refresh in our minds how this works, there is also a Shiny app that lets you control these parameters (nb unless otherwise noted, the Shiny popgen apps are by Silas Tittes https://github.com/silastittes/shiny_popgen).
+So that we refresh in our minds how this works, there is also a Shiny app that lets you control these parameters (*nb* unless otherwise noted, the Shiny popgen apps are by Silas Tittes https://github.com/silastittes/shiny_popgen).
 
 ```{r driftshiny}
 

@@ -12,7 +12,7 @@ runtime: shiny
 # ***** IMPORTANT ****
 # user must use install packages to add:
 
-library(knitr)
+#library(knitr)
 library(learnPopGen)
 library(ggplot2)
 library(tidyverse)
