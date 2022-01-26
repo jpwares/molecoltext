@@ -1,0 +1,68 @@
+---
+title: "Molecular Ecology Shiny Example 1 - Drift"
+author: "J. P. Wares"
+date: "1/26/22"
+output: html_document
+runtime: shiny 
+ 
+---
+```{r setup}
+#setwd("~/GitHub/molecoltext/")
+
+# ***** IMPORTANT ****
+# user must use install packages to add:
+
+#library(knitr)
+library(learnPopGen)
+library(ggplot2)
+library(tidyverse)
+library(shiny)
+library(wesanderson)
+library(devtools)
+
+
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+
+The examples from bacteria, trees, and corals in Chapter 3 of our text are natural examples of "mutation accumulation" (MA) studies, which can easily be done (with time!) in lab organisms with short generation times, such as *Arabidopsis*, yeasts, and so on. Often of course in order to do such work you not only need a short-generation organism that is amenable to culturing in the lab, but also the resources to sequence large amounts of the genome since the *location* of the mutations will also be, for the most part, random. To understand how mutation happens in the rest of diversity, biologists have looked at well-known geographic features that separated ancestral populations into two or more descendant populations, and can ask similar questions about how many mutations distinguish those populations.
+
+Estimating the mutation rate, $\mu$ , from these long-term isolated populations requires that we make one additional assumption. Since we are only looking at the end-point of many hundreds or thousands of generations of isolation, many mutations will have arisen - and some will disappear quickly, some will stay in the population as segregating diversity, and some will go to 'fixation' (the novel mutation is now present in all members of the population). If we assume that the mutation has absolutely no good or bad qualities with respect to the survival or reproduction of individuals ("fitness"), then whether it increases in frequency each generation or decreases is pure stochastic luck. It depends on the fact that populations are finite in size, and that for unpredictable reasons not all individuals will have the same number of offspring - some zero, some one, some many. Because of this simple fact of variation in reproduction, the frequency of a mutation changes randomly each generation as shown in simulations of **genetic drift**:
+
+So that we refresh in our minds how this works, there is a Shiny app that lets you control these parameters (population size, starting allele frequency, and so on) (nb unless otherwise noted, the Shiny popgen apps are by Silas Tittes https://github.com/silastittes/shiny_popgen).
+
+```{r driftshiny}
+
+switch(Sys.info()[['sysname']],
+Windows= {shinyAppFile("shiny_popgen-master\\Drift\\drift_app.R",options=list(width="100%",height=700))},
+Linux  = {shinyAppFile("shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=700))},
+Darwin = {shinyAppFile("shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=700))})
+
+#shinyAppFile("shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=700))
+
+```
+
+<style>
+div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
+</style>
+<div class = "green">
+
+Your task with this simulator is to learn about a key understanding about random genetic drift. Remember, at this point in time all diversity we have talked about has no known effect on **fitness**. You can see from the app above that you can change population size (*N*), the initial allele frequency, how long (generations) to run the simulation; *as well as "bottleneck time" and "bottleneck pop. size". Don't worry about these last two, but be sure to set "bottleneck time" to be greater or equal to "generations".
+
+Now, varying *N*, starting allele frequency, generations, and number of replicates - I'd like for you to set up some simple observational experiments to *quantify* the probability that the allele we are tracking (it is at the frequency you set; the other allele is, of course, at (1-*freq*) in frequency) goes to fixation (frequency 100%). I suggest starting with small population sizes, but then see if it changes as *N* increases.
+
+Second, now that you have run that experiment and described your approach and results (you will email this to Dr. Wares), identify the conditions (including how many loci or observations or replicates are necessary) that allow an allele starting at frequency 0.01 to go to fixation. If you increase *N* to 1000, does the likelihood of fixation change? Or does the time required for fixation change?
+
+Again, email these results to Dr. Wares *before you read ahead*! If you are stumped, its OK to email a classmate or email me :)
+
+
+</div>
+<br>
+
+OK, now close your eyes, imagine a simulation starting at a frequency *f* for 2 alleles (that is, one allele at frequency *f*, the other at frequency (1-*f*)). This is an ancestral population. If that population is, by whatever environmental mechanism, separated into two distinct populations, how often do you think the two locations being sampled will have a different allele present in 100% of individuals?
+
+As you can now recognize, given enough time relative to *N*, there will be plenty of instances in which a polymorphism goes to fixation in one location/replicate, and, relative to the "other" location/replicate would be a **substitution**.This small simulation is not truly realistic in terms of the starting frequency of a new mutation of course. If there are *N* individuals in a population, then a brand new mutation would appear at a frequency of 1/*N* (or really 1/2*N* for a diploid locus); but there would also be many more such opportunities across a whole genome, across many generations. Kimura's "neutral theory" predicts that the probability of a mutation going to fixation is equal to its frequency when observed, so with the simulation above in the figure - given enough time - we would expect 20% of the simulations to go to fixation and become a substitution. With a new mutation, that would be a much lower probability of 1/*N*. However, in each generation you have an opportunity for mutations to happen on all chromosomes in the population, in other words *N* times the mutation rate $\mu$. Long story short: **if the mutations are neither advantageous nor disadvantageous** (neutral, not selected for or against), *the rate of substitutions is equal to the rate of mutations*.
+
+This means that if we go back to our genetic distances from Chapter 2 - the mean number of mutational differences between sequences from populations that have been separated for a long period of time (*t*) can tell us what $\mu$ is if we have a good idea of what *t* is. This, too, is the simplest model for how we approach this problem and later in the semester we can identify ways to increase the accuracy of this inference.
