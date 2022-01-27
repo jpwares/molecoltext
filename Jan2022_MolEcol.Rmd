@@ -6,7 +6,7 @@ output: html_document
 runtime: shiny 
  
 ---
-```{r setup, echo=FALSE}
+```{r setup, include=FALSE}
 #setwd("~/GitHub/molecoltext/")
 # note I worked so hard to make the path not an issue, but then WINDOWS :( 
 
