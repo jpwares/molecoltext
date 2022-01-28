@@ -2,8 +2,12 @@
 title: "Molecular Ecology"
 author: "J. P. Wares"
 date: "1/26/22"
-output: html_document
-runtime: shiny 
+runtime: shiny
+output: 
+  html_document:
+  toc: true
+  toc_float: true #huh, doesn't make a TOC bummer
+ 
  
 ---
 ```{r setup, include=FALSE}
