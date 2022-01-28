@@ -1,7 +1,7 @@
 ---
 title: "Molecular Ecology"
 author: "J. P. Wares"
-date: "1/26/22"
+date: "1/28/22"
 runtime: shiny
 output: 
   html_document:
@@ -78,6 +78,28 @@ Final proposal: (20%) with a budget of $5k inclusive of travel, consumables etc.
 
 1. on top of above, must identify and reanalyze an available (can be published) data set and present on your findings, with changes you would recommend in experimental design, sampling, marker type, analysis, etc.
 
+## 0.4 Table of Contents
+
+([**Chapter 1: **](#Ch1) Overview of text)
+
+([**Chapter 2: **](#Ch2) Basics of genomic data)
+
+([**Chapter 3: **](#Ch3) Mutational diversity)
+
+([**Chapter 4: **](#Ch4) Types of spatial diversity)
+
+([**Chapter 5: **](#Ch5) Population models)
+
+([**Chapter 6: **](#Ch6) Adding in reality of landscapes)
+
+([**Chapter 7: **](#Ch7) Getting into selection etc.)
+
+([**Chapter 8: **](#Ch8) The phenotype and quantitative traits)
+
+([**Chapter 9: **](#Ch9) Parentage)
+
+([**Chapter 10: **](#Ch10) Intuition and surprises)
+
 # 1. Introduction
 
 The first day of classes we will prep our computers for using R/RStudio for a major resource in this class. If at all possible, before the class begins you should install R:
@@ -109,7 +131,7 @@ Please note the risk in all of this is that *packages* and *versions* of softwar
 
 ```
 
-## 1.0 R Markdown and Shiny
+## 1.0 R Markdown and Shiny {#Ch1}
 
 This is an R Markdown document, with Shiny apps built in. At this point in time, the Shiny apps are all written by the talented Dr. Silas Tittes and are available at https://github.com/silastittes/shiny_popgen. 
 
@@ -214,9 +236,9 @@ Templeton, A.R. (NCA era)
 ____________________________________________________________________________________________________
 
 
-*** don;t forget the experiential stuff *** text: experiential appendix: poppr, barcoding, rad data, etc I think what we have here is Chapter 1 is for first day of class, assign some reading to be discussed in week 2 of class. Chapter 2 easily encompasses some lecture, some Geneious, some reading/discussion time and thus more than just 2 days of the class.
 
-# 2. Sampling the 'simplest' genomic data
+
+# 2. Sampling the 'simplest' genomic data {#Ch2}
 
 I'm going to start this text in a very different place than I've started teaching this class before; I have tended to start at the beginning and work through the history to reach the present. My efforts at re-organizing my class in 2020 led me to see this as a funny choice. For one, it means we may spend some time talking about methods that are currently DOA, even if we learned a lot from them at the time. At this point, there is simply no reason for me to re-hash AFLP markers (I won't even define the acronym). Even the most in-vogue methods of `r format(today, format="%Y")` will not be as exciting in 5 years. But our efforts to learn this material should be generic to the specific means of obtaining data, anyway. 
 
@@ -403,7 +425,7 @@ So we are going to treat the natural history of loci, and the methods to obtain 
 
 </div>
 
-# 3 A bit more biological reality, and how diversity is generated
+# 3 A bit more biological reality, and how diversity is generated {#Ch3}
 
 One last key set of details is going to be important for us knowing how to ask the right questions using molecular data. So far we have talked about using molecular assays to find genomic variation in individuals and samples of individuals. We haven't really talked about where that variation comes from, and the reason that is important is that almost all of our questions rely on this variation telling us something about *rates of change per unit time*.
 
@@ -686,7 +708,7 @@ The diversity we are looking at starts to 'feed back' into generating functional
 Your reading for next week is to help us start to think about why some populations carry more mutational diversity than others - and it is often not described well by how many individuals there are. The "effective" population size I've alluded to describes how the population diversity *behaves* based on life history traits like male:female mating ratios, variation in reproductive success, and the history of a population, and becomes an important consideration in management and conservation as well as understanding the behavior of mutational diversity in a sample. So for next week read: Luikart et al (2010) *Conservation Genetics* **11**:355-373, linked on eLC. [*meh this wasnt' best choice]
 <br>
 
-# 4. Alpha diversity, beta diversity, and dozens of competing statistics and variations.
+# 4. Alpha diversity, beta diversity, and dozens of competing statistics and variations. {#Ch4}
 
 Here we won't try to exhaustively work our way through metrics, but try to establish the *reasons they exist* and lay the groundwork for refinements to be included as the data we are evaluating get more complicated.
 
@@ -879,7 +901,7 @@ we will read Prunier et al 2013 Optimizing the trade-off between spatial and gen
 
 Now we have the basic building blocks for analysis of genomic data in molecular ecology: how much diversity is there in a sample, and how distinct is one sample from another? A key element of how to use these metrics, however, lies in the questions we ask about movement, mating, and variation in fitness - the realities of biology that will affect the fit of genomic data to our 'null' expectations. In this chapter we will talk about the scale at which individuals move among sampling locations, and how that leads to distinctions that can be quantified as "populations" that have some demographic and evolutionary independence from one another - and perhaps distinct interactions with the environment or with other organisms in their ecosystems.
 
-# 5 We call them populations as a way to simplify 'where things are'
+# 5 We call them populations as a way to simplify 'where things are' {#Ch5}
 
 ## 5.1 Population models and movement basics
 
@@ -1021,7 +1043,7 @@ We want to understand how genomic diversity is distributed across a landscape be
 
 **before next chapter we will read Bradburd & Ralph 2019 so we can really start thinking about "realistic" reconstruction of historical ecology using molecular markers. THIS IS NECESSARY TO SET UP TRUE LANDSCAPE AND DEME DISCUSSION**
 
-# 6.1 Approaching reality, at least the "neutral" version of it...
+# 6.1 Approaching reality, at least the "neutral" version of it... {#Ch6}
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
 knitr::include_graphics('MEImages/mosquitoes_Nc_Ne_ohmy.png')
@@ -1200,7 +1222,7 @@ https://grunwaldlab.github.io/Population_Genetics_in_R/
 
 
 
-# 7. The relationship of alleles and inference of the history of populations
+# 7. The relationship of alleles and inference of the history of populations {#Ch7}
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
 knitr::include_graphics('MEImages/humpback.jpg')
@@ -1303,7 +1325,7 @@ knitr::include_graphics('MEImages/amnatlangurgillespie.jpg')
 
 ## finish Balanus, and/or POPPR, rest of semester is writing focused, proposal-focused...read some papers to represent finishing this stuff and see the latest/greatest, or have them give 5 minute lightning talks , continue through chap 8, on papers they find of interest
 
-# 8 phenotype.
+# 8 phenotype. {#Ch8}
 
 HUH what if you put this earlier, and then move current ch8 back because it involves having more prior information and or more data, really... the questions revolve around that. Hell, given your expertise lets deal with phenotypic variation and heritability in one chapter, so that is my quant gen and point vigorously at folks who can do that better than this can do!
 
@@ -1343,7 +1365,7 @@ come back to the painted bunting - what is special to us? Lets realize that all 
 
 maybe the Hoban stuff and how metadiversity is used in conservation at highest levels  https://doi.org/10.1101/2020.08.28.254672.
 
-# 9 kinship, parentage (Hill humbers, discrimination and assignment)
+# 9 kinship, parentage (Hill humbers, discrimination and assignment) {#Ch9}
 ## 9.1 more behavior and interaction eg voles and mating, diversity and disease
 
 Mendelson and others come in here as behavior and kinship and everything come back together on the species question and altruism and so much more
@@ -1360,7 +1382,7 @@ and how this takes us to the beginning, that the natural history is what is impo
  
  whatever
 
-# 10. data never fail to surprise.
+# 10. data never fail to surprise. {#Ch10}
 
 looking for patterns that surprise you is part of the job. Tajima's D in Noto. unexplained dominance of a few libraries in a Balanus RAD run. what i try to train my students to do is recognize the patterns *in absence of analysis* because the analysis is usually only what you are looking for. what happens when your FORFs are different lengths? why did Noto "appear" to have a different north south pattern in the tree? how do you recognize what to do without doing every analysis? of course part of that is about experimental design and knowing what you intend to look for, but again: I wouldn't have looked for that TajD pattern. it struck me because of the many TajD's I'd looked at before for that locus. so we come back to studying the natural history of genomic data, and trying to get a sense for it.
 
@@ -1381,6 +1403,7 @@ Still working on all proper citations but already have much thanks to Silas Titt
 
 **HOLY CROW DO NOT FORGET ABOUT THE 2018 SLIDES YOU HAVE, and 2020 resources as well**
 
+*** don;t forget the experiential stuff *** text: experiential appendix: poppr, barcoding, rad data, etc I think what we have here is Chapter 1 is for first day of class, assign some reading to be discussed in week 2 of class. Chapter 2 easily encompasses some lecture, some Geneious, some reading/discussion time and thus more than just 2 days of the class.
 
 not making a hierarchy of ecology, evolution. so many ways in which deeper evolutionary trajectories have huge impacts on the ecology of organisms, e.g. the loss or reduction of mitochondria in parasitic organisms (Kissinger ref; https://www.pnas.org/content/early/2020/02/18/1909907117) allow for more rapid multicellular replication *when you derive your energy from a host*, and that has obvious implications for the host.
 
