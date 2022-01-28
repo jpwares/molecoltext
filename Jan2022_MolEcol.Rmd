@@ -100,6 +100,8 @@ Final proposal: (20%) with a budget of $5k inclusive of travel, consumables etc.
 
 ([**Chapter 10: **](#Ch10) Intuition and surprises)
 
+
+
 # 1. Introduction
 
 The first day of classes we will prep our computers for using R/RStudio for a major resource in this class. If at all possible, before the class begins you should install R:
