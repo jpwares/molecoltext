@@ -501,7 +501,7 @@ I suggest starting with small population sizes and adjusting the frequency of th
 
 Now that you have run those experiments and described your approach and results, write what you predict as the conditions that allow an allele starting at frequency 0.05 (rare) to go to fixation (frequency 1). If you increase *N* to 1000, does the likelihood of fixation change? Or does the time required for fixation change? **Exploring these questions will start to help you see that the frequency of an allele in a population can also tell you about how long it has been in the population**.
 
-Email this short report to Dr. Wares or submit it via eLC *before you read further*. 
+Email this short report to Dr. Wares or submit it via eLC *before you read further*. If you think you need help with this, please see the ([**section added by a previous student**](#ShinyEx1)).
 
 
 </div>
@@ -1391,6 +1391,80 @@ looking for patterns that surprise you is part of the job. Tajima's D in Noto. u
 What is key is learning how to recognize patterns that are emergent - that indicate more thought needs to go into understanding the analysis. Taj D work that I did is an example. "Seeing" a pattern in *Echinaster* takes practice and a recognition of how to look for it (quick rundown on Snn and statistical power, as examples of many different things we haven't gotten to yet - and yet all Snn really is a metric of phylogenetic diversity/net divergence for classes within species)
 
 develop skepticism and understanding depth of what is *happening* with your data...
+
+# Extra Help files. Shiny Example 1. {#ShinyEx1}
+ 
+
+ 
+**Hey! Are you a little lost trying to figure out what to do for the Genetic Drift and Bottlenecks Exercise? **
+
+Yes? Well that’s okay! I can offer you a helping hand 😊 (thank you, Skye Remko!)
+
+(Before you go any further, be sure to have the accompanying excel file downloaded)
+
+First off we want to figure out how to run an experiment that will allow us to figure out what affects an allele reaching fixation (Remember: *fixation* is just a fancy name for saying that every member of the population has the new “mutant” allele” )
+
+We are going to play with two variables to figure out how they affect the chances of an allele reaching fixation. 
+
+1.	Initial Frequency of the Allele
+
+2.	Population Size (N)
+
+For the first experiment, try varying the starting frequency of the allele, while holding the population size steady. Let’s start with a super small number: 0.05
+
+#image file 1
+```{r Ex1.1, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+knitr::include_graphics("MEImages/Data sheet 1 Ex 1.png")
+```
+
+Run the simulation using these parameters:* N of 100, allele freq of 0.05, gneerations 100, bottleneck time 100, bottleneck pop size 100.*
+
+Now look at your resulting graph. Did any of the replicates reach fixation (look at the top of the graph)?
+
+Open up the excel file to the first sheet labeled “Experiment One”
+
+Run the Simulation for each of the allele frequencies specified. The “ % reaching fixation” column will calculate the percentages for you. 
+
+Once you have done that. Make a bar graph using the “Allele Frequency” and “ % reaching fixation” columns. 
+
+Note the trend you observe. 
+
+
+
+
+
+For the second experiment, we are going to see what effect population size has on the percent of replicates reaching fixation, when we hold the frequency of the allele steady. We are going to start with a very small population size , N=10.
+
+#image file 2
+
+```{r Ex 1.2, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+knitr::include_graphics("MEImages/Data sheet 2 Ex 1.png")
+```
+
+Run the simulation according to these parameters. population size 10, allele freq 0.50, everything else the same...
+
+Open up the excel file to the “Experiment Two” Sheet. 
+
+Enter the values you obtain by running the simulation into the sheet. 
+
+Once you have done that. Make a bar graph using the “population size” and “ % reaching fixation” columns. 
+
+Note the trend you observe. 
+
+
+
+
+**Questions: **
+1.	Describe the trends you observe in the graphs you made for experiments one and two. What affect does population size and allele frequency have on the percentage of replicates that reach fixation?
+
+2.	For experiment two, If you increase N to 1000, does the likelihood of fixation change? Or does the time required for fixation change?
+
+3.	Describe the ideal conditions for an allele to reach fixation in terms of population size and allele frequency. 
+
+
+
+
+
 
 # extra put this into earlier chapter on Ne?? EDGE dynamics and range shift variance in alleles, growth OR THIS IS A CASE STUDY PROBLEM RELEVANT TO EARLIER STUFF and unit 10 is basically 1-2 more paper to read together, fading towards end of a semester after all LOL.
 
