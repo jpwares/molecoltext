@@ -1462,8 +1462,16 @@ Note the trend you observe.
 3.	Describe the ideal conditions for an allele to reach fixation in terms of population size and allele frequency. 
 
 
+# ACKNOWLEDGEMENTS
+
+Still working on all proper citations but already have much thanks to Silas Tittes for Shiny apps, to Justin Bagley, Mark Scheuerell, and many others for help with R code checking, to my entire lab group in 2019-2022 for their patience, to my entire Molecular Ecology class in 2020 and 2022 for *their* patience, to Natalia Bayona-Vasquez and Todd Pierson for their assistance getting me worked towards the experiential mode of teachign this class, to Paula Pappalardo and Christine Ewers-Saucedo who guided me in many ways as a cautious coder and exploring new pathways of analysis, to Rick Grosberg and Rob Toonen and Alex Wilson and so many others.
 
 
+# stop reading
+# no really
+## please stop
+
+# hey all from here on down please ignore because this is a text in construction and all sorts of random notes to myself below
 
 
 # extra put this into earlier chapter on Ne?? EDGE dynamics and range shift variance in alleles, growth OR THIS IS A CASE STUDY PROBLEM RELEVANT TO EARLIER STUFF and unit 10 is basically 1-2 more paper to read together, fading towards end of a semester after all LOL.
@@ -1471,9 +1479,7 @@ Note the trend you observe.
 also: ancient DNA, museum specimens, and modern technology ("have your cake and eat it too" paper on using ethanol from preserved specimesn and batch lots!) - to wrap it back to natural history (Travis 2020), using Zokan as an example that you continue to struggle with in terms of how to do it **right**.
 12. coda on "molecular ecology" and how understanding nutrient and metabolic flow may be really key (Rand MPI, the theory on how symbiontws remain in corals is the adaptive balance cannot think of name of theory right now but involves metabolism interacting with molecular availability, catching new symbionts like colds, Pespeni/other work on changes in development with pH, and so on)
 
-# ACKNOWLEDGEMENTS
 
-Still working on all proper citations but already have much thanks to Silas Tittes for Shiny apps, to Justin Bagley and many others for help with R code checking, to my entire lab group in 2019-2021 for their patience, to my entire Molecular Ecology class in 2020 for *their* patience, to Natalia Bayona-Vasquez and Todd Pierson for their assistance getting me worked towards the experiential mode of teachign this class, to Paula Pappalardo and CHristine Ewers-Saucedo who guided me in many ways as a cautious coder and exploring new pathways of analysis, to Rick Grosberg and Rob Toonen and Alex Wilson and so many others.
 
 # dangling notes
 
