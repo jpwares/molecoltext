@@ -495,7 +495,7 @@ Your task with this simulation exercise is to learn about a key understanding ab
 
 Test it out by clicking 'GO'. You'll see that it is a simple simulation based on the values you give it. Click 'GO' a few more times, just to see that each time it is producing a different results based on how genetic drift would affect allele frequencies through time.
 
-Now, varying *N*, starting allele frequency, generations, and number of replicates - I'd like for you to set up some simple observational experiments to *quantify* the probability that the allele we are tracking goes to fixation (frequency 100%). Remeber, you set the starting frequency *x* of the allele being tracked. Assuming this is a 2-allele situation, the other allele is of course at a frequency of (1-*x*). 
+Now, varying *N*, starting allele frequency, generations, and number of replicates - I'd like for you to set up some simple observational experiments to *quantify* the probability that the allele we are tracking goes to fixation (frequency 100%). Remember, you set the starting frequency *x* of the allele being tracked. Assuming this is a 2-allele situation, the other allele is of course at a frequency of (1-*x*). 
 
 I suggest starting with small population sizes and adjusting the frequency of the allele. Then, see what changes as you increase *N*. Remember that for some conditions you may need to track the simulation through more generations.
 
