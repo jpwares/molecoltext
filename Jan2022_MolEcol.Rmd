@@ -568,7 +568,7 @@ The cool thing about (W) and $\pi$ is simply that they are two related but disti
 
 First, lets revisit what population size *N* does. Because not every single individual has the same number of offspring - think about the many acorns an oak tree drops, yet on average *all oak trees* only replace themselves at best; some will live a lifetime with no offspring that succeed, others will have many, the average is one in a stable population. The same could be said for the very few Devils Hole pupfish; they have a small population size that is absolutely constrained by the extent of their environment and food resources. If we start with an assumption of allele frequency - 2 alleles at equal frequency - how quickly does that allele frequency change? 
 
-```{r oakdevildrift,eval=FALSE} 
+```{r oakdevildrift,eval=TRUE} 
 #library(learnPopGen)
 #oh god I don't see the cache file this takes a LONG time because of first sim; get the cache working
 #oakdrift<-drift.selection(p0=0.5,Ne=5000,w=c(1,1,1),ngen=400,nrep=5) #for now not compiling
