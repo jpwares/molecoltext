@@ -716,7 +716,7 @@ Your reading for next week is to help us start to think about why some populatio
 
 Here we won't try to exhaustively work our way through metrics, but try to establish the *reasons they exist* and lay the groundwork for refinements to be included as the data we are evaluating get more complicated.
 
-## Box C.1. Additional work with R
+## Box C.1. Additional advances with R
 
 For now, your job is to read and follow directions in Part I of the "population genetics and genomics in R" tutorial written by the developers of the R package 'poppr': https://grunwaldlab.github.io/Population_Genetics_in_R/Getting_ready_to_use_R.html [ref] This will help you install several other useful packages that we will be using more and more as the semester progresses. *This won't be a graded assignment, but by doing this it prepares you for later assignments that will be.*
 
