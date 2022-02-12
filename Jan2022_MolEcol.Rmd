@@ -750,6 +750,12 @@ Simpson's (1949) *D*= $\sum_{i} p_{i}^{2}$ is a measure of species diversity tha
 *add example figure here and in lectures*
 (thanks for enduring the draftiness of this draft folks... this will probably be a comparison of *dominance* of a single species *Mytilus trossulus* when a community is manipulated by predator removal e.g. Paine and more recently Sarah Gravem)
 
+```{r, out.width='50%', fig.align='center', fig.cap='...',echo=FALSE}
+knitr::include_graphics('MEImages/Pisaster_Mytilus_dominance.jpg')
+
+```
+**Fig.4-1.5. Part of my BIOL 1104 teaching, figure from Bertness (1999) - I think. When we talk about dominance patterns in a community, a great example is the dominance of blue mussels (Mytilus) following predator removal in this Pacific Northwest rocky intertidal ecosystem. The number of species present (rather, being counted) has not changed but the evenness is much lower, which leads to a higher "inverse Simpson" value.**
+
 
 I emphasize this here because as we move forward you will see this latter quantity 1-*D* represented again as the amount of genomic heterozygosity observed or expected in a system. Certainly the evenness (lack of 'dominance') in the system influences our ability to detect diversity and is another major component of variation among observed systems. 
 
