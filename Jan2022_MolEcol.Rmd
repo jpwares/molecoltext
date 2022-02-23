@@ -1112,6 +1112,12 @@ So, a first approach to take with real data is often about exploration of the da
 
 ## 6.2.1 GENE FLOW (MOVEMENT) and DRIFT IN EQUILIBRIUM
 
+Now that we are coming back to these topics from our short break, remember that:
+
+* migration is a term better used for seasonal or cyclic movement. *e.g.*, neotropical bird, or whale, migration
+* movement is my ***m*** term for dispersal, rather than "migration", we are talking about genes moving, and...
+* those genes have to persist through survival or introgression of that diversity for the movement to be picked up as *gene flow*
+
 I'm not sure if I can code this correctly on the fly to appear in the textbook - we will use a more complex drift simulator written by CJ Battey (*https://github.com/cjbattey/driftR*). Though it is a Shiny app, I will provide the code for you to run it by copying the text below into the R Console, and running each line. Actually, if you hit the "play" button at upper right corner of the code chunk below (when viewing this document in RStudio), it will run and work just fine...I will work out how to make this in-line but for now this should be fine :)
 
 
