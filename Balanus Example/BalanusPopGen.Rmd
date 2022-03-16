@@ -5,6 +5,10 @@ date: "1/25/2021"
 output: html_document
 ---
 
+# Why did I put this together?
+
+When you learn how to do this work in a coding environment like **R**, it isn't just about doing it the nerdy way. Coding scientific research makes it more *repeatable* and *reproducible*. I can go back to some of the analyses from my paper that I finished working on 2 years ago and repeat the analyses exactly -- or, if the data changed (say, I added more data), then all of the analyses could be done on the updated data *and the figures would be re-made using the same specifications as before*. 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
