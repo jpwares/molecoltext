@@ -187,6 +187,8 @@ Now lets try snmf.... what does that mean? "sparse non-negative matrix factoriza
 
 WAHOOO MAKE SURE THIS CALL AND RESPONSE DOESN'T GO INTO THE HTML OUTPUT, 100s of COMMAND REPEATS... :) not sure which command, worry about that tomorrow.
 
+This code chunk will take a few minutes - in part because it is repeating one analysis many times to help us "objectively" determine what the statistically-optimal number of populations (K) would be for these data. *So we will take this time to talk about repeatability and reproducibility in science, as well as the methods and hypotheses in this study.*
+
 ```{r snmf, echo=FALSE}
 
 # just hit play on this chunk and walk away for 5-10 minutes....
@@ -305,3 +307,4 @@ barplot(t(qmatrix.bal5),col=c("darkblue","lightblue","green","yellow","pink")) #
 ```
 
 
+So, that isn't the whole set of analyses that were done. If you want to know more, the paper is at http://sotkae.people.cofc.edu/Publications_files/WaresStrandSotka2021.pdf where you can directly get the PDF. The focus here was on finding not just that there *is* population spatial structure of genomic data, but identifying some of the mechanisms - which appear to be related to a region of low habitat availability interacting with broader environmental gradients. Are they two distinct species? No - but they may still function distinctly in some way in these ecosystems. 
