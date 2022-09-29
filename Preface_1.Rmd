@@ -13,7 +13,7 @@ output: html_document
 # user must use install packages to add:
 
 #library(knitr)
-library(learnPopGen)
+#library(learnPopGen) #oh how funny this package that I already thought sucked is now already failing. Glad to look at this now!!
 library(ggplot2)
 library(tidyverse)
 library(shiny)
@@ -140,8 +140,10 @@ The upside is that it is more of a living document. It means that as data change
 
 ```{r driftsim}
 
-library(learnPopGen)
-driftplot<-drift.selection(p0=0.25,Ne=500,w=c(1,1,1),ngen=400,nrep=5)
+#library(learnPopGen)
+#driftplot<-drift.selection(p0=0.25,Ne=500,w=c(1,1,1),ngen=400,nrep=5)
+
+#that package is broken, so add in something better
 
 ```
 
