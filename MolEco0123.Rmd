@@ -1,7 +1,7 @@
 ---
-title: "Molecular Ecology GENE 8420, week 1"
+title: "Molecular Ecology GENE 8420, Chapters 0-3"
 author: "John Wares"
-date: "2022-12-20"
+date: "2022-12-23"
 runtime: shiny
 output: 
   html_document:
