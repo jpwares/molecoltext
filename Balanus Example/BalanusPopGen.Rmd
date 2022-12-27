@@ -189,9 +189,15 @@ WAHOOO MAKE SURE THIS CALL AND RESPONSE DOESN'T GO INTO THE HTML OUTPUT, 100s of
 
 This code chunk will take a few minutes - in part because it is repeating one analysis many times to help us "objectively" determine what the statistically-optimal number of populations (K) would be for these data. *So we will take this time to talk about repeatability and reproducibility in science, as well as the methods and hypotheses in this study.*
 
-## until I figure out otherwise you will need to scroll way down in the output file if you knit this :)
+## snmf output
 
-```{r snmf, echo=FALSE, message=FALSE, warning=FALSE}
+below will be 4 plots, and you can look at the .Rmd to find the code that got us here. The first looks like a funny dot plot and is the mechanism by which SNMF approaches help guide the scientist towards the most appropriate value of *K* ancestral populations for the data to have come from; typically the lowest point is the best, but sometimes as in this plot there may be 2 that are quite similar in their "cross-entropy".
+
+Below that are the bar graphs for population composition of each individual, starting in the north to the left and to the south as you move to the right. First is K=2, then K=3, then K=5.
+
+
+
+```{r snmf, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 
 # just hit play on this chunk and walk away for 5-10 minutes....
 
