@@ -310,3 +310,5 @@ barplot(t(qmatrix.bal5),col=c("darkblue","lightblue","green","yellow","pink")) #
 
 
 So, that isn't the whole set of analyses that were done. If you want to know more, the paper is at http://sotkae.people.cofc.edu/Publications_files/WaresStrandSotka2021.pdf where you can directly get the PDF. The focus here was on finding not just that there *is* population spatial structure of genomic data, but identifying some of the mechanisms - which appear to be related to a region of low habitat availability interacting with broader environmental gradients. Are they two distinct species? No - but they may still function distinctly in some way in these ecosystems. 
+
+***What would you like to add to this base analysis to address questions you may have with multilocus SNP data? Would there be a spatial subset that merits more exploration?***
