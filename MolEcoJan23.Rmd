@@ -737,6 +737,7 @@ The diversity we are looking at starts to 'feed back' into generating functional
 <br>
 
 <br>
+
 Your reading for next week is to help us start to think about why some populations carry more mutational diversity than others - and it is often not described well by how many individuals there are. The "effective" population size I've alluded to describes how the population diversity *behaves* based on life history traits like male:female mating ratios, variation in reproductive success, and the history of a population, and becomes an important consideration in management and conservation as well as understanding the behavior of mutational diversity in a sample. So for next week read: Luikart et al (2010) *Conservation Genetics* **11**:355-373, linked on our class website. 
 <br>
 
@@ -888,6 +889,12 @@ One simple example of why phylogenetic diversity may matter for making conservat
 As with many of the metrics used in molecular ecology, there are not standard parametric statistical tests that allow us to evaluate the variation in diversity among sites. So permutational tests randomize the relationship of observed data with the identity of the samples, for example randomizing the order of labels at the tips of the tree. In this way, the PD of each individual sample relative to the combined samples can be assessed again, and in a "random" or "null" hypothesis we would expect there to not be very much difference between the samples. In this way we can ask if the PD of two samples is significantly different from one another. 
 
 Because there are often many sequences that are identical or binned together under a single identity in large sequence samples such as microbial ecology data, the PD will be different if we consider only the presence/absence of a particular sequence in a sample, or if we consider the relative abundance. These two ways of looking at phylogenetic diversity are calculated under what are called "Unifrac" distances between samples, either unweighted (only presence/absence) or weighted (considers relative abundance). [ https://en.wikipedia.org/wiki/UniFrac ]
+
+## 4.2.1 reciprocal monophyly and "unifrac"
+
+When we discussed the 'what-is-a-species' problem in the last chapter we were dealing with *reciprocal monophyly*. Simply put, this is when the phylogenetic inference of data from two populations indicates that each has a *most recent common ancestor* that is distinnct from the *most recent common ancestor* of the other. So, if we have a set of data from two species and there is no cross-over of species identity and there are two clear groupings, that means that at least one nucleotide position is a diagnostic trait for one species versus the other - often more, and we typically require more than one to define species!
+
+When we are dealing with phylogenetic diversity but there are many species involved, we may want to know about community composition and how it varies from one ecosystem or treatment to another. In this case, similar logic is used; how much of each grouping shares the same branch lengths versus *unique fractions* of the branches in that phylogenetic inference? The "uni-frac" methods https://en.wikipedia.org/wiki/UniFrac were thus derived to generate a quantitative estimate of how distinct two sampled communities are -- and again, derive simply from these methods of genomic *distance* and our ability to measure those distances through sequence data.
 
 (for a more comprehensive exploration of microbial ecology or any form of metabarcode approach to explore communities using Unifrac measures, here is another great tutorial that we may choose to work through to gain experience: https://mibwurrepo.github.io/Microbial-bioinformatics-introductory-course-Material-2018/beta-diversity-metrics.html)
 
