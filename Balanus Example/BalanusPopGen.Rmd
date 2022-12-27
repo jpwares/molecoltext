@@ -189,7 +189,9 @@ WAHOOO MAKE SURE THIS CALL AND RESPONSE DOESN'T GO INTO THE HTML OUTPUT, 100s of
 
 This code chunk will take a few minutes - in part because it is repeating one analysis many times to help us "objectively" determine what the statistically-optimal number of populations (K) would be for these data. *So we will take this time to talk about repeatability and reproducibility in science, as well as the methods and hypotheses in this study.*
 
-```{r snmf, echo=FALSE}
+## until I figure out otherwise you will need to scroll way down in the output file if you knit this :)
+
+```{r snmf, echo=FALSE, message=FALSE}
 
 # just hit play on this chunk and walk away for 5-10 minutes....
 

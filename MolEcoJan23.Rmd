@@ -1133,6 +1133,8 @@ Here we will take a step away from this text and explore some data directly, to 
 
 **The document "BalanusPopGen.Rmd" is in the same directory as the textbook markdown file. Your assignment for next class is to work through the first assignment in that file (up through the pink box!).**
 
+A brief discussion on "best practices" and "best principles". Code is being provided in the documents for this class... BY NO MEANS should you assume this to be the best code, it is code that has worked for particular functions, *well enough*. It is easy to mistake an example in a class as the exemplar for the method. The rate that data availability, computation power, code efficiency, and novel analytical and presentation approaches evolve means that I have to remind you now, that the examples I'm providing is not something to follow for your own work, but may help you frame out what you need and what you know is not sufficient.
+
 ## 6.2 The first questions
 
 After you have evaluated the data - thinking about the goals of the data as well as expectations under neutrality and random mating - a first question to ask is about how the data fit equilibrium models. In chapter 3 we thought about mutations arising, and genetic drift operating relative to the *effective* population size. In chapter 4 we considered statistics that measure the deviations from what we would expect if all individuals were sampled from a single randomly-mating population. In chapter 5 we thought about the models of movement of individuals across a landscape/seascape/riverscape/etc.
