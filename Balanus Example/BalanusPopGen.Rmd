@@ -191,7 +191,7 @@ This code chunk will take a few minutes - in part because it is repeating one an
 
 ## until I figure out otherwise you will need to scroll way down in the output file if you knit this :)
 
-```{r snmf, echo=FALSE, message=FALSE}
+```{r snmf, echo=FALSE, message=FALSE, warning=FALSE}
 
 # just hit play on this chunk and walk away for 5-10 minutes....
 
