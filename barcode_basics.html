@@ -187,7 +187,7 @@ whichsp&lt;-c(rep.int(&#39;Gg&#39;,17),rep.int(&#39;Gd&#39;,82)) #this makes an 
 <pre class="r"><code>Geukdists&lt;-dist.dna(Geuk,pairwise.deletion=FALSE,as.matrix=TRUE)
 library(spider) #very useful package...
 inoutGeuk&lt;-sppDist(Geukdists,whichsp)</code></pre>
-<p>Now you have used a package to calculate the pairwise distances among all sequences, and because of the labels we applied above we can ask which distances are between individuals <em>within</em> species, and which are <em>between</em>. The data object is ‘inoutGeuk’ and in the Console you can type ‘inoutGeuk<span class="math inline">\(intra&#39; or &#39;inoutGeuk\)</span>inter’ to see more.</p>
+<p>Now you have used a package to calculate the pairwise distances among all sequences, and because of the labels we applied above we can ask which distances are between individuals <em>within</em> species, and which are <em>between</em>. The data object is ‘inoutGeuk’ and in the Console you can type ‘inoutGeuk$intra’ or ‘inoutGeuk$inter’ to see more. By the way, pay attention to how I had to code the dollar signs in this markdown language, and that the dollar signs indicate <em>information codified within the object <strong>inoutGeuk</strong></em>.</p>
 <pre class="r"><code>library(ggplot2)
 innerGeuk&lt;-as.data.frame(inoutGeuk$intra)
 outerGeuk&lt;-as.data.frame(inoutGeuk$inter)

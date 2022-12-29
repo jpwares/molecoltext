@@ -32,7 +32,7 @@ library(spider) #very useful package...
 inoutGeuk<-sppDist(Geukdists,whichsp)
 ```
 
-Now you have used a package to calculate the pairwise distances among all sequences, and because of the labels we applied above we can ask which distances are between individuals *within* species, and which are *between*. The data object is 'inoutGeuk' and in the Console you can type 'inoutGeuk$intra' or 'inoutGeuk$inter' to see more.
+Now you have used a package to calculate the pairwise distances among all sequences, and because of the labels we applied above we can ask which distances are between individuals *within* species, and which are *between*. The data object is 'inoutGeuk' and in the Console you can type 'inoutGeuk\$intra' or 'inoutGeuk\$inter' to see more. By the way, pay attention to how I had to code the dollar signs in this markdown language, and that the dollar signs indicate *information codified within the object **inoutGeuk***.
 
 ```{r plotgap}
 library(ggplot2)
