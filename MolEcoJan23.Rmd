@@ -1178,13 +1178,13 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 
 So, here is your exercise to get our heads working again on all these components - drift, movement, and diversity - coming together: 
 
-1. Replace the default paired frequencies 0.1, 0.9 with your single starting allele *A* frequency.
+1. Replace the default paired frequencies 0.1, 0.9 with a **single** starting allele *A* frequency.
 2. Leave mutation rate at 0 for now. 
 3. Set all *fitness* values for each genotype to 1
 4. Set the migration rate to 0.
 5. Set the number of populations to 2.
 
-Now you have basically the same drift simulation as before, but it is also calculating the Fst between the simulated populations for you. If the number of populations is MORE than 2, assume an *island model* of movement in these simulations. 
+Now you have basically the same drift simulation as before, but it is also calculating the Fst between the simulated populations for you. If you now set the number of populations to MORE than 2, assume an *island model* of movement in these simulations. 
 
 NOW, varying population size ($N_e$) and migration rate ***m*** only for 2 populations, what are the conditions under which the resultant $F_{ST}$ is **<0.1** consistently? use the Shiny app above for generating $F_{ST}$ given random population samples for 2 populations with the end allele frequencies in your simulation. How is *time* involved, how is $N_e$ involved?
 
