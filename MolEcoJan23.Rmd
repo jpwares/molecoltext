@@ -647,9 +647,13 @@ knitr::include_graphics('MEImages/coal1.jpg')
 ```{r minicoalescent} 
 shinyAppFile("shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
 
+shinyAppFile("13023_shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
+
 ```
 
-The top panel is a static image of the Shiny simulation built in below it. If you set n=10 and generations =20, you can run this simulation several times and will see very different outcomes. This is a dramatically oversimplified version of looking at how coalescent theory works, because in this case the sample size *n* is identical to the population size *N*, so there are many rapid coalescent events - but of course as you increase *n* to its maximum (in this visualization) of 100, you cannot see the events as clearly. It is true that in very small populations (for example the Florida panthers in the late 1980s) all individuals sampled will have very recent common ancestors (both the biological and casual use of term "inbreeding"). But the dynamics of coalescent theory have broad implications for studying genomic diversity in populations of any magnitude. 
+The top panel is a static image of the *first* Shiny simulation built in below it. If you set n=10 and generations =20, you can run this simulation several times and will see very different outcomes. This is a dramatically oversimplified version of looking at how coalescent theory works, because in this case the sample size *n* is identical to the population size *N*, so there are many rapid coalescent events - but of course as you increase *n* to its maximum (in this visualization) of 100, you cannot see the events as clearly. It is true that in very small populations (for example the Florida panthers in the late 1980s) all individuals sampled will have very recent common ancestors (both the biological and casual use of term "inbreeding"). But the dynamics of coalescent theory have broad implications for studying genomic diversity in populations of any magnitude. 
+
+**Jan 30 2023 update** I see that Silas has updated this Shiny app in particular so am trying the 'text' with that newer version and hoping I don't break anything else...that is the SECOND panel of Shiny app :)
 
 ```{r bettercoalescent} 
 #install.packages("coalesceR", repos="http://R-Forge.R-project.org") did not work right, try again
