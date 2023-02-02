@@ -646,10 +646,16 @@ knitr::include_graphics('MEImages/coal1.jpg')
 
 ```{r minicoalescent} 
 shinyAppFile("shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
+```
+## above simulation is a bit like the mark-recapture evaluation of population size discussed in the Luikart paper: you are making estimations about the population based on the proportion of that population you sample. The more of the population you sample -- in this case, all in the current generation --  of course many siblings and cousins and so on.
 
+
+```{r minicoal2}
 shinyAppFile("13023_shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
 
 ```
+## so, the Wright-Fisher model then extends to ask about how n relates to N, effectively. We are sampling n things, but Nc (census size) is likely much larger and so the question is about how that “choosing the parent” process works when the parental generation is so much larger than what we sample. It means that the expected time to coalescent events is telling us about effective population size (Ne) in the same way that drift simulations tell us about that same weird parameter.
+
 
 The top panel is a static image of the *first* Shiny simulation built in below it. If you set n=10 and generations =20, you can run this simulation several times and will see very different outcomes. This is a dramatically oversimplified version of looking at how coalescent theory works, because in this case the sample size *n* is identical to the population size *N*, so there are many rapid coalescent events - but of course as you increase *n* to its maximum (in this visualization) of 100, you cannot see the events as clearly. It is true that in very small populations (for example the Florida panthers in the late 1980s) all individuals sampled will have very recent common ancestors (both the biological and casual use of term "inbreeding"). But the dynamics of coalescent theory have broad implications for studying genomic diversity in populations of any magnitude. 
 
@@ -669,10 +675,13 @@ The top panel is a static image of the *first* Shiny simulation built in below i
 #if(length(miss)) install.packages(miss, dependencies = TRUE)
 # going to try shiny_popgen but not sure how to include in Rmd yet...
 
-shinyAppFile("shiny_popgen-master/Coalescence/continuous_coalescence_app.R",options=list(width="100%",height=600))
+shinyAppFile("13023_shiny_popgen-master/Coalescence/continuous_coalescence_app.R",options=list(width="100%",height=600))
 
 
 ```
+## Then this 3rd simulation is telling us about expected diversity on these genealogies given mutational diversity that scales with effective population size - so time is in units of Ne
+
+**(I'm noting on 2/2/23, using latest version, that the "alignment" that this app generates is not intuitive and may be error prone in terms of how it reflects the number of mutations along any given branch of the gene tree)**
 
 The Shiny app for coalescent simulation in the above panel is more technically useful, because you can set the number of sequences sampled *n* as well as $\theta$, which you will remember is the product of the population size *N* and $\mu$ (and a scalar related to the number of gene copies). You see that because *N* is much larger than *n*, the *coalescence* of two sequences happens a much longer time in the past (and time itself is measured relative to $\theta$, so it is not absolute in units of generations or years). *Again, set up the parameters so that you can see that a large number of highly variable genealogies are consistent with this process, and mutations are randomly (Poisson distributed by time) placed on the tree*. Together, these generate the patterns of mutational polynmorphism that we expect when we use (W) and $\pi$ to estimate $\theta$. Where this will get far more interesting, again, is when the basic assumptions of that single population model are incorrect (Chapter 4).
 
