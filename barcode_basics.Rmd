@@ -13,6 +13,8 @@ One important part of using R/RStudio is understanding your PATH in the computer
 
 If you open an R document using RStudio, you can set your working directory to grab files from anywhere on your computer using the Session/Set Working Directory command from the drop-down menu. Often you will want input files to be in the same directory as the .Rmd code itself, and so you might choose "Set Working Directory > To Source File Location". With this code, I'll give you a practice sequence alignment. You can also get data from NCBI using R, and you can definitely take a bunch of sequences and do the alignment in R like we are doing using Geneious, but it is much easier to be able to visually evaluate the alignment using Geneious so for now I'd recommend learning that process in an environment that is easy to understand -- a poor alignment (meaning lots of gaps when you don't expect them, or parts of the alignment that are ambiguous) will result in poor understanding from analysis.
 
+TO BE CLEAR, nobody has to use my code for the barcode assignment! I fully recognize there are alternative, and better, ways to get a result that helps you determine how a given genomic region distinguishes among populations or species. I also fully recognize my code is not necessarily written for teaching best practices in coding, in fact you may have a hard time following/adapting. I'm just offering some tools.
+
 In this case, the alignment file is called *Geukensia.fasta* and - along with this .Rmd file - is in the *molecoltext* directory that you downloaded from my Github repository. In any case, now it is your job to set the working directory for this code. 
 
 ```{r readfasta}
@@ -21,6 +23,7 @@ library(ape)
 
 Geuk<-ape::read.FASTA("Geukensia.fasta", type="DNA")
 whichsp<-c(rep.int('Gg',17),rep.int('Gd',82)) #this makes an array of identifers for your data
+#in other words, you need an array of identifiers for each sequence, whether they are in order as groups/species or not. This is what lets #spider separate within- and between- group diversity.
 
 ```
 
@@ -28,16 +31,18 @@ So you should now be able to use the Console (down below in RStudio) to evaluate
 
 ```{r gap}
 Geukdists<-dist.dna(Geuk,pairwise.deletion=FALSE,as.matrix=TRUE)
+#above line calculates pairwise sequence distances from your FASTA file
 library(spider) #very useful package...
 inoutGeuk<-sppDist(Geukdists,whichsp)
+#above line separates distances into lists for 'within' and 'between'
 ```
 
 Now you have used a package to calculate the pairwise distances among all sequences, and because of the labels we applied above we can ask which distances are between individuals *within* species, and which are *between*. The data object is 'inoutGeuk' and in the Console you can type 'inoutGeuk\$intra' or 'inoutGeuk\$inter' to see more. By the way, pay attention to how I had to code the dollar signs in this markdown language, and that the dollar signs indicate *information codified within the object **inoutGeuk***.
 
 ```{r plotgap}
 library(ggplot2)
-innerGeuk<-as.data.frame(inoutGeuk$intra)
-outerGeuk<-as.data.frame(inoutGeuk$inter)
+innerGeuk<-as.data.frame(inoutGeuk$intra) #the distance structure made above, but only looking at the 'intra' component
+outerGeuk<-as.data.frame(inoutGeuk$inter)#the distance structure made above, but only looking at the 'inter' component
 
 innerGeuk$state<-c('within')
 outerGeuk$state<-c('between')
@@ -57,4 +62,4 @@ The code above is - I'm sure - not the most efficient. But it works!
 knitr::include_graphics("MEImages/IMG_2438.jpg")
 ```
 
-Now you can try using this code with your own barcode sequence data exercise!
+Now you can try using this code with your own barcode sequence data exercise! That being said, you will have to learn how to make YOUR data fit elements like the identifier array. You can, of course, approach this assignment in different ways.
