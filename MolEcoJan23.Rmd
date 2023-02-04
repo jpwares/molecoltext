@@ -1,12 +1,12 @@
 ---
 title: "Molecular Ecology GENE 8420"
 author: "John Wares"
-date: "January 2023"
+date: "February 2023"
 runtime: shiny
 output: 
   html_document:
   toc: true
-  toc_float: true #huh, doesn't make a TOC bummer
+  toc_float: true 
 ---
 
 ```{r setup, include=FALSE}
@@ -35,13 +35,13 @@ today<-Sys.Date()
 ```
 
 
-# Introduction. What is this?
+# 1. Introduction. What is this?
 
 Written by **J.P. Wares**, Professor, University of Georgia, jpwares [at] uga.edu
 
 This is shared *by-nc-sa/4.0*, I'm not writing it to be some polished final thing but something that shifts through new ideas and new people using or modifying parts of it. This text may be used following these guidelines: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-This document is being updated for the GENE 8420 at University of Georgia to improve the experiential nature of learning the methods necessary for the field of "*molecular ecology*". Maintaining it as an .Rmd allows direct analytical opportunities (and familiarity with basic statistical coding approaches) and the ability to incorporate some simple simulation tools using Shiny. It will also let me update as needed in a straightforward way.
+This document is being updated for the GENE 8420 course at University of Georgia to improve the experiential nature of learning the methods necessary for the field of "*molecular ecology*". Maintaining it as an .Rmd allows direct analytical opportunities (and familiarity with basic statistical coding approaches) and the ability to incorporate some simple simulation tools using Shiny. It will also let me update as needed in a straightforward way.
 
 ## Why write this?
 
@@ -57,7 +57,7 @@ knitr::include_graphics("MEImages/IMG_1549.jpeg")
 
 ## Why would I use this?
 
-I *think*... I think... I'm writing this in a way that more advanced students can skim the first few chapters and gain something from focusing on the latter ones; a more novice course might only get through the first several chapters and then just read appropriate-focused papers (e.g. in an undergrad/grad version of this class). I want to think about how to *teach* molecular ecology, not just about how to do it. It seems there has to be some coding expertise that comes into play at this point, and some experiential practice. So, I think this is what is going to work. I hope.
+I *think* I'm writing this in a way that more advanced students can skim the first few chapters and gain something from focusing on the latter ones; a more novice course might only get through the first several chapters and then just read appropriate-focused papers (e.g. in an undergrad/grad version of this class). I want to think about how to *teach* molecular ecology, not just about how to do it. It seems there has to be some coding expertise that comes into play at this point, and some experiential practice. So, I think this is what is going to work. I hope.
 
 ## Organization (Syllabus)
 
@@ -205,7 +205,7 @@ That sets us up for **Chapter 8** which gets into quantitative genetics and the 
 
 Also, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away. Someday this will be full of hyperlinks and DOIs but for now it is a dog looking at a finger pointing at the moon, so to speak.
 
-**Week 1 reading:**
+**Week 1 suggested readings:**
 
 Travis (2020): https://www.journals.uchicago.edu/doi/pdfplus/10.1086/708765
 
@@ -682,6 +682,11 @@ shinyAppFile("13023_shiny_popgen-master/Coalescence/continuous_coalescence_app.R
 ## Then this 3rd simulation is telling us about expected diversity on these genealogies given mutational diversity that scales with effective population size - so time is in units of Ne
 
 **(I'm noting on 2/2/23, using latest version, that the "alignment" that this app generates is not intuitive and may be error prone in terms of how it reflects the number of mutations along any given branch of the gene tree)**
+
+```{r SilasFeb4}
+shinyAppFile("13023_shiny_popgen-master/Coalescence/SilasFeb4.R",options=list(width="100%",height=600))
+```
+
 
 The Shiny app for coalescent simulation in the above panel is more technically useful, because you can set the number of sequences sampled *n* as well as $\theta$, which you will remember is the product of the population size *N* and $\mu$ (and a scalar related to the number of gene copies). You see that because *N* is much larger than *n*, the *coalescence* of two sequences happens a much longer time in the past (and time itself is measured relative to $\theta$, so it is not absolute in units of generations or years). *Again, set up the parameters so that you can see that a large number of highly variable genealogies are consistent with this process, and mutations are randomly (Poisson distributed by time) placed on the tree*. Together, these generate the patterns of mutational polynmorphism that we expect when we use (W) and $\pi$ to estimate $\theta$. Where this will get far more interesting, again, is when the basic assumptions of that single population model are incorrect (Chapter 4).
 
