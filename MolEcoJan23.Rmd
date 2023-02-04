@@ -879,7 +879,7 @@ There are all sorts of direct parallels between understanding the diversity of a
 
 When there are multiple samples, we often want to know if they are statistically distinguishable. Do they have the same types of diversity, in the same relative abundance? If so, then it is likely that the environment does not vary between the two, and that movement and reproduction between individuals from the multiple regions prevents random changes in diversity from leading to different frequencies - whether we are talking about species (Hubbell 2001) or genomic data.
 
-Some very basic methods to evaluate compositional differences among sites are reviewed in Anne Magurran's book (TITLE) and include the Bray-Curtis (1957) measure of compositional similarity, scaling from 0 when samples have no diversity in common to 100 (or 1.0) when identical in composition. You'll see in Figure 4-4 an example of this, and note that the similarities are portrayed using a tree clustering algorithm *that is actually showing you how DIFFERENT the samples are*. There are many other community composition metrics with strengths for particular types of data and studies, again more on those can be found in Magurran (200x). Sorry, students, I know - I can see the cover but I'm trying to get this to where it makes sense for YOU, not whether it is publishable. Ha, this will always be a draft.
+Some very basic methods to evaluate compositional differences among sites are reviewed in Anne Magurran's book ("Measuring Biological Diversity", ISBN 9780632056330) and include the Bray-Curtis (1957) measure of compositional similarity, scaling from 0 when samples have no diversity in common to 100 (or 1.0) when identical in composition. You'll see in Figure 4-4 an example of this, and note that the similarities are portrayed using a tree clustering algorithm *that is actually showing you how DIFFERENT the samples are*. There are many other community composition metrics with strengths for particular types of data and studies, again more on those can be found in Magurran (2003). 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
 knitr::include_graphics('MEImages/bray.jpg')
@@ -904,7 +904,7 @@ Because there are often many sequences that are identical or binned together und
 
 ## 4.2.1 reciprocal monophyly and "unifrac"
 
-When we discussed the 'what-is-a-species' problem in the last chapter we were dealing with *reciprocal monophyly*. Simply put, this is when the phylogenetic inference of data from two populations indicates that each has a *most recent common ancestor* that is distinnct from the *most recent common ancestor* of the other. So, if we have a set of data from two species and there is no cross-over of species identity and there are two clear groupings, that means that at least one nucleotide position is a diagnostic trait for one species versus the other - often more, and we typically require more than one to define species!
+When we discussed the 'what-is-a-species' problem in the last chapter we were dealing with *reciprocal monophyly*. Simply put, this is when the phylogenetic inference of data from two populations indicates that each has a *most recent common ancestor* that is distinct from the *most recent common ancestor* of the other. So, if we have a set of data from two species and there is no cross-over of species identity and there are two clear groupings, that means that at least one nucleotide position is a diagnostic trait for one species versus the other - often more, and we typically require more than one to define species of course.
 
 When we are dealing with phylogenetic diversity but there are many species involved, we may want to know about community composition and how it varies from one ecosystem or treatment to another. In this case, similar logic is used; how much of each grouping shares the same branch lengths versus *unique fractions* of the branches in that phylogenetic inference? The "uni-frac" methods https://en.wikipedia.org/wiki/UniFrac were thus derived to generate a quantitative estimate of how distinct two sampled communities are -- and again, derive simply from these methods of genomic *distance* and our ability to measure those distances through sequence data.
 
@@ -926,13 +926,15 @@ div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
 
 2. What is $H_e$? 
 
-Well, what did you *expect*? Based on the standard assumptions of Hardy-Weinberg, we may expect higher or lower heterozygosity than we see based on the allele frequencies; either can trigger interesting hypotheses.
+Well, what did you *expect*? Based on the standard assumptions of Hardy-Weinberg, we may expect higher or lower heterozygosity than we see **based on the allele frequencies** and their combinations into genotypes (remember for allele frequency *p* we expect a homozygous genotype for that allele at frequency $$p^2$$); either can trigger interesting hypotheses.
 </div>
 </br>
 
-*itself* a contrast between observed and expected heterozygosity. The variations in how this is calculated, and how it is referred to, depend on the type of genomic data and the underlying model of how we assess the relationships among alleles, partly summarized here: https://www.molecularecologist.com/2011/03/should-i-use-fst-gst-or-d-2/ and partly in the Wares (2016) reference that you'll read right about now.
+*itself* is a contrast between observed and expected heterozygosity. The variations in how this is calculated, and how it is referred to, depend on the type of genomic data and the underlying model of how we assess the relationships among alleles, partly summarized here: https://www.molecularecologist.com/2011/03/should-i-use-fst-gst-or-d-2/ and partly in the Wares (2016) reference that you'll read right about now.
 
-The basic idea of these F-statistics is that the diversity is described in hierarchical levels: again, individuals in a sampled location, samples in a region, regions in the overall (total) distribution, for example. And, in one way or another they are asking about the proportional amount of genetic variation in a lower level of the hierarchy relative to a higher level. For example, if allele frequencies are exactly the same in two locations, then the amount and type of diversity in both locations are the same, and the diversity can all be found in the site/sample level as much as in the overall (total) sample. We will get more involved with these statistics soon and the appropriate usage, for now you should try seeing how distinct allele frequencies (at a single, bi-allelic marker) in two locations lead to different $F_{ST}$ for the samples (here, F is appropriate for evaluating a single, bi-allelic marker; 'S' is for sample, and 'T' is for the total diversity; the metric $F_{ST}$ therefore tells us about the extent to which the diversity in each sample is only a subset of the total diversity, or *relatively more inbred*).
+The basic idea of these F-statistics is that the diversity is described in hierarchical levels: again, individuals in a sampled location, samples in a region, regions in the overall (total) distribution, for example. And, in one way or another they are asking about the proportional amount of genetic variation in a lower level of the hierarchy relative to a higher level. For example, if allele frequencies are exactly the same in two locations, then the amount and type of diversity in both locations are the same, and the diversity can all be found in the site/sample level as much as in the overall (total) sample. 
+
+We will get more involved with these statistics soon and the appropriate usage, for now you should try seeing how distinct allele frequencies (at a single, bi-allelic marker) in two locations lead to different $F_{ST}$ for the samples (here, F is appropriate for evaluating a single, bi-allelic marker; 'S' is for sample, and 'T' is for the total diversity; the metric $F_{ST}$ therefore tells us about the extent to which the diversity in each sample is only a subset of the total diversity, or *relatively more inbred*).
 
 ```{r firstlookfst} 
 
@@ -976,7 +978,7 @@ Naturally, it depends on the question you are addressing.
 
 3. of course, the question may require a sufficient number of *locations* or *samples* to understand how diversity is hierarchically or continuously distributed. Clearly sampling 2 locations only lets you ask if those 2 locations are distinct, with little understanding of how that genomic diversity is distributed elsewhere across the spatial distribution of an organism. In recent years there has been work done on asking *how few individuals* from a single site are useful for balancing an interpretation of variation from sample to sample with an interpretation of variation across a complex landscape.
 
-we will read Prunier et al 2013 Optimizing the trade-off between spatial and genetic sampling efforts in patchy populations: towards a better assessment of functional connectivity using an individual-based sampling scheme ***Molecular Ecology doi: 10.1111/mec.12499*** what do you think - can we think of why there are advantages to lean towards one type of sampling or another for a particular project?
+At some point we will likely read Prunier et al 2013 "Optimizing the trade-off between spatial and genetic sampling efforts in patchy populations: towards a better assessment of functional connectivity using an individual-based sampling scheme" ***Molecular Ecology doi: 10.1111/mec.12499*** what do you think - can we think of why there are advantages to lean towards one type of sampling or another for a particular project?
 
 
 
@@ -987,6 +989,7 @@ we will read Prunier et al 2013 Optimizing the trade-off between spatial and gen
 ## 4.4 Summary
 
 Now we have the basic building blocks for analysis of genomic data in molecular ecology: how much diversity is there in a sample, and how distinct is one sample from another? A key element of how to use these metrics, however, lies in the questions we ask about movement, mating, and variation in fitness - the realities of biology that will affect the fit of genomic data to our 'null' expectations. In this chapter we will talk about the scale at which individuals move among sampling locations, and how that leads to distinctions that can be quantified as "populations" that have some demographic and evolutionary independence from one another - and perhaps distinct interactions with the environment or with other organisms in their ecosystems.
+
 
 # 5 We call them populations as a way to simplify 'where things are' {#Ch5}
 
