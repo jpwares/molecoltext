@@ -383,11 +383,15 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "green">
 
-*For your exercise this week*, we will (a) learn how to use the free software Geneious at a basic level; (b) download DNA sequence data for a group of organisms of your choosing (roughly 8-10 sequences per species for 4-5 related species is a good size); (c) align the sequence data (we will do this in class); (d) use the resultant distance matrix data to plot your own "barcode gap" histogram (*with more guidance on how to use the R code above*) and ask how well this model of interindividual and interspecific divergence applies to the *taxonomic* diversity of your chosen group of organisms - what are the reasons it might not, and how could this understanding be applied to a question of distribution, abundance, or interactions?
+*For your exercise this week*, we will (a) learn how to use the free software Geneious at a basic level; (b) download DNA sequence data for a group of organisms of your choosing (roughly 8-10 sequences per species for 4-5 related species is a good size); (c) align the sequence data (we will do this in class); (d) we will evaluate the distance matrix in Geneious, and you should be sure that it provides *distances* not *similarities*. These distances can be used to plot a "barcode gap" however you want...
+
+The above code is one way to do it, but you can tell it is clunky and written for a very specific instance of data. A slightly better version of R code (but use Excel, or watercolor, or whatever) is in the Github directory with this 'book' as barcode_basics.Rmd, it will guide you a bit further down the path. 
+
+Anyway, plot your own "barcode gap" histogram and ask how well this model of inter-individual and inter-specific divergence applies to the *taxonomic* diversity of your chosen group of organisms - what are the reasons it might not, and how could this understanding be applied to a question of distribution, abundance, or interactions?
 
 </div>
 
-*We will also take some class time to discuss the 'reverse ecology' approach mentioned in the Marmeisse paper, the overall consideration of how molecular ecology fits into natural history as discussed in the Travis 2020 essay, and discuss what spatial variation in genomic diversity means for the function, eco-physiology, and other types of variation in a species that may respond to a change in the environment. Finally we will also discuss the paper listed in Box X.*
+In class, we will also take some class time to discuss the 'reverse ecology' approach mentioned in e.g. Marmeisse et al (2013), the overall consideration of how molecular ecology fits into natural history as discussed in the Travis 2020 essay, and discuss what spatial variation in genomic diversity means for the function, eco-physiology, and other types of variation in a species that may respond to a change in the environment. 
 
 ![**Fig.2.6 - A row of *C. fragilis* settled on a stem of the cordgrass *Spartina alterniflora*. Photo by Y. Zhang, GCE-LTER.**](MEImages/Cfrag.jpg)
 
