@@ -234,7 +234,9 @@ Templeton, A.R. (NCA era)
 
 ____________________________________________________________________________________________________
 
+\newpage
 
+(note the 'newpage' command doesn't work for html output, only for printed docs)
 
 # 2. Sampling the 'simplest' genomic data {#Ch2}
 
