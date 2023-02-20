@@ -1193,7 +1193,7 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "green">
 
-So, here is your exercise to get our heads working again on all these components - drift, movement, and diversity - coming together: 
+So, here is your exercise to get our heads working again on all these components - drift, movement, and diversity - coming together: **NO DO NOT DO THIS, IT DOES NOT WORK THE WAY I HAD HOPED** (rewrite)
 
 1. Replace the default paired frequencies 0.1, 0.9 with a **single** starting allele *A* frequency.
 2. Leave mutation rate at 0 for now. 
