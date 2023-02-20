@@ -1449,6 +1449,8 @@ the fancy places Hickerson has gone to estimate co-divergence and more NOte you 
 
 ### 7.4.1 evaluating selection once you know how things are demographically linked, and how change in pop size is linked
 Ch7 evaluating selection ONCE YOU KNOW HOW THINHS MOVE
+Lets explore outlier analysis so we really know these methods, including PCAAdapt, Outflank, and Bayescan
+
 the idea being that if most of the genome says X and a subset says Y they might be under different rules, how do we infer this subset - and what is the likelihood we are right without doing an actual linkage study?
 
 you might want to wrap up Balanus here to show that it appears to be demographic and held by environment, rather than outliers driving some type of selection. they are "species-like".
