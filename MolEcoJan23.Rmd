@@ -1177,15 +1177,15 @@ A brief discussion on "best practices" and "best principles". Code is being prov
 
 ## 6.2 The first questions
 
-After you have evaluated the data - thinking about the goals of the data as well as expectations under neutrality and random mating - a first question to ask is about how the data fit equilibrium models. In chapter 3 we thought about mutations arising, and genetic drift operating relative to the *effective* population size. In chapter 4 we considered statistics that measure the deviations from what we would expect if all individuals were sampled from a single randomly-mating population. In chapter 5 we thought about the models of movement of individuals across a landscape/seascape/riverscape/etc.
+After you have evaluated the data in BalanusPopGen.Rmd - thinking about the goals of the data as well as expectations under neutrality and random mating - a first question to ask is about how the data fit equilibrium models. In chapter 3 we thought about mutations arising, and genetic drift operating relative to the *effective* population size. In chapter 4 we considered statistics that measure the deviations from what we would expect if all individuals were sampled from a single randomly-mating population. In chapter 5 we thought about the models of movement of individuals across a landscape/seascape/riverscape, *et cetera*.
 
-So, a first approach to take with real data is often about exploration of the data in terms of deviating from the simplest model: *panmixia*, or an inability to reject the null hypothesis that *location* provides no additional information about the diversity sampled at that location.
+So, a first approach to take with real data is often about exploration of the data in terms of deviating from the simplest model: *panmixia*, or an inability to reject the null hypothesis that *location* provides no additional information about the diversity sampled at that location. Effectively, we cannot start talking about isolation by distance, or spatial population structure, until we see if our samples deviate from the standard, single-randomly-mating-population model.
 
 ## 6.2.1 GENE FLOW (MOVEMENT) and DRIFT IN EQUILIBRIUM
 
-Now that we are coming back to these topics from our short break, remember that:
+Now that we are coming back to these topics, remember that:
 
-* migration is a term better used for seasonal or cyclic movement. *e.g.*, neotropical bird, or whale, migration
+* migration is a term better used for seasonal or cyclic movement. *e.g.*, neotropical bird or whale migration
 * movement is my ***m*** term for dispersal, rather than "migration", we are talking about genes moving, and...
 * those genes have to persist through survival or introgression of that diversity for the movement to be picked up as *gene flow*
 
