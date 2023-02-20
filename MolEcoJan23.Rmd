@@ -1151,6 +1151,24 @@ As the scale of time gets greater, the same questions tend towards identifying b
 
 We might start by revisiting Figure 5-7, illustrating *isolation by distance* in the barnacle *Balanus glandula*. Remember that we are asking, broadly, how organisms disperse across an area. Some organisms can be tagged or tracked, but for many organisms it is more efficient - or only possible - to *infer* patterns of movement from the molecular/mathematical relationships we have worked with so far. A barnacle is a great example for this, because the adults cannot move at all (they cement themselves to the substrate) but their offspring are typically going to spend weeks drifting in the ocean and feeding before they are competent to settle, and so we can ask about how those larvae disperse while recognizing that the ocean itself strongly influences this dispersal. 
 
+**The more data we have, however, the more opportunities there are for some loci to appear to behave as *exceptions.* What does that mean?** 
+
+Organisms are containers for chromosomes, genes, loci. If offspring disperse a certain distance *x* each generation, on average, that has an effect on how readily the diversity at each locus moves through the landscape. So, in the case of *isolation by distance* we can recognize that *x* << the size of the spatial domain, and thus more distant samples of individuals are likely to have distinct allele frequencies - or possibly entirely distinct alleles, period. The example shown in Chapter 5 is based on only a single mitochondrial gene region. We presume that if the genomic diversity we study across spatial samples only varies because of limitations to movement, then if we looked at 10 loci they would all show a similar pattern: geographically distant samples have higher values of $F_{ST}$ than proximal samples, and it is repeated across loci because they are all following the same pattern of genealogical relationships. The same should be true for 100 loci, 1000 loci, and so on - there will be considerable *variance* allowed among these loci because, as we have discussed, each locus has some statistical independence from others because of recombination, *and* there is variance expected even under the standard coalescent model for how long ago sampled diversity has a **most recent common ancestor**.
+
+However, the more loci you sample there is also a growing likelihood that some of that diversity is not selectively neutral. Certainly, some component of the genomes found in an organism are functionally related to the performance of a genotype in a particular environment. There may be variation across a geographic range for thermal tolerance, or spawning or flowering time; some genes are specifically part of the reproductive or metabolic architecture of the organism. 
+
+A basic assumption in working with genomic data, then, is that *all* of the genome is subject to the influences of demography and movement. Only smaller windows of the genome are directly or indirectly affected by natural selection. 
+
+```{r corn, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+knitr::include_graphics('MEImages/cornchr10.jpeg')
+```
+
+So for example in the image above, this is illustrated by looking at the effects of domestication of maize (corn) from its wild progenitor, teosinte (Tian et al 2009 doi.org/10.1073/pnas.090112210). The y-axis is our old friend $\pi$ or nucleotide diversity. Across the portion of chromosome 10, where the genes that control seed 'shattering' in teosinte have been strongly selected for keeping all the kernels together, there is a window of effectively no genomic diversity relative to teosinte or neighboring parts of the chromosome. Selection has made this region very different, and makes this region have a very recent time to most recent common ancestor because of the strong selection imposed upon it.
+
+In other cases, gene regions will exhibit much higher divergence among samples than is typical for the rest of the genome. These 'outlier' loci have to be considered as candidates for evolving under different rules than the "neutral" loci that are primarily affected by demography and movement. Though we will come back to this topic later, it is important to realize that we have to consider both the inherent statistical variance among loci in generating answers about movement and population size, as well as knowing that a subset of them are simply following different rules! 
+
+
+
 Here we will take a step away from this text and explore some data directly, to get a better feel for how the analyses involved in molecular ecology are more often a set of inquiries about how readily different hypotheses can be distinguished. There is no '*push one button and get the answer*' approach because the organisms, their genomic structure and diversity, and the landscapes/seascapes they are found in are unique to every such study.
 
 ## Box C.4 Additional work with R
