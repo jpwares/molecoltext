@@ -1167,13 +1167,11 @@ So for example in the image above, this is illustrated by looking at the effects
 
 In other cases, gene regions will exhibit much higher divergence among samples than is typical for the rest of the genome. These 'outlier' loci have to be considered as candidates for evolving under different rules than the "neutral" loci that are primarily affected by demography and movement. Though we will come back to this topic later in Chapter 7, it is important to realize that we have to consider both the inherent statistical variance among loci in generating answers about movement and population size, as well as knowing that a subset of them are simply following different rules! 
 
-
-
 Here we will take a step away from this text and explore some data directly, to get a better feel for how the analyses involved in molecular ecology are more often a set of inquiries about how readily different hypotheses can be distinguished. There is no '*push one button and get the answer*' approach because the organisms, their genomic structure and diversity, and the landscapes/seascapes they are found in are unique to every such study.
 
 ## Box C.4 Additional work with R
 
-**The document "BalanusPopGen.Rmd" is in the same directory as the textbook markdown file. Your assignment for next class is to work through the first assignment in that file (up through the pink box!).**
+**The document "BalanusPopGen.Rmd" is in the same directory as the textbook markdown file. Your assignment for the latter part of the course is to work through the first assignment in that file (up through the pink box!).**
 
 A brief discussion on "best practices" and "best principles". Code is being provided in the documents for this class... BY NO MEANS should you assume this to be the best code, it is code that has worked for particular functions, *well enough*. It is easy to mistake an example in a class as the exemplar for the method. The rate that data availability, computation power, code efficiency, and novel analytical and presentation approaches evolve means that I have to remind you now, that the examples I'm providing is not something to follow for your own work, but may help you frame out what you need and what you know is not sufficient.
 
