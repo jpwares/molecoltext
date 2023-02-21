@@ -1137,7 +1137,7 @@ We want to understand how genomic diversity is distributed across a landscape be
 
 **before next chapter we will read Bradburd & Ralph 2019 so we can really start thinking about "realistic" reconstruction of historical ecology using molecular markers. THIS IS NECESSARY TO SET UP TRUE LANDSCAPE AND DEME DISCUSSION**
 
-# 6.1 Approaching reality, at least the "neutral" version of it... {#Ch6}
+# 6.1 Trying these skills out with real data? {#Ch6}
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
 knitr::include_graphics('MEImages/mosquitoes_Nc_Ne_ohmy.png')
