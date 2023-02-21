@@ -1209,6 +1209,20 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "green">
 
+Spring 2023: I want to think about this simulation tool a little bit differently. I want you to think - through "forward" simulation of drift - how quickly can selection or adaptation of particular genomic diversity change the pattern of diversity? In a span of time that is relevant to your organism and question, what difference in fitness for a given environment becomes quite important *relative to the diversity that is not linked to these functional or phenotypic differences you perceive*?
+
+A paper I wish I'd already squeezed into the schedule, and still might: Koskinen et al. 2002 (10.1038/nature01029) showed dramatic life history shifts among populations of grayling (*Thymallus*) that had only been separated for a couple dozen generations, with large responses relative to the genetic drift that had occurred in that time. 
+
+So I'd love you to sketch a one-page note, with a sharpie, that explains what you learn from messing with this drift/selection/migration simulation and making an argument for how important you think **natural selection** should be for your system to pay attention to its consequences. How strong does the relative fitness consequence need to be?
+
+
+</div>
+
+<style>
+div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
+</style>
+<div class = "green">
+
 So, here is your exercise to get our heads working again on all these components - drift, movement, and diversity - coming together: **NO DO NOT DO THIS, IT DOES NOT WORK THE WAY I HAD HOPED** (rewrite)
 
 1. Replace the default paired frequencies 0.1, 0.9 with a **single** starting allele *A* frequency.
