@@ -1209,35 +1209,17 @@ div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "green">
 
-Spring 2023: I want to think about this simulation tool a little bit differently. I want you to think - through "forward" simulation of drift - how quickly can selection or adaptation of particular genomic diversity change the pattern of diversity? In a span of time that is relevant to your organism and question, what difference in fitness for a given environment becomes quite important *relative to the diversity that is not linked to these functional or phenotypic differences you perceive*?
+Spring 2023 grad students: I want to think about this simulation tool a little bit differently. I want you to think - through "forward" simulation of drift - how quickly can selection or adaptation of particular genomic diversity change the pattern of diversity? In a span of time that is relevant to your organism and question, what difference in fitness for a given environment becomes quite important *relative to the diversity that is not linked to these functional or phenotypic differences you perceive*?
 
 A paper I wish I'd already squeezed into the schedule, and still might: Koskinen et al. 2002 (10.1038/nature01029) showed dramatic life history shifts among populations of grayling (*Thymallus*) that had only been separated for a couple dozen generations, with large responses relative to the genetic drift that had occurred in that time. 
 
-So I'd love you to sketch a one-page note, with a sharpie, that explains what you learn from messing with this drift/selection/migration simulation and making an argument for how important you think **natural selection** should be for your system to pay attention to its consequences. How strong does the relative fitness consequence need to be?
+So I'd love you to sketch a one-page note, with a sharpie scrawl over a print-out of one of your simulations or similar effort, that explains what you learn from messing with this drift/selection/migration simulation and making an argument for how important you think **natural selection** should be for your system to pay attention to its consequences. How strong does the relative fitness consequence need to be? How can you describe what this does to *e.g.* $F_{ST}$ for individual loci that are affected relative to those that are in linkage equilibrium?
+
+For example, the Shiny app can run at default parameters (pretty strong fitness differences, no mutation, some migration among replicate samples) and the more you replicate those with simulations where there is NO selection, you should start to form an opinion of how particular environments may influence particular genotypes on a timescale that is important to you.
 
 
 </div>
 
-<style>
-div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
-</style>
-<div class = "green">
-
-So, here is your exercise to get our heads working again on all these components - drift, movement, and diversity - coming together: **NO DO NOT DO THIS, IT DOES NOT WORK THE WAY I HAD HOPED** (rewrite)
-
-1. Replace the default paired frequencies 0.1, 0.9 with a **single** starting allele *A* frequency.
-2. Leave mutation rate at 0 for now. 
-3. Set all *fitness* values for each genotype to 1
-4. Set the migration rate to 0.
-5. Set the number of populations to 2.
-
-Now you have basically the same drift simulation as before, but it is also calculating the Fst between the simulated populations for you. If you now set the number of populations to MORE than 2, assume an *island model* of movement in these simulations. 
-
-NOW, varying population size ($N_e$) and migration rate ***m*** only for 2 populations, what are the conditions under which the resultant $F_{ST}$ is **<0.1** consistently? use the Shiny app above for generating $F_{ST}$ given random population samples for 2 populations with the end allele frequencies in your simulation. How is *time* involved, how is $N_e$ involved?
-
-And, of course, be sure to recognize that if you repeat this pure simulation analysis many times, how often are the answers dependent on which simulation, and what sample size, and so on? Remember: these results are *purely neutral* in terms of how drift is changing diversity over time. That means quite stochastic! *You are of course welcome to start thinking about how selection and other factors alter these findings!*
-
-</div>
 
 How we explore the data to begin with typically depends on the type of data, of course. A study that returns DNA sequence data might explore with basic questions of whether *location* provides information about diversity using a metric like Hudson's Snn or PhiST, in each case there is a prior assumption being made that *location* ("site") has potential to be informative about evolutionary populations. These metrics as declared above are asking about overall deviation from *panmixia*. Snn is asking if the genetic similarity between pairs of sequences is related to the location (same location or not), and has a null expectation of 1/*n* where there are *n* locations sampled. Of course, your sampling scheme may make such an expectation of little value but the goal of such a metric is simply to maximize the value of DNA sequence diversity (many variable sites) given a small sample size. Similarly, Xst metrics overall may tell us if there is deviation from Xst=0 but don't tell us much about patterns in the data that can be explored hierarchically or continuously.
 
