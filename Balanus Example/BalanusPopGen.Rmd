@@ -296,8 +296,7 @@ genind2structure(Bg50,file="Bg50v2.stru",pops=TRUE) #it is written to the direct
 # this is the R approximation to Structure and seems to get a lot of support from the "landscape ecology" crowd.
 
 #install.packages(c("fields","RColorBrewer","mapplots")) 
-#BiocManager::install("LEA")
-#library("LEA")
+
 
 #source("http://membres-timc.imag.fr/Olivier.Francois/Conversion.R")
 
@@ -306,13 +305,17 @@ genind2structure(Bg50,file="Bg50v2.stru",pops=TRUE) #it is written to the direct
 
 #install.packages("~/Downloads/LEA_3.0.0-2.tar", repos = NULL, type ="source")
 
+#BiocManager::install("LEA")
+
 library("LEA")
 library("fields","RColorBrewer","mapplots")
 
 ## argh figure out the path it has changed since written
 #struct2geno("Bg50v2.stru", FORMAT=2,extra.col=1,extra.row=1,output="balstruc.geno")
 
-struct2geno("Bg50v2.stru", FORMAT=2,ploidy=2,extra.col=1, extra.row=1)
+struct2geno("Bg50v2.stru", FORMAT=2,extra.col=1, extra.row=1)
+#this line seems to function differently in line-run than knitting document - be prepared for remove/replace "ploidy=2"
+
 
 #balgeno<-struct2geno("Bg50v2.stru", FORMAT=2,ploidy=2,extra.col=1,extra.row=1)
 
@@ -321,11 +324,10 @@ struct2geno("Bg50v2.stru", FORMAT=2,ploidy=2,extra.col=1, extra.row=1)
 #note a considerable amount of code here that I am not going to dig into with you, but sometimes you have to rely on the R/popgen community at large to provide solutions that get your data into the right format for what you need to do!
 
 # this next little thing only takeas a few minutes but tells you the best K-means solutions by minimizing the value
-
 #OK so now have to learn how to use snmf with new situation....struct2geno doesn't save file out???
 
 
-marchdata<-("Bg50v2.stru.geno")
+marchdata<-("genotype.geno")
 
 
 #everytime I call the snmf function R quits on me, crap!
