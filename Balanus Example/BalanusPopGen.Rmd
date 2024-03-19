@@ -7,7 +7,7 @@ output: html_document
 
 # Why did I put this together?
 
-When you learn how to do this work in a coding environment like **R**, it isn't just about doing it the nerdy way. Coding scientific research makes it more *repeatable* and *reproducible*. I can go back to some of the analyses from my paper that I finished working on 2 years ago and repeat the analyses exactly -- or, if the data changed (say, I added more data), then all of the analyses could be done on the updated data *and the figures would be re-made using the same specifications as before*. 
+When you learn how to do this work in a coding environment like **R**, it isn't just about doing it the nerdy way. Coding scientific research makes it more *repeatable* and *reproducible*. I can go back to some of the analyses from my paper that I finished working on 3 years ago and repeat the analyses exactly -- or, if the data changed (say, I added more data), then all of the analyses could be done on the updated data *and the figures would be re-made using the same specifications as before*. 
 
 I hope this works - it was working last time I touched it, but now had to re-load a bunch of libraries in March 2024...
 
@@ -38,7 +38,7 @@ Bg50 <-missingno(locus50, type="geno", cutoff=0.5) #1500 loci, 142 indivs, 10pop
 
 ```
 
-In the data transformation above, the decision has been made to rather liberally include loci because there was a large amount of missing data across this sequencing run. So, loci are included with up to 50% missing information from individuals, and individuals included with up to 50% missing information from all loci. These decisions were initially made after considerable data exploration to retain as many individuals and loci as seemed useful for the question; different questions may require different analytical cutoffs. The data have been sampled from the locations on this map:
+In the data transformation above, the decision has been made to rather liberally include loci because there was a large amount of missing data across this sequencing run. So, loci are included with up to 50% missing information from individuals, and individuals included with up to 50% missing information from all loci. These decisions were initially made after considerable data exploration to retain as many individuals and loci as seemed useful for the question; ***different questions may require different analytical cutoffs***. The data have been sampled from the locations on this map:
 
 ```{r maps, fig.height=7, fig.width=4.1, echo=FALSE, fig.align='center', fig.cap="Figure 1. Map of sampled locations."}
 #mapping for Bglandula paper
@@ -87,7 +87,7 @@ However, note that one site (PSG) no longer has any individuals included; the li
 
 Let's first take a close look at the data. Here we have SNPs generated using a restriction-site limited sequencing effort, meaning that only a small subset of the overall genome is sequenced - and thus enough sequences cover each part of each genome that we can determine not only the sequence of each fragment but whether there are polymorphic sites within a fragment. But think about that carefully from the point of view of how you *know* each fragment that is sequenced, in one individual, is the same or different from a similar fragment sequenced in another individual?
 
-In Chapter 4, we started thinking about F-statistics, or the broad family of hierarchical statistics that use different models depending on the marker type to compare diversity in nested 'containers' of diversity. I need to go back and unpack one of them a bit. The *inbreeding coefficient* we explored can also be evaluated as Xis: the heterozygosity in an individual relative to the heterozygosity at the sample/subpopulation it is within. If an individual contains a lot of homozygous loci despite there being more heterozygosity in the sample, Xis is elevated - it suggests some form of inbreeding. If a locus is consistently elevated in homozygosity across all individuals in the sample, however (relative to all other loci), it may be that what we are 'seeing' is an artefact. This is a step where we have to think about the *natural history* of the markers, the process of obtaining marker data, and the *natural history* of the organism as well to consider what we might expect to see. 
+In Chapter 4, we started thinking about F-statistics, or the broad family of hierarchical statistics that use different models depending on the marker type to compare diversity in nested 'containers' of diversity. I need to go back and unpack one of them a bit. The *inbreeding coefficient* we explored can also be evaluated as Xis: the heterozygosity in an individual relative to the heterozygosity expected for the sample/subpopulation it is within. If an individual contains a lot of homozygous loci despite there being more heterozygosity in the sample, Xis is elevated - it suggests some form of inbreeding. If a locus is consistently elevated in homozygosity across all individuals in the sample, however (relative to all other loci), it may be that what we are 'seeing' is an artefact. This is a step where we have to think about the *natural history* of the markers, the process of obtaining marker data, and the *natural history* of the organism as well to consider what we might expect to see. 
 
 
 ```{r fstats, echo=FALSE}
@@ -130,7 +130,7 @@ hist(newbasic50$Fis)
 
 Basically here I have made some decisions about trimming out some loci based on elevated inbreeding coefficients, but not all of them - because at this point, the markers are being looked at across all spatial samples from Alaska to Southern California! If we want to think about patterns of divergence among sites, we would *expect* some loci to be entirely homozygous in some individuals because of where they are, even though the marker is variable across the entire data set. If you aren't sure if you understand this, go back to Chapter 4 and the discussion of $X_{st}$ - which is itself a measure of inbreeding of the sample relative to the total study!
 
-So, decisions of how to use data are again made in the context of the questions being asked. I (JPW) tend to assume that since I cannot know everything about each locus, and having many loci will mean that any individual locus contributes very little to the pattern, I would rather proceed with as many as possible as long as they make sense. It is, admittedly, an iterative process and again - requires thinking about your data carefully. In any case, this particular response variable of our data is now more normally distributed and leaves us with 876 SNP loci.
+So, decisions of how to use data are again made in the context of the questions being asked. I (JPW) tend to assume that since I cannot know everything about each locus, and having many loci will mean that any individual locus contributes very little to the pattern, I would rather proceed with as many as possible as long as they make sense. It is, admittedly, an iterative process and again - requires thinking about your data carefully. In any case, this particular response variable of our data is now *more* normally distributed and leaves us with 876 SNP loci.
 
 <style>
 div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
@@ -140,8 +140,11 @@ div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
 **Questions for you to answer before next class period**
 
 1. Write a paragraph that explains your understanding of how these data were obtained.
+
 2. Write a paragraph that explains your understanding of how decisions in the assembly of these data can influence the outcome of our analyses.
+
 3. Write a paragraph that explains your understanding of what patterns of data lead to low *X*st, and what lead to high *X*st - and for the data we are using here, what would we replace '*X*' with, and why?
+
 4. Given what you know of the natural history of the organism, what questions does this raise about how the ocean environment will influence the distribution of diversity in this species? What might you predict, overall - use your own words don't worry about technical language.
 
 This concludes your first day snooping through this data set.
@@ -157,7 +160,7 @@ pairwise50
 
 ```
 
-Following generation of pairwise Fst values, lets explore the data using DAPC. 
+Remember, the pairwise matrix you just generated uses the population abbreviations in the figure above: 'Jun' is Juneau, Alaska; while Gol is Goleta Point, near Santa Barbara, CA. Following generation of pairwise Fst values, lets explore the data using DAPC (discriminant analysis of principal components). This particular code uses the sampling information (location, label) as an element of clustering how diversity of individuals relates to the pattern of diversity overall, so each sample site is colored - do they fit any pattern you can recognize?
 
 ```{r dapc1, echo=FALSE}
 
