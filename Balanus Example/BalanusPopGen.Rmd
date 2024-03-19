@@ -25,6 +25,8 @@ library(hierfstat)
 
 Assuming I put all this together correctly, you should have this .Rmd file and the file May19.snps.gen, accessed via code below. Please note: I'm not a highly skilled coder, there are definitely more sophisticated approaches to all of the outcomes below. However, using this document you can run through each of the analytical steps individually by pressing the 'play' button at the top right of each 'code chunk'.
 
+First, I sampled a lot of individual barnacles from the rocks of the Pacific coast, isolated DNA using a simple and inexpensive lab process, and then prepared a "library" of reduced-representation genomic DNA that could be sequenced so I would have data for each selected part of the genome in enough coverage/replicates that we can see where there are *single nucleotide polymorphisms* within and among individuals (genotypes, allele frequencies). 
+
 ```{r databasic, include=FALSE, echo=FALSE}
 
 file3 = "May19.snps.gen"
@@ -38,7 +40,7 @@ Bg50 <-missingno(locus50, type="geno", cutoff=0.5) #1500 loci, 142 indivs, 10pop
 
 ```
 
-In the data transformation above, the decision has been made to rather liberally include loci because there was a large amount of missing data across this sequencing run. So, loci are included with up to 50% missing information from individuals, and individuals included with up to 50% missing information from all loci. These decisions were initially made after considerable data exploration to retain as many individuals and loci as seemed useful for the question; ***different questions may require different analytical cutoffs***. The data have been sampled from the locations on this map:
+In the data transformation above, the decision has been made to rather liberally include loci as inferred from sequence data (using the program STACKS, Catchen et al 2017) because there was a large amount of missing data across this sequencing run. So, loci are included with up to 50% missing information from individuals, and individuals included with up to 50% missing information from all loci. These decisions were initially made after considerable data exploration to retain as many individuals and loci as seemed useful for the question; ***different questions may require different analytical cutoffs***. The data have been sampled from the locations on this map of the northeastern Pacific coast:
 
 ```{r maps, fig.height=7, fig.width=4.1, echo=FALSE, fig.align='center', fig.cap="Figure 1. Map of sampled locations."}
 #mapping for Bglandula paper
@@ -83,7 +85,16 @@ text(leftlongs,leftlats,leftlocs,pos=4,offset=1,cex=1)
 
 ```
 
-However, note that one site (PSG) no longer has any individuals included; the libraries from that source were mishandled in the lab by JPW, apparently, and contributed most of the 'missing' information (all sorts of surprises in this kind of work, pay attention in the lab! In this case it is likely that I did not correctly dilute the DNA concentration for those samples) **The organism is an acorn barnacle :) meaning adults are sessile, offspring can drift for 10s of kilometers before they settle.** What questions does this raise about how the ocean environment will influence the distribution of diversity in this species?
+<style>
+div.blue { background-color:#1fbed6; border-radius: 10px; padding: 40px;}
+</style>
+<div class = "blue">
+
+However, note (**explore the data products in each code chunk**, using console commands like str(XXX) or calling the elements within each data structure, ask Dr. Wares to demonstrate!) that one site (PSG) no longer has any individuals included; the libraries from that source were mishandled in the lab by JPW, apparently, and contributed most of the 'missing' information (all sorts of surprises in this kind of work, pay attention in the lab! In this case it is likely that I did not correctly dilute the DNA concentration for those samples)
+
+</div>
+
+### **The organism is an acorn barnacle :) meaning adults are sessile, offspring can drift for 10s of kilometers before they settle.** What questions does this raise about how the ocean environment will influence the distribution of diversity in this species?
 
 Let's first take a close look at the data. Here we have SNPs generated using a restriction-site limited sequencing effort, meaning that only a small subset of the overall genome is sequenced - and thus enough sequences cover each part of each genome that we can determine not only the sequence of each fragment but whether there are polymorphic sites within a fragment. But think about that carefully from the point of view of how you *know* each fragment that is sequenced, in one individual, is the same or different from a similar fragment sequenced in another individual?
 
@@ -187,16 +198,21 @@ scat_dapcv1_1d<-scatter(dapcv1,1,1,scree.da=FALSE, legend=TRUE, solid=.4,bg="whi
 
 ```
 
+<div class = "blue">
+In particular, note that here the populations from north (cooler colors) to south (warmer) are lined up pretty nicely. ***Is this isolation-by-distance? Or is there hierarchy? Or is there isolation-by-environment??*** Think about that and let's see if there are other ways to categorize the diversity we see.
+</div>
 
-Now lets try snmf.... what does that mean? "sparse non-negative matrix factorization", see http://membres-timc.imag.fr/Olivier.Francois/snmf/index.htm for more details on this. Effectively this is a computationally efficient way to estimate the "ancestry coefficients" of individuals among a set of *K* populations, as with Structure. 
+Now lets try **snmf**... what does that mean? "*sparse non-negative matrix factorization*", see http://membres-timc.imag.fr/Olivier.Francois/snmf/index.htm for more details on this. Effectively this is a computationally efficient (linear algebra) way to estimate the "ancestry coefficients" of individuals among a set of *K* populations, as with Structure (Pritchard, 2000; uses Fis as an optimizing criterion to separate sampled genomes into *K* sets. 
 
 WAHOOO MAKE SURE THIS CALL AND RESPONSE DOESN'T GO INTO THE HTML OUTPUT, 100s of COMMAND REPEATS... :) not sure which command, worry about that tomorrow.
 
-This code chunk will take a few minutes - in part because it is repeating one analysis many times to help us "objectively" determine what the statistically-optimal number of populations (K) would be for these data. *So we will take this time to talk about repeatability and reproducibility in science, as well as the methods and hypotheses in this study.*
+This next code chunk will take a few minutes - in part because it is repeating one analysis many times to help us "objectively" determine what the statistically-optimal number of populations (K) would be for these data. Also, pay attention that the many repeated analyses in this code chunk have to have their output thoroughly masked if you are trying to write a document, so the header of this following code chunk tells you a few cues for writing .Rmd that makes readable AND repeatable output.
+
+*So we will take this time to talk about repeatability and reproducibility in science, as well as the methods and hypotheses in this study.*
 
 ## snmf output
 
-below will be 4 plots, and you can look at the .Rmd to find the code that got us here. The first looks like a funny dot plot and is the mechanism by which SNMF approaches help guide the scientist towards the most appropriate value of *K* ancestral populations for the data to have come from; typically the lowest point is the best, but sometimes as in this plot there may be 2 that are quite similar in their "cross-entropy".
+below will be 4 plots, and you can look at the .Rmd to find the code that got us here. The first looks like a funny dot plot and is the mechanism by which SNMF approaches help guide the scientist towards the most appropriate value of *K* ancestral populations for the data to have come from; typically the lowest point is the best, but sometimes as in this plot there may be 2 that are quite similar in their "cross-entropy". You can think of this as trying to minimize the variance in iterated outcomes of trying to fit the individuals into *K* populations; minimum is better.
 
 Below that are the bar graphs for population composition of each individual, starting in the north to the left and to the south as you move to the right. First is K=2, then K=3, then K=5.
 
@@ -317,7 +333,7 @@ marchdata<-("Bg50v2.stru.geno")
 
 # nope this still crashes... obj.balK=snmf("~genotype.geno",K=1:10, ploidy= yes I had finished line but this is what saved)
 
-obj.balK = snmf(marchdata, K = 1:10, ploidy = 2, entropy = T, repetitions=20,project = "new")
+obj.balK = snmf(marchdata, K = 1:10, ploidy = 2, entropy = T, repetitions=10,project = "new")
 plot(obj.balK, col = "blue4", cex = 1.4, pch = 19) #so... how many "populations" exist here according to this approach?
 
 obj.bal2<-snmf(marchdata, K=2,alpha=50,project="new")
@@ -339,7 +355,8 @@ barplot(t(qmatrix.bal5),col=c("darkblue","lightblue","green","yellow","pink")) #
 
 ```
 
+What do these plots begin to tell you about spatial patterns of diversity - what more do you want to know to find out why this pattern exists?
 
-So, that isn't the whole set of analyses that were done. If you want to know more, the paper is at http://sotkae.people.cofc.edu/Publications_files/WaresStrandSotka2021.pdf where you can directly get the PDF. The focus here was on finding not just that there *is* population spatial structure of genomic data, but identifying some of the mechanisms - which appear to be related to a region of low habitat availability interacting with broader environmental gradients. Are they two distinct species? No - but they may still function distinctly in some way in these ecosystems. 
+So, that isn't the whole set of analyses that were done. If you want to know more, the paper is at http://sotkae.people.cofc.edu/Publications_files/WaresStrandSotka2021.pdf where you can directly get the PDF. The focus here was on finding not just that there *is* population spatial structure of genomic data, but identifying some of the mechanisms - which appear to be related to a *region of low habitat availability* interacting with *broader environmental gradients*. Are they two distinct species? No - but they may still function distinctly in some way in these ecosystems. They are definitely a mix of isolation-by-distance, hierarchical diversity, and some evidence for adaptation or divergence in fitness optima, and my work has barely scratched the surface!
 
-***What would you like to add to this base analysis to address questions you may have with multilocus SNP data? Would there be a spatial subset that merits more exploration?***
+***What would you like to add to this base analysis to address questions you may have with multilocus SNP data? Would there be a spatial subset that merits more exploration? What experiment could you establish in south-central California to study the overall pattern further? What experiment could be run at the power generating station in Morro Bay, CA, where the spatial cline is coincident with a warm-water outflow that is very different from surrounding thermal habitats?***
