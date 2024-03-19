@@ -1,0 +1,5 @@
+new("snmfProject", snmfProject.file = "~genotype.snmfProject", 
+    projDir = "./", snmfDir = "~genotype.snmf/", input.file = "~genotype.geno", 
+    runs = list(), K = integer(0), snmfClass.files = logical(0), 
+    n = integer(0), L = integer(0), creationTime = structure(1710807041.67461, class = c("POSIXct", 
+    "POSIXt")))

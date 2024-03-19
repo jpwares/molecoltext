@@ -1,13 +1,15 @@
 ---
 title: "Balanus example - Molecular Ecology"
 author: "John Wares"
-date: "1/25/2021"
+date: "3/18/2024"
 output: html_document
 ---
 
 # Why did I put this together?
 
 When you learn how to do this work in a coding environment like **R**, it isn't just about doing it the nerdy way. Coding scientific research makes it more *repeatable* and *reproducible*. I can go back to some of the analyses from my paper that I finished working on 2 years ago and repeat the analyses exactly -- or, if the data changed (say, I added more data), then all of the analyses could be done on the updated data *and the figures would be re-made using the same specifications as before*. 
+
+I hope this works - it was working last time I touched it, but now had to re-load a bunch of libraries in March 2024...
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -16,7 +18,7 @@ library(adegenet)
 library(poppr)
 library(pegas)
 library(hierfstat)
-library(diveRsity)
+#library(diveRsity)
 ```
 
 ## Your assignment
@@ -268,6 +270,9 @@ genind2structure <- function(obj, file="", pops=FALSE){
 genind2structure(Bg50,file="Bg50v2.stru",pops=TRUE) #it is written to the directory
 #Bgstruc<-read.structure("Bg50.stru")
 
+# can you bypass snmf and run Structure instead in R? -march 18 2024 pondering
+#requires too many installs/dependencies https://search.r-project.org/CRAN/refmans/dartR/html/gl.run.structure.html
+
 
 # this is the R approximation to Structure and seems to get a lot of support from the "landscape ecology" crowd.
 
@@ -275,9 +280,9 @@ genind2structure(Bg50,file="Bg50v2.stru",pops=TRUE) #it is written to the direct
 #BiocManager::install("LEA")
 #library("LEA")
 
-source("http://membres-timc.imag.fr/Olivier.Francois/Conversion.R")
+#source("http://membres-timc.imag.fr/Olivier.Francois/Conversion.R")
 
-source("http://membres-timc.imag.fr/Olivier.Francois/POPSutilities.R")
+#source("http://membres-timc.imag.fr/Olivier.Francois/POPSutilities.R")
 
 
 #install.packages("~/Downloads/LEA_3.0.0-2.tar", repos = NULL, type ="source")
@@ -285,29 +290,46 @@ source("http://membres-timc.imag.fr/Olivier.Francois/POPSutilities.R")
 library("LEA")
 library("fields","RColorBrewer","mapplots")
 
+## argh figure out the path it has changed since written
+#struct2geno("Bg50v2.stru", FORMAT=2,extra.col=1,extra.row=1,output="balstruc.geno")
 
-struct2geno(file="~/Dropbox/BgRadness/Bg50v2.stru", FORMAT=2, extra.col=1,extra.row=1,output="balstruc.geno")
+struct2geno("Bg50v2.stru", FORMAT=2,ploidy=2,extra.col=1, extra.row=1)
+
+#balgeno<-struct2geno("Bg50v2.stru", FORMAT=2,ploidy=2,extra.col=1,extra.row=1)
+
+# appears that now this has changed and output is not a file but a data structure?
 
 #note a considerable amount of code here that I am not going to dig into with you, but sometimes you have to rely on the R/popgen community at large to provide solutions that get your data into the right format for what you need to do!
 
 # this next little thing only takeas a few minutes but tells you the best K-means solutions by minimizing the value
 
-obj.balK = snmf("~/Dropbox/BgRadness/balstruc.geno", K = 1:10, ploidy = 2, entropy = T, repetitions=20,project = "new")
+#OK so now have to learn how to use snmf with new situation....struct2geno doesn't save file out???
+
+
+marchdata<-("Bg50v2.stru.geno")
+
+
+#everytime I call the snmf function R quits on me, crap!
+#have re-installed all packages including Lea from bioconductor
+
+# nope this still crashes... obj.balK=snmf("~genotype.geno",K=1:10, ploidy= yes I had finished line but this is what saved)
+
+obj.balK = snmf(marchdata, K = 1:10, ploidy = 2, entropy = T, repetitions=20,project = "new")
 plot(obj.balK, col = "blue4", cex = 1.4, pch = 19) #so... how many "populations" exist here according to this approach?
 
-obj.bal2<-snmf("~/Dropbox/BgRadness/balstruc.geno", K=2,alpha=50,project="new")
+obj.bal2<-snmf(marchdata, K=2,alpha=50,project="new")
 qmatrix.bal2<-Q(obj.bal2)
 
 barplot(t(qmatrix.bal2),col=c("darkblue","lightblue"))
 
-obj.bal3<-snmf("~/Dropbox/BgRadness/balstruc.geno", K=3,alpha=50,project="new")
+obj.bal3<-snmf(marchdata, K=3,alpha=50,project="new")
 qmatrix.bal3<-Q(obj.bal3)
 
 barplot(t(qmatrix.bal3),col=c("darkblue","lightblue","green"))
 
 # use this last example, replacing '5' with arbitrary values from 2 to 10, to convince yourself what population structure seems USEFUL to describe to the world!
 
-obj.bal5<-snmf("~/Dropbox/BgRadness/balstruc.geno", K=5,alpha=50,project="new")
+obj.bal5<-snmf(marchdata, K=5,alpha=50,project="new")
 qmatrix.bal5<-Q(obj.bal5)
 
 barplot(t(qmatrix.bal5),col=c("darkblue","lightblue","green","yellow","pink")) #nb I chose these colors to be a bit garish bc I think K=5 is not great but if you have K>5 you need a larger list of colors, that means you need to Google to understand color terms in R :)
