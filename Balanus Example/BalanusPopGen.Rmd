@@ -313,7 +313,7 @@ library("fields","RColorBrewer","mapplots")
 ## argh figure out the path it has changed since written
 #struct2geno("Bg50v2.stru", FORMAT=2,extra.col=1,extra.row=1,output="balstruc.geno")
 
-struct2geno("Bg50v2.stru", FORMAT=2,extra.col=1, extra.row=1)
+struct2geno("Bg50v2.stru", FORMAT=2,ploidy=2,extra.col=1, extra.row=1)
 #this line seems to function differently in line-run than knitting document - be prepared for remove/replace "ploidy=2"
 
 
@@ -328,6 +328,7 @@ struct2geno("Bg50v2.stru", FORMAT=2,extra.col=1, extra.row=1)
 
 
 marchdata<-("genotype.geno")
+#note now it will grab either file from this directory so it is cheating a bit...because on laptop output is Bg50v2.stru.geno
 
 
 #everytime I call the snmf function R quits on me, crap!
