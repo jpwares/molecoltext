@@ -2,5 +2,5 @@ new("snmfProject", snmfProject.file = "genotype.snmfProject",
     projDir = "/Users/johnwares/Documents/GitHub/molecoltext/Balanus Example/", 
     snmfDir = "genotype.snmf/", input.file = "genotype.geno", 
     runs = list(), K = 5L, snmfClass.files = "K5/run1/genotype_r1.5.snmfClass", 
-    n = 142L, L = 1762L, creationTime = structure(1711105287.72687, class = c("POSIXct", 
+    n = 142L, L = 1762L, creationTime = structure(1718217609.34002, class = c("POSIXct", 
     "POSIXt")))
