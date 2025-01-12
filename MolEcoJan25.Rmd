@@ -1046,8 +1046,9 @@ We will get more involved with these statistics soon and the appropriate usage, 
 ```{r firstlookfst} 
 
 fstapp<-here("shiny_popgen-master","FST","fst_app.R")
-
-shinyAppFile(fstapp,options=list(width="100%",height=500))
+#do not make width lower - otherwise the parameter labels disappear, not my fault haha Silas :)
+shinyAppFile(fstapp,options=list(width="125%",height=500))
+#nb the width is weird but otherwise the labels for values get messed up
 
 ```
 
