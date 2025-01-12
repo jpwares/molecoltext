@@ -715,7 +715,7 @@ So, lets talk about the Wright-Fisher model. This means that you have a populati
 coaldisc<-here("shiny_popgen-master","Coalescence","discrete_time_app.R")
 shinyAppFile(coaldisc,options=list(width="100%",height=600))
 ```
-** Fig 3.n+1. above simulation is a bit like the mark-recapture evaluation of population size using multilocus genotypes discussed in the Luikart et al paper we read (see end of chapter for ref): you are making estimations about the population based on the proportion of that population you sample. The more of the population you sample -- in this case, all in the current generation --  of course many siblings and cousins and so on.**
+**Fig 3.n+1. above simulation is a bit like the mark-recapture evaluation of population size using multilocus genotypes discussed in the Luikart et al paper we read (see end of chapter for ref): you are making estimations about the population based on the proportion of that population you sample. The more of the population you sample -- in this case, all in the current generation --  of course many siblings and cousins and so on.**
 
 Be sure to try several iterations of this simulation. When only 2 generations are observed, you are just evaluating the possibility of which individuals in the current generation are siblings. In this simulation, the sample of individuals is assumed to be equal to the entire population of individuals.
 
