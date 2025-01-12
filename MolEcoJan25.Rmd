@@ -1,7 +1,7 @@
 ---
 title: "Molecular Ecology GENE 8420"
 author: "John Wares"
-date: "March 8 2023"
+date: "January 11 2025"
 runtime: shiny
 #output: 
 #  html_document:
@@ -17,7 +17,14 @@ runtime: shiny
 # user must use install packages to add:
 
 library(knitr)
+library(rstudioapi)
+# Getting the path of your current open file
+current_path = rstudioapi::getActiveDocumentContext()$path 
+setwd(dirname(current_path ))
+print( getwd() )
 
+library(here)
+here()
 #library(learnPopGen) #oh how funny this package that I already thought was frustrating
 #is now already failing. Glad to catch this early!!
 
@@ -50,33 +57,20 @@ This document is being updated for the GENE 8420 course at University of Georgia
 <br>
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics("MEImages/IMG_1549.jpeg")
+
+turtle<-here("MEImages","IMG_1549.jpeg")
+knitr::include_graphics(turtle) #oh, it worked!
+
 ```
 
 **Surely you already have some thoughts on how turtles move, and what that could mean for the spatial distribution of diverse phenotypes and molecular diversity within their range? (photo: J. Wares)** 
 
 ## Why would I use this?
 
-I *think* I'm writing this in a way that more advanced students can skim the first few chapters and gain something from focusing on the latter ones; a more novice course might only get through the first several chapters and then just read appropriate-focused papers (e.g. in an undergrad/grad version of this class). I want to think about how to *teach* molecular ecology, not just about how to do it. It seems there has to be some coding expertise that comes into play at this point, and some experiential practice. So, I think this is what is going to work. I hope.
-
-## Organization (Syllabus)
-
-### Expectations for all students
-
-Most elements of the class, including the schedule, are handled at the class website: sites.google.com/view/gene-8420-spr-2023/syllabus
-
-Doing well requires your engagement in the class – which includes *preparation* for class, *focus* during our activities, *presence* and responsiveness, asking *questions* by whatever format, *listening* to others, referring to *specific* ideas from readings/discussion, and *synthesis* of all this information. 
-
-You will be graded based on:
-
-1. short-answer quizzes, which will count towards 50% of your grade. I don't love quizzes but they will individually be low-stakes and ensure your attention to the material stays current with the class. These will happen roughly every 2 weeks. 
-
-2. 2-page "data reaction reports" will require you to do some analysis and make interpretations of that analysis, there will be fewer of these through the semester and they count towards 25% of your grade.
-
-3. a data analysis project of your own design, using available data whether published or unpublished, is worth 25% of your grade. A proposal for this project is due in February, a draft of it in March, and the final report in April. 
+I *think* I'm writing this in a way that more advanced students can skim the first few chapters and gain something from focusing on the latter ones; a more early-career course might only get through the first several chapters and then just read appropriate-focused papers (e.g. in an undergrad/grad version of this class). I want to think about how to *teach* molecular ecology, not just about how to do it. It seems there has to be some coding expertise that comes into play at this point, and some experiential practice. So, I think this is what is going to work. I hope.
 
 
-## Topics we will cover
+## Topics we will cover, if we go that far with what is in here...
 
 ([**Chapter 1: **](#Ch1) Overview of text)
 
@@ -163,7 +157,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 
 For other users of this document, please note: I use a lot of examples I am familiar with, meaning they are often projects I'm an author on, or was on that person's committee, or whatever. There is so much other *fantastic* science out there, this isn't about ego though: it's just my ability to immediately dig deeper with those as examples not just of how the science *can* be done, but also about when it *could have been done better*. Also, I'm a marine ecologist; when I talk about plants, it is basically because of great colleagues who have entranced me with their weird and important terrestrial photosynthetic life, and mammals and fish similarly: I credit cool colleagues who have brought me into the fold. If you end up using this as an instructor, I encourage you to think about including your own, even better, examples.
 
-Plus, I can imagine now I can just look in here for some of the papers I want others to refer to, you know - what was that paper I cited about *XXXXXX*? Oh yeah it was in chapter 4...
+Plus, I can imagine now I can just look in here for some of the papers I want others to refer to, you know - what was that paper I cited about *XXXXXX*? Oh yeah it was in chapter 4...However, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away. Someday this will be full of hyperlinks and DOIs but for now it is a dog looking at a finger pointing at the moon, so to speak.
 
 </div>
 
@@ -171,7 +165,13 @@ Plus, I can imagine now I can just look in here for some of the papers I want ot
 
 The phrase 'molecular ecology' is nothing new; it is in many ways synonymous with 'ecological genetics' as first applied by pioneers like Dobzhansky, Ford, and others (en.wikipedia.org/wiki/Molecular_ecology). Maybe the question of terminology comes down to people *who identify as geneticists but want to solve ecological concerns* (Phil Hedrick and his work on Florida panthers in 1995? I've not met him to verify how he identifies as a scientist), or people *who identify as ecologists but recognize how to use genomic data as a means to greater understanding* (can't help my bias, I think of Rick Grosberg doing a number of deep explorations into behavioral ecology via understanding genome-wide kinship, see Fig 1.1). The journal ***Molecular Ecology*** (https://onlinelibrary.wiley.com/journal/1365294x) began in 1991; the field is not new, but the attention given to it from a broader spectrum of scientists seems to be. Before giving an overview of what may be included in this topic, it is probably first important to acknowledge that there are "molecular" approaches to addressing ecological questions that are often *not* included in this field.
 
-![**Fig.1.1 - A figure from Ayres & Grosberg (2005, doi:10.1016/j.anbehav.2004.08.022), title starting "Behind anemone lines..." about how anemones interact based on their relatedness - they do not have to have identical genomes to interact cooperatively, but have to share allelic diversity above a certain threshold at several genomic loci - otherwise they fight.**](MEImages/Rick.jpg)
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+anemone<-here("MEImages","Rick.jpg")
+knitr::include_graphics(anemone) #oh, it worked!
+
+```
+**Fig.1.1 - A figure from Ayres & Grosberg (2005, doi:10.1016/j.anbehav.2004.08.022), title starting "Behind anemone lines..." about how anemones interact based on their relatedness - they do not have to have identical genomes to interact cooperatively, but have to share allelic diversity above a certain threshold at several genomic loci - otherwise they fight.**
 
 Ecosystem ecologists ask about elemental and nutrient cycles in the environment, and such work routinely screens for the abundance, provenance, and isotopic ratios of Carbon, Nitrogen, Phosphorus, and other key elements to life (https://en.wikipedia.org/wiki/Ecosystem_ecology). A good example might be the work of Dr. Krista Capps on invasive suckermouth catfish (family Loricariidae) in Mexico; these catfish have bony plates on their body that absorb tremendous amounts of phosphorus from the rivers they are in - limiting algal growth and thus indirectly harming the resources for native fishes. Certainly, a molecular component to ecology! Also, the chemical analysis of otoliths and gastropod shells (e.g. https://www.pnas.org/content/116/14/6878), or assessment of paleoenvironments via analysis of gas composition in ice cores or otherwise (https://www.wm.edu/news/stories/2019/for-chesapeake-oysters,-the-way-forward-leads-backback-through-the-fossil-record.php), are 'molecular' approaches to answering ecological questions.
 
@@ -201,9 +201,6 @@ That sets us up for **Chapter 8** which gets into quantitative genetics and the 
 
 **Chapter 10** deals with where the field is going and spends some time focusing on the 'natural history awareness' of the analyses we have learned; often key insights come from seeing how data behave or misbehave given your preconceptions.
 
-*N.B.* I am aiming this at upper-level undergrads in ecology or evolutionary biology who may have had some introductory genetics or evolution; but, I am going to do my best to not assume you remember everything from those classes. And effectively, that works about the same for incoming graduate students who are looking for a primer to begin their research trajectory or just understand evolutionary dynamics in ecosystems better.
-
-Also, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away. Someday this will be full of hyperlinks and DOIs but for now it is a dog looking at a finger pointing at the moon, so to speak.
 
 **Week 1 suggested readings:**
 
@@ -214,7 +211,14 @@ Marmeisse et al. 2013 https://nph.onlinelibrary.wiley.com/doi/epdf/10.1111/nph.1
 Govindarajan et al. 2015 https://peerj.com/articles/926/# to consider how divergence of populations (tree thinking) illuminates divergence of function, tolerances, or interactions; distribution and dispersal; and first look at summary statistics in molecular ecology in terms of barcode gaps/distinctions
 
 
-![**Fig.1.2 - A pleco caught in the Chacamax River in Chiapas, Mexico - photo credit Krista Capps.**](MEImages/Pleco8-21.jpg)
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+pleco<-here("MEImages","Pleco8-21.jpg")
+knitr::include_graphics(pleco) #oh, it worked!
+
+```
+
+**Fig.1.2 - A pleco caught in the Chacamax River in Chiapas, Mexico - photo credit Krista Capps.**
 
 *To wrap this up, a photo of one of the invasive Loricariid catfish mentioned earlier. More info on the system can be found at https://news.cornell.edu/stories/2013/08/freeing-pet-catfish-can-devastate-ecosystems . Can you think of how studying genomic diversity of these catfish - as well as the source populations from which they come - could be useful?*
 
@@ -244,7 +248,13 @@ I'm going to start this text in a very different place than I've started teachin
 
 Additionally, I've recognized that some applications of molecular data have been treated as distinct, and separated in other texts or in previous versions of my class, even though their basic methodology aligns pretty clearly with understanding some simple basics about DNA sequence data and how it evolves within and among populations of biodiversity. I hope that is clear from this first data-focused chapter, which itself raises some questions about how we observe and quantify patterns of diversity in nature. 
 
-![**Fig.2.1 - 9 gorgeous orange quadrats, photo credit J. Wares but quadrats and note thanks to Dr. Marjorie Wonham, I believe. **](MEImages/marsquadrats.jpg)
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+mars<-here("MEImages","marsquadrats.jpg")
+knitr::include_graphics(mars) #oh, it worked!
+
+```
+**Fig.2.1 - 9 gorgeous orange quadrats, photo credit J. Wares but quadrats and note thanks to Dr. Marjorie Wonham, I believe. **
 
 ## 2.1. Our sampling effort
 
@@ -258,13 +268,27 @@ Similarly, a single random anonymous DNA sequence from your species of interest 
 
 We are assuming that the same *homologous* sequence(s) can be obtained from other individual organisms or samples. In other words, whenever we make comparisons of two DNA sequences, we assume that they have a single common origin and the variation between them represents the mutation events that have happened since that point of common ancestry, whether we are comparing members of the same population or individuals from divergent species. This itself can be difficult; the more we know about genome structure, the more we know that many gene regions are duplicated and lost through time, so that some gene regions will have multiple, *paralogous* copies in the same genome, and counting the mutational events will be wrong if the contrast between molecules is specified incorrectly. 
 
-![**Fig.2.2 - The same PCR primers amplify allelic (homologous) and distinct gene copy variation (paralogous) in fluorescent proteins of the coral *Agaricia*. Determining how to separate this diversity for the typical analytical approaches in the field of molecular ecology is not trivial in such cases. Note the distinct amino acid sequences resulting from the sequence diversity; one copy appears to be non-functional with a 'stop' codon in the middle of the domain. From Meyers, MK 2013 *J. Heredity* doi:10.1093/jhered/est028.**](MEImages/AgarFP.jpg)
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+coral<-here("MEImages","AgarFP.jpg")
+knitr::include_graphics(coral) #oh, it worked!
+
+```
+
+**Fig.2.2 - The same PCR primers amplify allelic (homologous) and distinct gene copy variation (paralogous) in fluorescent proteins of the coral *Agaricia*. Determining how to separate this diversity for the typical analytical approaches in the field of molecular ecology is not trivial in such cases. Note the distinct amino acid sequences resulting from the sequence diversity; one copy appears to be non-functional with a 'stop' codon in the middle of the domain. From Meyers, MK 2013 *J. Heredity* doi:10.1093/jhered/est028.**
 
 The problem of gene duplication can include whole genomes (polyploidy is common in plants, and has even generated new species in frogs) or just parts of a genome, and depending on how recent the evolutionary event was, it may be impossible to isolate parental-contributed diversity from the diversity found across copies. However, there are ways to analyze such data and we will discuss further as these instances come up. *For now we are only focusing on the gene sequences we can recover to represent natural diversity, and how to compare those sequences (not worrying about the combinations of copies within an individual).*
 
 In addition, we assume that the individual nucleotides (A,C,T,G) in these DNA sequences being compared are homologous. This means *aligning* the sequences so that the variation we see in a single position - some sequences have a C, others have a T, for example - represent a single mutational event (more on this assumption later) rather than inadvertently comparing haphazard parts of that gene region. In Figure 2.3, a DNA sequence for a protein-coding region provides an example where it is clear that despite some nucleotide variation, each DNA sequence is coding for the same amino acid sequence. It would be unusual for so much similarity to exist among distinct genomic regions (though biology can throw plenty of improbable curveballs, some of them noted above), and we can evaluate this probabilistically (Altschul et al 1990).
 
-![**Fig.2.3. DNA sequence alignment, with amino acids shown for protein sequence. The colored positions indicate mutational diversity where the less frequent variant is highlighted.**](MEImages/DNAalign.jpg) 
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+sequence<-here("MEImages","DNAalign.jpg")
+knitr::include_graphics(sequence) #oh, it worked!
+
+```
+
+**Fig.2.3. DNA sequence alignment, with amino acids shown for protein sequence. The colored positions indicate mutational diversity where the less frequent variant is highlighted.** 
 
 Once these steps are complete - DNA sequences obtained from comparable parts of the genome, and aligned so that the mutational events are clear - we can start to make some simple assumptions about what the diversity among sequences means. It may seem bizarre or overwhelming to include this example above, but the more elements from the genome you are using to study your system, the more likely you have to understand that genomic diversity has an incredibly complex hierarchy of inheritance.
 
@@ -290,7 +314,13 @@ hist(dist2,breaks=8,col=hiscols)
 
 Now, we have recapitulated what is called the 'barcode gap', a classic figure below (2.4) from Meyer & Paulay (2005, https://doi.org/10.1371/journal.pbio.0030422). What this is suggesting is that though there is variation within species (in phenotype as well as sequence divergence), in many cases that variation is considerably less than the distinctions from other **species** (*a.k.a.*, distinct populations that are demographically isolated in some significant and usually trait-based way).
 
-![**Fig.2.4. Illustration of the idealized barcoding gap (top panel) for contrasting diversity within and between species; the bottom panel shows that sometimes it gets more complicated. Just ask folks who study corals...e.g. Tonya Shearer's work.**](MEImages/MeyerPaulaygap.jpg) 
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+bargap<-here("MEImages","MeyerPaulaygap.jpg")
+knitr::include_graphics(bargap) #oh, it worked!
+
+```
+**Fig.2.4. Illustration of the idealized barcoding gap (top panel) for contrasting diversity within and between species; the bottom panel shows that sometimes it gets more complicated. Just ask folks who study corals...e.g. Tonya Shearer's work.** 
 
 Why are we exploring this kind of diversity among DNA sequences? Well, our first goal as molecular ecologists may be simply to evaluate the distribution and abundance of diversity in and among sampled habitats. We can use the sequence data itself to identify *what* is found in a habitat, when this is a more effective approach than other forms of identification. For reasons that will become clearer as we learn more about the different modes of inheritance (*natural history!*) of gene regions, the "barcode gap" is most effectively evaluated with genes that (1) exhibit high mutational diversity, (2) are haploid, and (3) are uniparentally inherited; but it will work for any gene that provides sufficient resolution. For this reason, mitochondrial and chloroplast loci are often the first tools used for such surveys.
 
@@ -306,7 +336,14 @@ Next, some examples of how this variation among *homologous* genome fragments ca
 
 If we assume that the species are identifiable (at one life stage or another), and there is clearly greater genomic divergence between different species than between different individuals of the same species (the "barcode gap"), then with a reference library of representative individuals for each species we can use DNA sequencing to identify remaining unknown or hard-to-identify specimens. A great example comes from Katie Bockrath's dissertation work on freshwater mussels (Unionidae, Fig 2.4.5).
 
-![**Fig.2.4.5. Sampling Line Creek, a tributary to the Flint River of southwestern Georgia. Dr Katie Bockrath catching fish to examine for mussel glochidia.**](MEImages/KatieLineCreek.jpg) 
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+mussel<-here("MEImages","KatieLineCreek.jpg")
+knitr::include_graphics(mussel) #oh, it worked!
+
+```
+
+**Fig.2.4.5. Sampling Line Creek, a tributary to the Flint River of southwestern Georgia. Dr Katie Bockrath catching fish to examine for mussel glochidia.** 
 
 Though many freshwater biologists will laugh to read this sentence: lets assume that the adult mussels can be clearly identified, sorted into species, and DNA can be sequenced from those individuals. Our real challenge lies with the larvae and the juveniles, which are themselves miniscule (hundreds of $\mu$m). Unionid mussels produce larvae (*glochidia*) that are obligate parasites on fish gills; they must developmentally transform on a fish to mature to the juvenile stage, when they are still quite small but drop off into the sediment to continue maturation.
 
@@ -361,7 +398,13 @@ The distinction with the mussel example is that rather than sequence tissues one
 
 Once again, these approaches are most useful for when diversity is very difficult to characterize because of size, abundance, or ability to capture. Bacteria have been a frequent target for this kind of approach because the vast majority of bacteria cannot be easily cultured, but deep sequencing (these days, through PCR amplification and multiplexed sequencing on a high-throughput sequencing machine like an Illumina) of the ribosomal 16S region (or one of the variable short sections within it) will tend to generate a large number of comparable (homologous) sequences that can be categorized based on their *similarity* to a reference library of bacterial species or genera. In this case, of course we may find diversity that has not been previously catalogued, and new diversity is identified in nearly every such study.
 
-![**Fig.2.5. The distinct microbial communities, shown using proportional color plots by individuals and by treatment, exhibit some variation among coral colonies when either algal turf or vermetid gastropods are present. From Anya Brown et al (2019) *Coral Reefs*. This case exhibits only slight variation among environmental treatment, which is why we will consider quantitative approaches to distinguishing samples or treatments in the next chapter and further in this text.**](MEImages/Brown2019Fig5.jpg) 
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+microbe<-here("MEImages","Brown2019Fig5.jpg")
+knitr::include_graphics(microbe) #oh, it worked!
+
+```
+**Fig.2.5. The distinct microbial communities, shown using proportional color plots by individuals and by treatment, exhibit some variation among coral colonies when either algal turf or vermetid gastropods are present. From Anya Brown et al (2019) *Coral Reefs*. This case exhibits only slight variation among environmental treatment, which is why we will consider quantitative approaches to distinguishing samples or treatments in the next chapter and further in this text.** 
 
 The questions we may then ask include: how many distinct species in a sample? Is it higher diversity in one treatment or location than the other? Are the relative abundances of species the same in each of my samples, or do they vary in interpretable ways? (Mind you, if you aren't a microbiologist you may have a hard time knowing *why* different OTUs (operational taxonomic units, the sort-of-equivalence to species in bacteria and Archaea) are ecologically relevant, or how they are distinct metabolically or phenotypically. Overall, these questions require numeric or quantifiable measurements and will be addressed in the next unit.
 
@@ -371,9 +414,21 @@ Where we eventually will become fluent in this class is in recognizing that our 
 
 The sequence data shown earlier from the barnacle *C. fragilis* are a good example of this. The overall divergence of sequences *within* this species are somewhat larger than typical for a metazoan, though still very distinct from the sister species *C. proteus*. However, if we collect enough DNA sequence data - in this case a common mitochondrial barcode region used in many metazoan studies, the Folmer COI fragment noted in Box 1 - we may see that the genetic distances among those DNA sequences easily group the individuals into 3 evolutionarily distinct lineages (Figure 2.5; Govindarajan et al 2015). In many ways this is only different in the sampling strategy from the microbial work mentioned earlier; we are asking "what is where" through sequencing (in this case, Sanger - individuals sequenced for a single gene are still done most effectively this way), and the sequences may identify new groups that are ecologically relevant or indicate intrinsic diversity in ecophysiology that are not reflected by the name of the species. Microbes on a coral, fungi in the forest, barnacles along a coastline - we know where they are in a general sense, but the specifics can tell us about functional and taxonomic diversity at a finer resolution.
 
-![**Fig.2.5a. A gene tree representation of the sequence similarity among mitochondrial sequences sampled from the barnacle Chthamalus fragilis on the east coast of North America.**](MEImages/fig-1-1x-2.jpg) 
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
 
-![**Fig.2.5b. Spatial distribution of distinct phylogenetic clades shown in Fig.2.5a.**](MEImages/fig-3-1x-3.jpg)  
+barnacle<-here("MEImages","fig-1-1x-2.jpg")
+knitr::include_graphics(barnacle) #oh, it worked!
+
+```
+**Fig.2.5a. A gene tree representation of the sequence similarity among mitochondrial sequences sampled from the barnacle Chthamalus fragilis on the east coast of North America.** 
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+barnacle2<-here("MEImages","fig-3-1x-3.jpg")
+knitr::include_graphics(barnacle2) #oh, it worked!
+
+```
+**Fig.2.5b. Spatial distribution of distinct phylogenetic clades shown in Fig.2.5a.** 
 
 
 This gene tree pattern reflects the overall similarity of sequence, though the models for inferring these relationships can be mathematically complex in trying to estimate actual mutational difference among sequences. The gene tree raises many questions, many of which will be addressed further as we gain skills in exploring the variation among sequences under expectations of single, randomly-mating populations in later chapters. However, by plotting WHERE each sequence was found you can start to assess that the diversity is not randomly distributed - the 'red' type of diversity is only found in the northern part of the range (Fig 2.5b). This appears to be an example where some diversity is more likely to be found in certain parts of the distributional (environmental) range of this species - suggesting variation in environmental tolerances or performance. To quantify this variation requires additional approaches, and to explore this hypothesis of local adaptation will require additional experiments.
@@ -395,7 +450,14 @@ Anyway, plot your own "barcode gap" histogram and ask how well this model of int
 
 In class, we will also take some class time to discuss the 'reverse ecology' approach mentioned in e.g. Marmeisse et al (2013), the overall consideration of how molecular ecology fits into natural history as discussed in the Travis 2020 essay, and discuss what spatial variation in genomic diversity means for the function, eco-physiology, and other types of variation in a species that may respond to a change in the environment. 
 
-![**Fig.2.6 - A row of *C. fragilis* settled on a stem of the cordgrass *Spartina alterniflora*. Photo by Y. Zhang, GCE-LTER.**](MEImages/Cfrag.jpg)
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+cordgrass<-here("MEImages","Cfrag.jpg")
+knitr::include_graphics(cordgrass) #oh, it worked!
+
+```
+
+**Fig.2.6 - A row of *C. fragilis* settled on a stem of the cordgrass *Spartina alterniflora*. Photo by Y. Zhang, GCE-LTER.**
 
 
 *Resources cited in this section*
@@ -427,7 +489,14 @@ To save money, there are methods that focus on *anonymous* regions of the genome
 
 The *targeted* data rely on prior knowledge about a gene region and its utility for your purposes. For example, probably the most frequently analyzed single gene region in metazoans is the mitochondrial cytochrome oxidase I gene region, for the simple fact that Folmer et al. (1994) published primers that tend to be able to isolate and amplify that gene region reliably in metazoans. We have subsequently figured out ways in which this gene region is particularly useful for molecular ecology, as well as particular drawbacks it has (Wares 2010) in terms of reliably transmitting information about mutational events. As scientists have wanted larger numbers of targeted fragments, the costs of PCR and sequencing either scale up linearly with the number of targets when doing traditional PCR and Sanger sequencing (roughly $1-4 in cost per ~1kb sequence per individual), or larger outlay of cash for enrichment protocols that allow next-generation sequencing to provide sufficient sequencing coverage of all the targeted regions. The cost of the sequencing is one part of the equation (e.g. in 2020 approximately 110,000,000,000 nucleotides can be returned from an Illumina sequencer for a cost of less than 1500 dollars), but how cleverly the underlying experiment is designed strongly affects the cost-efficiency of this approach. 
 
-![**Fig.B1 - From https://www.illumina.com/science/technology/next-generation-sequencing/ngs-vs-sanger-sequencing.html, a rough guideline to the benefit of massively parallel "non-Sanger" seqeuncing as the number of focal loci increases.**](MEImages/cost-effectiveness-of-targeted-ngs.jpg)
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+illumina<-here("MEImages","cost-effectiveness-of-targeted-ngs.jpg")
+knitr::include_graphics(illumina) #oh, it worked!
+
+```
+
+**Fig.B1 - From https://www.illumina.com/science/technology/next-generation-sequencing/ngs-vs-sanger-sequencing.html, a rough guideline to the benefit of massively parallel "non-Sanger" seqeuncing as the number of focal loci increases.**
 
 
 One type of *targeted* loci that can be analyzed efficiently with electrophoresis, separating fragments by their *size* rather than their actual sequence, include microsatellite markers or "simple sequence repeats" (SSRs). These loci vary based on short DNA repeats (e.g. ATC**ATC**ATC**ATC**...or GT**GT**GT**GT**GT**GT**GT...) that are highly mutable, and thus these loci tend to harbor higher diversity than other types of markers but also come along with distinct challenges, both practical and analytical. The fact that they only require electrophoresis to genotype an individual would seem to save money, but the effort to score these loci *and* the overall cost of multiple PCR reactions and submissions to a genomics center to be run on a capillary electrophoresis sequencer (often at a cost approaching $1 per sample, once costs of cleanup and electrophoresis are included) makes this of marginal benefit (K. Bobier, pers. comm.), and the cost to develop these relatively taxon-specific markers (doing enough sequencing to find the repeat regions whether via enrichment or filtering, primer design and basic testing - often on the order of thousands of dollars for a new series) has probably put them into the historical dustbin except for cases where they already work on your organism.
@@ -465,7 +534,8 @@ Intriguingly, we can also track mutations happening in long-lived and clonal org
 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/eucalyptus.jpg')
+eucalyptus<-here("MEImages","eucalyptus.jpg")
+knitr::include_graphics(eucalyptus)
 ```
 **Fig.3.1 - From https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2364, showing how the 'phylogenetic' growth of *Eucalyptus* can be taken advantage of for studying somatic mutation rates in these trees and comparing with simpler 'model' organisms like *Arabidopsis*.**
 
@@ -487,6 +557,7 @@ These examples from bacteria, trees, and corals are natural examples of "mutatio
 Estimating the mutation rate, $\mu$ , from these long-term isolated populations requires that we make one additional assumption. Since we are only looking at the end-point of many hundreds or thousands of generations of isolation, many mutations will have arisen - and some will disappear quickly, some will stay in the population as segregating diversity, and some will go to 'fixation' (the novel mutation is now present in all members of the population). If we assume that the mutation has absolutely no good or bad qualities with respect to the survival or reproduction of individuals ("fitness"), then whether it increases in frequency each generation or decreases is pure stochastic luck. It depends on the fact that populations are finite in size, and that for unpredictable reasons not all individuals will have the same number of offspring - some zero, some one, some many. Because of this simple fact of variation in reproduction, the frequency of a mutation changes randomly each generation as shown in this simulation of **genetic drift**:
 
 ```{r driftsim2,eval=TRUE}
+
 library(learnPopGen)
 driftplot<-drift.selection(p0=0.2,Ne=500,w=c(1,1,1),ngen=500,nrep=10)
 
@@ -499,8 +570,8 @@ The plot shown is based on simulating drift, as we have seen before in this clas
 ```{r driftshiny}
 
 library(ggplot2)
-
-shinyAppFile("shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=700))
+driftapp<-here("shiny_popgen-master","Drift","drift_app.R")
+shinyAppFile(driftapp,options=list(width="100%",height=700))
 
 ```
 
@@ -552,11 +623,11 @@ Similar approaches have been taken in instances where we have good geologic data
 
 ## 3.1.2 How we infer the number of mutations, thinking of whole genomes
 
-
-
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/Pisgenome.jpg')
+pisaster<-here("MEImages","Pisgenome.jpg")
+knitr::include_graphics(pisaster)
 ```
+
 **Fig.3-2. A 'circos' plot of the 22 chromosomes of the *Pisaster* genome, a number validated by old chromosome squash data. More internal circles include aligned data of single-nucleotide polymorphisms from Schiebelhut et al 2018, and differential RNA expression data from several other studies as summarized in Ruiz-Ramos et al. 2020.**
 
 
@@ -570,11 +641,11 @@ In an ideal world, we know how many mutational events distinguish two sequences.
 
 On more recent time scales however, we can make some simplifying assumptions that work for most of the types of questions we are interested in as ecologists. A widely-used model is the **infinite-sites model**, which assumes that every mutational event occurs at a new location (site, nucleotide) in the genome and thus the number of distinctions between any pair of sequences is an indication of the number of mutations, and that leads us back to inferences of time. This model applies to cases where we are directly observing at least a portion of the actual nucleotide data, whether via traditional Sanger sequencing (a separate reaction for each sequence, individual specimens are handled distinctly, a total cost of perhaps $0.005 per nucleotide per individual per sequence) or high-throughput massively parallel sequencing with bioinformatic approaches to sort out the data after sequencing, where many individuals and loci are obtained at once - with a much higher *minimum* cost to a project, but orders of magnitude improvement on the cost per nucleotide/individual/locus.
 
- 
-
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/BayonaPicture2.png')
+bayona<-here("MEImages","BayonaPicture2.png")
+knitr::include_graphics(bayona)
 ```
+ 
 **Fig.3-3. Cost per base pair on different DNA sequencing platforms; figure by N. Bayona-Vasquez, 2018 - things changing SO fast though, can now (2020) get 110gigabases of data for <$1500 (e.g. HiSeqX at novogene.com :)  but Sanger sequencing costs have not improved :( ) **
 
 However, until only about 10 years ago, to study multiple loci via actual DNA sequencing (per locus, per individual) was increasingly prohibitive in time and money because of the cost of Sanger sequencing and the effort to get reliable PCR amplicons for highly variable genome regions (Fig 3-3, see **Box 1**, e.g. Wares et al 2009 put a great deal of effort into having data from 5 loci across roughly 50 individual chthamalid barnacles). So, an alternative for finding highly polymorphic loci might be simple-seqeunce repeat (SSR) or "microsatellite" markers, where mutations caused by *in vivo* polymerase error lead to heritable fragment length polymorphisms that are codominant - both alleles can be known for a locus from a single PCR and electrophoretic analysis - and could even be multiplexed for reasonable costs per locus per individual (many studies having 10-20 distinct loci for 10s or 100s of individual organisms). The drawback to microsatellite markers was often in their specificity to a particular species, so great effort went into developing them - and by not evaluating the actual DNA sequence (and length homoplasy being a common problem), mutational differences among alleles have to be estimated with something like a **stepwise mutation model** (SMM; where fragments of similar length are assumed to have a more recent common ancestor than with a fragment of very distinct length) or they are treated as having *unknown* relationships under an **infinite alleles model**.
@@ -598,7 +669,8 @@ The cool thing about (W) and $\pi$ is simply that they are two related but disti
 First, lets revisit what population size *N* does. Because not every single individual has the same number of offspring - think about the many acorns an oak tree drops, yet on average *all oak trees* only replace themselves at best; some will live a lifetime with no offspring that succeed, others will have many, the average is one in a stable population. 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/Cyprinodon_diabolis,_males-2.jpg')
+pupfish<-here("MEImages","Cyprinodon_diabolis,_males-2.jpg")
+knitr::include_graphics(pupfish)
 ```
 **Fig.3-n. A pair of devils hole pupfishes, public domain, georef info etc available at https://en.wikipedia.org/wiki/Devils_Hole_pupfish#/media/File:Cyprinodon_diabolis,_males.jpg **
 
@@ -644,15 +716,19 @@ This "coalescent" model works with a similar but more explicit assumption of how
 So, lets talk about the Wright-Fisher model. This means that you have a population size *N* and in the previous generation each of those *N* individuals were descended from *randomly* chosen ancestors of population size *N*. The "random" means that with probability 1/*N*, 2 individuals have a common ancestor for each generation back in time (and a probability 1-that, that any 2 do not). There are fewer good R simulations for this process but this one I like:
 
 
+
 ```{r minicoalescent} 
-shinyAppFile("shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
+coaldisc<-here("shiny_popgen-master","Coalescence","discrete_time_app.R")
+shinyAppFile(coaldisc,options=list(width="100%",height=600))
 ```
 ## Fig 3.n+1. above simulation is a bit like the mark-recapture evaluation of population size using multilocus genotypes discussed in the Luikart et al paper we read (see end of chapter for ref): you are making estimations about the population based on the proportion of that population you sample. The more of the population you sample -- in this case, all in the current generation --  of course many siblings and cousins and so on.
 
 A more useful/realistic version of this Shiny app has been recently coded/updated, all of these so far come from Dr. Silas Tittes by the way. This next one recognizes that we don't sample *n* individuals from a population of size *N* where *n*=*N*, we are assuming that our sample is a relatively tiny proportion of all diversity that is out there. 
 
+
 ```{r minicoal2}
-shinyAppFile("13023_shiny_popgen-master/Coalescence/discrete_time_app.R",options=list(width="100%",height=600))
+newcoal<-here("13023_shiny_popgen-master","Coalescence","discrete_time_app.R")
+shinyAppFile(newcoal,options=list(width="100%",height=600))
 
 ```
 ## Fig 3.n+2. so, our Wright-Fisher model then extends to ask about how n relates to N, effectively. We are sampling n things, but Nc (census size) is likely much larger and so the question is about how that “choosing the parent” process described above works when the parental generation is so much larger than what we sample. It means that the expected time to coalescent events is telling us about effective population size (Ne) in the same way that drift simulations tell us about that same weird parameter.
@@ -661,6 +737,8 @@ shinyAppFile("13023_shiny_popgen-master/Coalescence/discrete_time_app.R",options
 The simulations are most useful if you mess around and see how they behave. If you set n=10 and generations =20 on the first panel, you can run this simulation several times and will see very different outcomes. This is a dramatically oversimplified version of looking at how coalescent theory works, because in this case the sample size *n* is identical to the population size *N*, so there are many rapid coalescent events - but of course as you increase *n* to its maximum (in this visualization) of 100, you cannot see the events as clearly. It is true that in very small populations (for example the Florida panthers in the late 1980s) all individuals sampled will have very recent common ancestors (both the biological and casual use of term "inbreeding"). But the dynamics of coalescent theory have broad implications for studying genomic diversity in populations of any magnitude. 
 
 Then, if you look at the next panel down, you are seeing the dynamics of coalescence among the *n* samples you choose from a site/location/population relative to a larger population size, which of course extends the familial relationship much farther back in time. That's all the coalescent theory is doing, is modeling this temporal and probabilistic relationship of all individuals relative to *Ne*.
+
+
 
 ```{r bettercoalescent} 
 #install.packages("coalesceR", repos="http://R-Forge.R-project.org") did not work right, try again
@@ -675,8 +753,8 @@ Then, if you look at the next panel down, you are seeing the dynamics of coalesc
 #install missing packages
 #if(length(miss)) install.packages(miss, dependencies = TRUE)
 # going to try shiny_popgen but not sure how to include in Rmd yet...
-
-shinyAppFile("13023_shiny_popgen-master/Coalescence/SilasFeb4.R",options=list(width="100%",height=600))
+silascoal<-here("13023_shiny_popgen-master","Coalescence","SilasFeb4.R")
+shinyAppFile(silascoal,options=list(width="100%",height=600))
 
 
 ```
@@ -690,7 +768,8 @@ So why have we been working our way through short fragments of haploid DNA, and 
 
 
 ```{r, out.width='50%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/chydorus.jpg')
+chydorus<-here("MEImages","chydorus.jpg")
+knitr::include_graphics(chydorus)
 ```
 **Fig.3-4. A tiny "microcrustacean" zooplankton *Chydorus sphaericus* that is found in freshwater wetlands in the Americas, photo from http://cfb.unh.edu/cfbkey/html/Organisms/CCladocera/FChydoridae/GChydorus/Chydorus_sphaericus/chydorussphaericus.html **
 
@@ -698,7 +777,9 @@ knitr::include_graphics('MEImages/chydorus.jpg')
 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/recomb.jpg')
+recomb<-here("MEImages","recomb.jpg")
+
+knitr::include_graphics(recomb)
 ```
 **Fig.3-5. A simple view of recombination between homologous chromosomes, not only is this a mechanism that adds overall diversity to genomes but it means that parts of a chromosome will have a distinct evolutionary/coalescent/mutational history than other parts of a chromosome, as shown at right. https://www.khanacademy.org/science/biology/classical-genetics/chromosomal-basis-of-genetics/a/linkage-mapping **
 
@@ -718,9 +799,11 @@ When divergent chromosomes interact, the distinct mutations that have arisen may
 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/hudsoncoyne02.jpg')
+hudsoncoyne<-here("MEImages","hudsoncoyne02.jpg")
+
+knitr::include_graphics(hudsoncoyne)
 ```
-**Fig.3-6. The variable nature of how long it takes for gene regions in 2 populations to have completely distinct diversity. The more loci being evaluated, the longer it takes for all of them to reach this status (in phylogenetic terms known as "reciprocal monophyly"). A mitochondrial locus is haploid and maternally inherited, so it has an effective *N* that is 1/4 that of a nuclear locus**
+**Fig.3-6. The variable nature of how long it takes for gene regions in 2 populations to have completely distinct diversity. The more loci being evaluated, the longer it takes for all of them to reach this status (in phylogenetic terms known as "reciprocal monophyly"). A mitochondrial locus is haploid and maternally inherited, so it has an effective *N* that is 1/4 that of a nuclear locus. And yes, Jerry Coyne is a trans-phobe and that sucks. **
 
 
 The figure above shows that with enough time, larger and larger portions of the genome will be distinct and that adds to the likelihood of outbreeding depression. The fact that crosses between two such populations have lower fitness is associated with speciation under what is known as the "biological species concept" (Mayr), but in our field we are more often diagnosing likely species based on genealogical or phylogenetic criteria, which are just as valid (de Queiroz 2007). The trick with drawing any hard and fast rule about "species" is that often there are counterpredictions, as when alleles that cause outbreeding depression (lower survival or reproduction) vary among populations of the same apparent species and can even move between different apparent species when they do successfully hybridize (Sweigart et al 2007,  https://doi.org/10.1111/j.1558-5646.2007.00011.x). Divergence can also be significant simply because of differences in phenology (flowering, spawning, etc) times among populations, regardless of the fitness consequences of occasional crosses, or simple isolation - for many species we just don't know what happens when they re-encounter one another.
@@ -729,7 +812,9 @@ A really fantastic example of this comes from Battey et al 2018, with one of the
 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/Battey1.jpg')
+bunting<-here("MEImages","Battey1.jpg")
+
+knitr::include_graphics(bunting)
 ```
 **Fig.3-7. Using single nucleotide polymorphisms (over 3600 of them!) Battey et al 2018 showed that the diversity separates the painted bunting *Passerina ciris* into 2 very distinct lineages and 3 evolutionarily distinct lineages based on the diversity among the sites shown. In later chapters we will talka bout the genetic as well as Euclidean models that let us separate samples of diversity this way. This is important because it not only highlights where there may be additional "species" within a single Latin binomial, but that there are ecological and management decisions to be made about how these distinct lineages migrate and overwinter. **
 
@@ -775,7 +860,9 @@ First of all, lets try to be clear with how we use language about diversity. The
 So, for now lets consider that we are sampling the environment for the diversity we find. This **sample** may be spatial - are there distinct algae, or algal genomic diversity, across a transect of the California coast from north to south? (yes: the feather boa kelp *Egregia* exhibits a significant shift in morphology, and likely in the animals living among its fronds) Or, the sample may compare different times: is there a distinct set of molecular markers associated with pink salmon running in odd years and even years? (yes, again; Fig 4-1) Finally of course, we may look at samples before and after some experimental treatment, as with the SSWD-based selection event that changed the genotypic diversity of sea stars on the California coast (Schiebelhut et al 2018).
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/Wares16fig1.jpg')
+wares<-here("MEImages","Wares16fig1.jpg")
+
+knitr::include_graphics(wares)
 ```
 **Fig.4-1. Molecular data are used to provide evidence that salmon from different rivers, and from different annual runs (odd years and even years), represent distinct populations of the same species. The phylogeny shown represents the divergence among populations, but populations are defined both by time and location. Figure from Wares (2016). **
 
@@ -792,7 +879,9 @@ Simpson's (1949) *D*= $\sum_{i} p_{i}^{2}$ is a measure of species diversity tha
 
 
 ```{r, out.width='50%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/Pisaster_Mytilus_dominance.jpg')
+dominance<-here("MEImages","Pisaster_Mytilus_dominance.jpg")
+
+knitr::include_graphics(dominance)
 
 ```
 **Fig.4-1.5. Part of my BIOL 1104 teaching, figure from Vellend (2016). When we talk about dominance patterns in a community, a great example is the dominance of blue mussels (Mytilus) following predator removal in this Pacific Northwest rocky intertidal ecosystem. The number of species present (rather, being counted) has not changed but the evenness is much lower, which leads to a lower "inverse Simpson" value.**
@@ -825,9 +914,16 @@ That's it. You know already that some or most of those assumptions won't be true
 
 
 ```{r, out.width='50%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/hosler1.jpg')
-knitr::include_graphics('MEImages/hosler23.jpg')
-knitr::include_graphics('MEImages/hosler4.jpg')
+
+hosler1<-here("MEImages","hosler1.jpg")
+hosler23<-here("MEImages","hosler23.jpg")
+hosler4<-here("MEImages","hosler4.jpg")
+
+
+
+knitr::include_graphics(hosler1)
+knitr::include_graphics(hosler23)
+knitr::include_graphics(hosler4)
 ```
 **Fig.4-2. Frames from Jay Hosler's *Sandwalk Adventures* about the testable assumptions of natural selection. In later chapters we will talk about how to infer the action of selection from molecular data, but in many cases separate experiments or other types of data are needed to confirm this mechanism.**
 
@@ -863,7 +959,9 @@ That may not help, but it will make more sense as we see more examples. Oh, or:
 So, each of these distinct sequences (distinct in actual sequence, or size, or electrophoresis pattern, right?) that gets sampled is an *allele* with frequency $\ p_{i}$, with all frequencies summing to 1. At diploid, biparentally-inherited gene regions, we thus have a simple expectation for how these alleles are recombined through random sexual reproduction to generate *genotypes*. We expect a proportion of individuals $\sum_{i} p_{i}^{2}$ to be homozygous, meaning both alleles have the same identity, and 1-($\sum_{i} p_{i}^{2}$) to be the proportion of individuals that carry two distinguishable alleles. We can directly observe allele frequencies by collecting genomic data, and these frequencies lead to a prediction of how they will be observed in genotypes. That's it. That's the model. It will hold as long as our 5 assumptions are true.
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/khanpunnett.jpg')
+punnett<-here("MEImages","khanpunnett.jpg")
+
+knitr::include_graphics(punnett)
 ```
 **Fig.4-3. The standard 'Punnett square' illustrates how the random generation of haploid gametes by both mother and father should give equal probability of including either of the two alleles from these parents. This is an example where there are only 2 distinct alleles in the population among the 4 parental contribution possibilities. For more information on this visualization, https://www.khanacademy.org/science/high-school-biology/hs-classical-genetics/hs-introduction-to-heredity/a/probabilities-in-genetics**
 
@@ -884,7 +982,9 @@ When there are multiple samples, we often want to know if they are statistically
 Some very basic methods to evaluate compositional differences among sites are reviewed in Anne Magurran's book ("Measuring Biological Diversity", ISBN 9780632056330) and include the Bray-Curtis (1957) measure of compositional similarity, scaling from 0 when samples have no diversity in common to 100 (or 1.0) when identical in composition. You'll see in Figure 4-4 an example of this, and note that the similarities are portrayed using a tree clustering algorithm *that is actually showing you how DIFFERENT the samples are*. There are many other community composition metrics with strengths for particular types of data and studies, again more on those can be found in Magurran (2003). 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/bray.jpg')
+bray<-here("MEImages","bray.jpg")
+
+knitr::include_graphics(bray)
 ```
 **Fig.4-4. An example of isotopic similarity in waters sampled from diverse glacial regions, illustrated with a Bray-Curtis distance plot. from Dubinenkov, Ivan & Flerus, R. & Schmitt-Kopplin, Ph & Kattner, G. & Koch, Boris. (2014). Origin-specific molecular signatures of dissolved organic matter in the Lena Delta. Biogeochemistry. 123. 1-14. 10.1007/s10533-014-0049-0.*
 
@@ -893,7 +993,9 @@ The fact that these compositional differences can be shown using a *distance tre
 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
-knitr::include_graphics('MEImages/crayfishPD.jpg')
+crayfish<-here("MEImages","crayfishPD.jpg")
+
+knitr::include_graphics(crayfish)
 ```
 **Fig.4-5. From Faith and Baker (2006) Evolutionary Bioinformatics Online. The phylogenetic relationship of crayfish found in different rivers of New South Wales, Australia. The phylogenetic pattern from Baker et al derived using the gene sequence, cytochrome c oxidase I gene (COI). Lineage A is a phylogenetic “sister” to lineage B. Given expected loss of biodiversity at localities containing lineage B, PD analysis assigns the localities containing lineage A higher priority, because the overall PD losses if both lineages were to be lost now would be high in reflecting also the loss of a shared, deeper, branch (marked X).**
 
@@ -940,8 +1042,9 @@ We will get more involved with these statistics soon and the appropriate usage, 
 
 ```{r firstlookfst} 
 
+fstapp<-here("shiny_popgen-master","FST","fst_app.R")
 
-shinyAppFile("shiny_popgen-master/FST/fst_app.R",options=list(width="130%",height=500))
+shinyAppFile(fstapp,options=list(width="130%",height=500))
 
 ```
 
