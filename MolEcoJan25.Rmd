@@ -44,7 +44,7 @@ today<-Sys.Date()
 
 # 1. Introduction. What is this?
 
-Written by **J.P. Wares**, Professor, University of Georgia, jpwares [at] uga.edu
+Written by **J.P. Wares**, Professor, University of Georgia, jpwares [at] uga.edu, www.wareslab.net
 
 This is shared *by-nc-sa/4.0*, I'm not writing it to be some polished final thing but something that shifts through new ideas and new people using or modifying parts of it. This text may be used following these guidelines: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
@@ -120,9 +120,9 @@ drift.selection(p0=0.1,Ne=500,w=c(1,1,1),ngen=400,nrep=4)
 ```
 
 
-I'm putting this text together using R Markdown in particular so that examples can be incorporated that students can then work with to try and understand how varying the input information affects our expectations about the molecular data used to answer ecological questions. For example, the code chunk above - and the figure it produces - not only illustrates *genetic drift* (here, an example where one of 2 alleles is initiated in a population at a frequency of 0.1, and the "effective population size" about which we will learn more, is 500; there are 4 replicate simulations - in fact you should notice that the figure is distinct every time you run this document!), but actually provides the code for the illustration that can be modified as knowledge of the process becomes more advanced (when looking at the R Markdown code document itself in *RStudio*, if you hit the green 'play' button in the upper right corner of the "code chunk" you can do the simulation over and over, and you can look at the code and probably figure out quickly how to change the parameters it runs under). 
+I'm putting this text together using R Markdown in particular so that examples can be incorporated that students can then work with to try and understand how varying the input information affects our expectations about the molecular data used to answer ecological questions. For example, the code chunk above - and the figure it produces - not only illustrates *genetic drift* (here, an example where one of 2 alleles is initiated in a population at a frequency of 0.1, and the "effective population size" about which we will learn more, is 500; there are 4 replicate simulations - in fact you should notice that the figure is distinct every time you run this document!), but actually provides the code for the illustration that can be modified as knowledge of the process becomes more advanced (when looking at the R Markdown code document itself in *RStudio*, if you hit the green 'play' button in the upper right corner of the "code chunk" you can do the simulation over and over, and you can look at the code and probably figure out quickly how to change the parameters it runs under. In fact, you can change those parameters right now in RStudio, re-run the document, and your textbook will be different from everyone else's based on this figure alone). 
 
-By organizing this material the way I think it may come across to beginning students in the field, I hope to avoid the personal puzzle of when I initially shifted this class from 8000-level (intermediate grad course) to 4000-level (advanced undergrads with fewer prerequisites) by clarifying these probabilistic processes with illustrations based on simulations that the students can themselves repeat.
+By organizing this material the way I think it may come across to beginning students in the field, I hope to avoid the personal puzzle of when I initially shifted this class from 8000-level (intermediate grad course) to 4000-level (advanced undergrads with fewer prerequisites) by clarifying these probabilistic processes with illustrations based on simulations that the students can themselves repeat. I've since taken it back to the grad-only level because of the overall fit to the curricular needs of students at the University of Georgia and the landscape of other related courses.
 
 Because I'm using **Shiny** code for many of the documents in this class, you cannot "Knit" this document into a static form, but instead will hit "Run Document" (up near the top of the RStudio screen) once it is loaded into R and that will generate a browser text that is dynamic in some places to let *you* run the simulations. It is a work in progress, but for now it does mean that to work with this you must have access to a computer that will run R and RStudio, at a minimum.
 
@@ -136,6 +136,8 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 For other users of this document, please note: I use a lot of examples I am familiar with, meaning they are often projects I'm an author on, or was on that person's committee, or whatever. There is so much other *fantastic* science out there, this isn't about ego though: it's just my ability to immediately dig deeper with those as examples not just of how the science *can* be done, but also about when it *could have been done better*. Also, I'm a marine ecologist; when I talk about plants, it is basically because of great colleagues who have entranced me with their weird and important terrestrial photosynthetic life, and mammals and fish similarly: I credit cool colleagues who have brought me into the fold. If you end up using this as an instructor, I encourage you to think about including your own, even better, examples.
 
 Plus, I can imagine now I can just look in here for some of the papers I want others to refer to, you know - what was that paper I cited about *XXXXXX*? Oh yeah it was in chapter 4...However, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away. Someday this will be full of hyperlinks and DOIs but for now it is a dog looking at a finger pointing at the moon, so to speak.
+
+Also, by my estimation, it is only about 25% done to the level I'd like. So remember that as you try to use it.
 
 </div>
 
@@ -832,7 +834,7 @@ knitr::include_graphics(bunting)
 div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "rose">
-These data come from "genotype by sequencing" approaches, e.g RADseq or other methods (**BOX 1**). This means that individual single nucleotide polymorphisms (SNPs), analytically determined to be unlinked thanks to recombination, contribute to these patterns. However, as noted earlier *each individual SNP is only bi-allelic* and so contributes VERY little information about how these data fit a demographic or historical model that could be investigated with coalescent methods. The panel at the bottom (the bar graph) is actually generated by diploid genotype models discussed in the next chapter. The data involved are currently state-of-the-art and are beneficial in being so numerous (remember the advantage of independent views of evolutionary history thanks to recombination) but for many tests that we will consider later do not have sufficient information. The way that we will start to look at these unlinked SNPs will involve a more sophisticated set of summary statistics (site frequency spectra, genetic inheritance models, etc.) of DNA polymorphisms - more on this later (**Chapter 5**).
+These data come from "genotype by sequencing" approaches, e.g RADseq or other methods (**BOX 1**). This means that individual single nucleotide polymorphisms (SNPs), analytically determined to be unlinked thanks to recombination, contribute to these patterns. However, as noted earlier *each individual SNP is only bi-allelic* and so contributes VERY little information about how these data fit a demographic or historical model that could be investigated with coalescent methods. The panel at the bottom (the bar graph) is actually generated by diploid genotype models discussed in the next chapter, which themselves rely on our basic Hardy-Weinberg model assumptions. The data involved are currently state-of-the-art and are beneficial in being so numerous (remember the advantage of independent views of evolutionary history thanks to recombination) but for many tests that we will consider later do not have sufficient information as individual loci. The way that we will start to look at these unlinked SNPs will involve a more sophisticated set of summary statistics (site frequency spectra, genetic inheritance models, etc.) of DNA polymorphisms - more on this later (**Chapter 5**).
 </div>
 
 
@@ -845,23 +847,24 @@ The diversity we are looking at starts to 'feed back' into generating functional
 <br>
 <br>
 
-<br>
 
-Your reading for next week is to help us start to think about why some populations carry more mutational diversity than others - and it is often not described well by how many individuals there are. The "effective" population size I've alluded to describes how the population diversity *behaves* based on life history traits like male:female mating ratios, variation in reproductive success, and the history of a population, and becomes an important consideration in management and conservation as well as understanding the behavior of mutational diversity in a sample. So for next week read: Luikart et al (2010) *Conservation Genetics* **11**:355-373, linked on our class website. 
-<br>
 
 
 # 4. Alpha diversity, beta diversity, and dozens of competing statistics and variations. {#Ch4}
 
 Here we won't try to exhaustively work our way through metrics, but try to establish the *reasons they exist* and lay the groundwork for refinements to be included as the data we are evaluating get more complicated.
 
+<div class = "blue">
 ## Box C.1. Additional advances with R
 
+*2025 class* ignore this, but it is a useful tutorial for several aspects of doing population genetics in R. I'm leaving it in here in case I want to re-use this approach.
+
 For now, your job is to read and follow directions in Part I of the "population genetics and genomics in R" tutorial written by the developers of the R package 'poppr': https://grunwaldlab.github.io/Population_Genetics_in_R/Getting_ready_to_use_R.html [ref] This will help you install several other useful packages that we will be using more and more as the semester progresses. *This won't be a graded assignment, but by doing this it prepares you for later assignments that will be.*
+</div>
 
 # 4.05 Diversity in and among individuals
 
-I'm adding this late - thus the odd numbering - because I realized I hadn't addressed one peculiarity of sampling diversity. **It is harder to compare individuals than it is to compare samples of individuals.** One of the key reasons for this is that the diversity we are dealing with is often diploid (or worse). That means that a heterozygous variant in one individual can be difficult to categorize in terms of how distinct it is from the genotype of another individual, especially another heterozygous individual. Which pairs of haplotypes are contrasted? Methods like Bowcock's (1994) "proportion of shared alleles" and other methods have been attempted to obtain *genetic distances* among individuals when codominant markers are used. More recently, Hancock  et al (https://doi.org/10.1093/genetics/iyae094) have an updated form of this individual-by-individual comparison (in this case, 1 - [eq.3] provides a metric for pairwise divergence) that is used in estimating neighborhood and effective population sizes - but it is advanced for where we are at in this class!
+I'm adding this late - thus the odd numbering - because I realized I hadn't addressed one peculiarity of sampling diversity from the whole genome. **It is trickier to compare individuals than it is to compare samples of individuals.** One of the key reasons for this is that the diversity we are dealing with is often diploid (or worse, eg tetraploid). That means that a heterozygous variant in one individual can be difficult to categorize in terms of how distinct it is from the genotype of another individual, especially another heterozygous individual. Which pairs of haplotypes are contrasted? Methods like Bowcock's (1994) "proportion of shared alleles" and other methods have been attempted to obtain *genetic distances* among individuals when codominant or 'infinite sites model' markers are used. Recently, Hancock, Toczydlowski, and Bradburd (https://doi.org/10.1093/genetics/iyae094) have an updated form of individual-by-individual comparison (in this case, 1 - [eq.3] provides a metric for pairwise divergence *d~xy~*) that is used in estimating neighborhood and effective population sizes - but it is advanced for where we are at in this class!
 
 Other recent approaches have tried using Hill numbers (more on them in this chapter) [ https://www.nature.com/articles/s41598-020-62362-8 ] to make hierarchical contrasts between individuals with respect to the patterns and frequency of polymorphism variation among them; I'll leave it for now to say it gets complicated and this is often why we characterize diversity for samples or populations as our primary tool. 
 
@@ -876,21 +879,21 @@ wares<-here("MEImages","Wares16fig1.jpg")
 
 knitr::include_graphics(wares)
 ```
-**Fig.4-1. Molecular data are used to provide evidence that salmon from different rivers, and from different annual runs (odd years and even years), represent distinct populations of the same species. The phylogeny shown represents the divergence among populations, but populations are defined both by time and location. Figure from Wares (2016). **
+**Fig.4-1. Molecular data are used to provide evidence that salmon from different rivers, and from different annual runs (odd years and even years), represent distinct populations of the same species. The phylogeny shown represents the divergence among populations, but populations are defined both by time and location. Figure from Wares (2016). Some now consider these temporal populations of salmon to be distinct species DOI:10.1134/S1063074024700123 **
 
 
-Your sample may be a set of *quadrats*, or a belt transect (following a set line through the ecosystem with a set width, e.g. Barry et al. 1994 *Science*), or a catch-per-unit-effort approach; it may involve a haphazard collection of tissues from barnacles on a dock and the molecular diversity they harbor. It may be 10cc of soil, or the gut lining of a bird of interest. In each case, we can think about how to categorize this sample of diversity: how many different categories of things, and what is their relative abundance?
+Your sample may be a set of *quadrats*, or a belt transect (following a set line through the ecosystem with a set width, e.g. Barry et al. 1994 *Science*), or a catch-per-unit-effort approach; it may involve a haphazard collection of tissues from barnacles on a dock and the molecular diversity they harbor. It may be 10cc of soil, or the gut lining of a bird of interest. In each case, we can think about how to categorize this **sample** of diversity: how many different categories of things, and what is their relative abundance? This may be a study of individuals or metagenomics across individuals, so our metrics will vary depending on the type of study.
 
 ### 4.1.1 How many things and their relative abundances when there is not a model
 
 What do I mean by 'model'? Remember a *model* is just a way in which we can make predictions about some parameter of a natural system; for example, how many species of cladocerans should you be able to find in a particular wetland in the Savannah River Site? Marcus Zokan, while at the Odum School of Ecology getting his PhD, individually identified over 480,000 cladocerans, copepods, and arthropod zooplankton in many of the wetlands in this site to see how periodicity, tree cover, pollution history, and other factors influenced levels and patterns of diversity in this hyperdiverse region (there are dozens of species found in any single wetland!). However, the context dependency of this kind of work makes it difficult to know how to predict the diversity of a distinct taxon, in a distinct ecosystem. 
 
-Nevertheless, we need ways to compare such systems - and many of these metrics will apply in some way even when we have equilibrium models to work with. For example, any given quantity of a particular species in a community can be used to indicate its *relative abundance* or proportion in that community, with all such proportions of *counted* species adding up to 1 (see Fig. 2-5 for an example of microbial diversity, identified using 16S molecular barcoding). So, observed frequencies must add to 1, but we recognize that we may have missed counting some species as well (e.g. Chao estimators that rely on the frequency of 'singleton' observations to predict how many species were present but not observed; Maurer & McGill). Once we have these relative abundances, we can ask how evenly distributed they are. 'Evenness' refers to how similar their abundances are.
+Nevertheless, we need ways to compare such systems - and many of these metrics will apply in some way even when we have equilibrium models to work with. For example, any given quantity of a particular species in a community can be used to indicate its *relative abundance* or proportion in that community, with all such proportions of *counted* species adding up to 1 (see Fig. 2-5 for an example of microbial diversity, identified using 16S molecular barcoding). So, observed frequencies must add to 1, but we recognize that we may have missed counting some species as well (e.g. Chao estimators that rely on the frequency of 'singleton' observations to predict how many species were present but not observed; Maurer & McGill chapter in Magurran's second edition has more). Once we have these relative abundances, we can ask how evenly distributed they are. 'Evenness' refers to how similar their abundances are.
 
 Simpson's (1949) *D*= $\sum_{i} p_{i}^{2}$ is a measure of species diversity that describes the 'dominance' of certain species by measuring the likelihood that two random individuals from a sample belong to the same species. More commonly used would be the index of diversity estimated as 1-*D* which is instead the probability that two random individuals are distinct from one another; thus the greater the number 1-*D*, the more diversity and evenness there is.
 
 
-```{r, out.width='50%', fig.align='center', fig.cap='...',echo=FALSE}
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
 dominance<-here("MEImages","Pisaster_Mytilus_dominance.jpg")
 
 knitr::include_graphics(dominance)
@@ -899,11 +902,11 @@ knitr::include_graphics(dominance)
 **Fig.4-1.5. Part of my BIOL 1104 teaching, figure from Vellend (2016). When we talk about dominance patterns in a community, a great example is the dominance of blue mussels (Mytilus) following predator removal in this Pacific Northwest rocky intertidal ecosystem. The number of species present (rather, being counted) has not changed but the evenness is much lower, which leads to a lower "inverse Simpson" value.**
 
 
-I emphasize this here because as we move forward you will see this latter quantity 1-*D* represented again as the amount of genomic heterozygosity observed or expected in a system. Certainly the evenness (lack of 'dominance') in the system influences our ability to detect diversity and is another major component of variation among observed systems. 
+I emphasize this here because as we move forward you will see this latter quantity 1-*D* represented again as the amount of genomic heterozygosity observed or expected in a system. Remember, from intro biology, that if an allele is found in a sample to have a frequency *p* then the frequency of homozygotes with that allele is p^2; it follows that subtracting the sum of all homozygote frequencies from 1 will give you the proportion of individuals that are heterozygous at that marker. Take that last sentence and write it out as an equation, and now compare to the Simpson's equation above! Certainly the evenness (lack of 'dominance') in the system influences our ability to detect diversity and is another major component of variation among observed systems. 
 
 Simpson's *D* is just one measure in a family of statistics known as Hill numbers (and lets not get into how many times *D* is used as a statistic in both ecology and population genomic fields!!), where the exponent of *ln*-summed frequencies increases the emphasis on common diversity over rare diversity in metrics as the exponent increases. We will return to these later as we discuss the 'effective' number of alleles, or fathers, or other elements of an ecological or evolutionary system. Of note, however, is that the definition above for the variance attributable to within-species variability, 1-*D*, is identical to "gene diversity" or heterozygosity as we evaluate genomic markers (Nei 1987).
 
-Additionally, many of the approaches used to look at evenness relative to richness (like Fisher's $\alpha$) will return as we look at the *frequency spectrum for polymorphic sites* in genomic data relative to an underlying model of expected *lack* of evenness; these are also a big part of Hubbell's (2001) neutral theory of biodiversity, which also borrowed from population genetics the compound parameter $\theta$, a variable and interesting character who will make their appearance frequently in this book as we continue into genomic diversity. *See, this paragraph alone merits an hour or many more of discussion but there just isn't the time to get into how cool this association between community ecology and population genetics can be!* The point being, there is a long and rich history in both ecology and genetic studies of evaluating patterns of diversity to better understand the underlying processes - and in many cases, they intentionally (or not) borrowed the mathematics from the other field.
+Additionally, many of the approaches used to look at evenness relative to richness (like Fisher's $\alpha$) will return as we look at the *frequency spectrum for polymorphic sites* in genomic data relative to an underlying model of expected *lack* of evenness; these are also a big part of Hubbell's (2001) neutral theory of biodiversity, which also borrowed from population genetics the compound parameter $\theta$, a variable and interesting character who will make their appearance frequently in this book as we continue into genomic diversity. *See, this paragraph alone merits an hour or many more of discussion but there just isn't the time to get into how cool this association between community ecology and population genetics can be!* (for more on that see Marc Vellend's great 2016 book) The point being, there is a long and rich history in both ecology and genetic studies of evaluating patterns of diversity to better understand the underlying processes - and in many cases, they intentionally (or not) borrowed the mathematics from the other field.
 
 ### 4.1.2 With molecular markers, what kind of a model can we include?
 
@@ -918,7 +921,7 @@ Now, we are dealing with an *equilibrium model*, where we can make predictions a
 3. The diversity you are studying, each example, has no special advantage in the environment other than the fact that the species you sample it from happens to be able to live there (**no selective advantage to the diversity *at the locus or level of diversity being considered****).
 4. The choices that organisms make in terms of sexual reproduction are unrelated to the diversity *at the locus or level of diversity being considered*.
 
-#### please note I've just listed the assumptions for Hardy-Weinberg equilibrium :)
+#### please note I've just listed the assumptions for Hardy-Weinberg equilibrium again :)
 
 Often, you'll see one additional evolutionary assumption, that the population is practically infinite in size. Since that is never true, and genetic drift alone will effectively never lead to deviations from predictions of this model, I'm going to jettison that right here. As noted before and in class, we will actually rely on drift in some cases as a means of estimating effective population sizes.
 
@@ -937,18 +940,18 @@ knitr::include_graphics(hosler1)
 knitr::include_graphics(hosler23)
 knitr::include_graphics(hosler4)
 ```
-**Fig.4-2. Frames from Jay Hosler's *Sandwalk Adventures* about the testable assumptions of natural selection. In later chapters we will talk about how to infer the action of selection from molecular data, but in many cases separate experiments or other types of data are needed to confirm this mechanism.**
+**Fig.4-2. Frames from Jay Hosler's wonderful graphic novel *Sandwalk Adventures* about the testable assumptions of natural selection. In later chapters we will talk about how to infer the action of selection from molecular data, but in many cases separate experiments or other types of data are needed to confirm this mechanism.**
 
 
 Answer: **A null hypothesis**. We simply assume that we have multiple ways that we can evaluate the diversity in a sample, and those *multiple ways should agree* or else one of the underlying assumptions is wrong. To figure out those assumptions, we have to remind each other about how genetic diversity is inherited via DNA and cellular mechanisms associated with persistence and replication of that DNA. For now, lets just focus on two things: how many copies of each homologous gene region, and how are they inherited? 
-
-*how about we now note that it would be weird if a single nucleotide tended to be homozygous within individuals despite segregating in the population - so move FROM THE SEQ DATA TO THE ALLELE DATA*
 
 1. Most gene regions (nuclear genes in sexually reproducing eukaryotes; most autosomal regions; in general single copy loci fit this ideal the best) are diploid; an individual inherits one copy of the region from mom, one from dad.
 
 2. Some are haploid, meaning there is only one copy inherited; this is often but not always true with animal mitochondria inherited maternally, similarly with chloroplasts in photosynthesizing organisms. Some 'nuclear' exceptions include the heterogametic chromosome in organisms with clear chromosomal sexual dimorphism, but not all organisms (or even most) have genomically determined sex - many are environmentally determined or heavily modified by the environment. All we really care about here is copy number and who it descends from!
 
 Knowing this, we can start from the point of knowing that there is variation in almost any natural population. For every individual genomic fragment, the amount of variation that gets *introduced* to that locus is the copy number of chromosomes that can be involved in reproduction times twice the mutation rate $\mu$. Constraints on the function of a genomic region may quickly eliminate some new mutations (or quickly allow them to evolve to higher frequency), but this gives us an estimator $\theta$ that reflects these inputs as sequence diversity, as we saw in the previous chapter.
+
+
 
 <style>
 div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
@@ -979,6 +982,8 @@ knitr::include_graphics(punnett)
 
 For example, no population is infinite in size, but our sample from a population is also quite finite (and much smaller than the total population size), so our sampling error is accounted for in statistical tests of whether the *observed* and *expected* heterozygosity (or the frequencies of any particular genotype) are the same. However, non-random mating, selection, and migration (or isolation) will influence this diversity in ways that our tests can indicate, and then we have to figure out why this basic model -- often called Hardy-Weinberg equilibrium for the co-describers of this relationship -- has been violated.
 
+As an example, if you sample a large number of individuals and look at a single nucleotide marker, and every single individual tends to be homozygous for that nucleotide but they vary for which nucleotide... as in, 40% are 'AA', 55% are 'GG', and 5% are 'AG' at that site - we are now moving our knowledge from the sequences to the genotypes to recognize that pattern is not one we would expect with random mating!
+
 *This is why knowing (W) and $\pi$ come as distinct measurements of $\theta$ that also rely on that mutational diversity being not selection, not migration, random mating - because this also gives us a chance to look at those types of data to see when one of those have been violated (tests of selection, variation in Ne, multiple populations).*
 
 *Though we aren't talking about allele frequencies in the same way as we were previously in assessing Hardy-Weinberg dynamics, it is the same in that we have an underlying model for how mutational diversity should be distributed in a population if we assume a single, randomly mating population with no immigrants from other populations, no selection acting on the diversity, and the mutations happened before we sampled the diversity. Do those sound like familiar constraints?*
@@ -998,7 +1003,7 @@ bray<-here("MEImages","bray.jpg")
 
 knitr::include_graphics(bray)
 ```
-**Fig.4-4. An example of isotopic similarity in waters sampled from diverse glacial regions, illustrated with a Bray-Curtis distance plot. from Dubinenkov, Ivan & Flerus, R. & Schmitt-Kopplin, Ph & Kattner, G. & Koch, Boris. (2014). Origin-specific molecular signatures of dissolved organic matter in the Lena Delta. Biogeochemistry. 123. 1-14. 10.1007/s10533-014-0049-0.*
+**Fig.4-4. An example of isotopic similarity in waters sampled from diverse glacial regions, illustrated with a Bray-Curtis distance plot. from Dubinenkov, Ivan & Flerus, R. & Schmitt-Kopplin, Ph & Kattner, G. & Koch, Boris. (2014). Origin-specific molecular signatures of dissolved organic matter in the Lena Delta. Biogeochemistry. 123. 1-14. 10.1007/s10533-014-0049-0.**
 
 The fact that these compositional differences can be shown using a *distance tree* indicates one way in which we can evaluate the compositional similarity of distinct samples when we have molecular data as well. Phylogenetic diversity can be calculated simply when you have aligned sequence data and can estimate the genetic distances between sequences, as in Chapter 2. Again, these genetic distances involve different ways of estimating the number of mutations between individual samples, and so depending on the type of data the models (finite sites models, and so on) can reflect complex problems of mutations happening in the same site, or being biased towards certain types of mutations. For now however we can simply think of the metrics we used in Chapter 3, the proportion of *dis*similar nucleotides among our sequences. These dissimilarities can be used to generate gene trees or phylogenies summarizing the diversity within and across samples, and this represents the *phylogenetic diversity* of our samples.
 
@@ -1016,7 +1021,7 @@ One simple example of why phylogenetic diversity may matter for making conservat
 
 As with many of the metrics used in molecular ecology, there are not standard parametric statistical tests that allow us to evaluate the variation in diversity among sites. So permutational tests randomize the relationship of observed data with the identity of the samples, for example randomizing the order of labels at the tips of the tree. In this way, the PD of each individual sample relative to the combined samples can be assessed again, and in a "random" or "null" hypothesis we would expect there to not be very much difference between the samples. In this way we can ask if the PD of two samples is significantly different from one another. 
 
-Because there are often many sequences that are identical or binned together under a single identity in large sequence samples such as microbial ecology data, the PD will be different if we consider only the presence/absence of a particular sequence in a sample, or if we consider the relative abundance. These two ways of looking at phylogenetic diversity are calculated under what are called "Unifrac" distances between samples, either unweighted (only presence/absence) or weighted (considers relative abundance). [ https://en.wikipedia.org/wiki/UniFrac ]
+Because there are often many sequences that are identical or binned together under a single identity in large sequence samples such as microbial ecology data or other metabarcode sequence studies, the PD will be different if we consider only the presence/absence of a particular sequence in a sample, or if we consider the relative abundance. These two ways of looking at phylogenetic diversity are calculated under what are called "Unifrac" distances between samples, either unweighted (only presence/absence) or weighted (considers relative abundance). [ https://en.wikipedia.org/wiki/UniFrac ]
 
 ## 4.2.1 reciprocal monophyly and "unifrac"
 
@@ -1026,13 +1031,13 @@ When we are dealing with phylogenetic diversity but there are many species invol
 
 (for a more comprehensive exploration of microbial ecology or any form of metabarcode approach to explore communities using Unifrac measures, here is another great tutorial that we may choose to work through to gain experience: https://mibwurrepo.github.io/Microbial-bioinformatics-introductory-course-Material-2018/beta-diversity-metrics.html)
 
-I'll also note here that these methods differ if you use an approach that is guided by a reference library of available sequence data for that taxon (e.g. 16S for bacteria, or 28S for dinoflagellates, etc.) than if your study focuses on "allele specific variants" (ASVs) which allows for the fact that many such studies are capturing diversity that has never been sequenced before; ASV methods do not bin sequences based on their proximal distance to a known type, but retain all variation - recognizing that we don't know how *functionally, ecologically, or taxonomically* distinct alleles may represent.
+I'll also note here that these methods differ if you use an approach that is guided by a reference library of available sequence data for that taxon (e.g. 16S for bacteria, or 28S for dinoflagellates, etc.) than if your study focuses on "amplicon sequence variants" (ASVs) which allows for the fact that many such studies are capturing diversity that has never been sequenced before; ASV methods do not bin sequences based on their proximal distance to a known type, but retain all variation - recognizing that we don't know how *functionally, ecologically, or taxonomically* distinct alleles may represent.
 
 So, based on the sequence data alone - representing distinct samples in time and space - we can evaluate how distinct those samples are using genomic distances as in Chapter 2. Now that we have evaluated the complexity of genomes and how genomic diversity is recombined into each new individual (Chapter 3), we can also think about how that diversity is contained within individuals as well as within and among samples. 
 
 ### A 1st Primer on Fst
 
-Almost all measures of differentiation of populations in a hierarchical framework are based on asking about the difference between overall diversity and mean diversity at a lower hierarchical scale (*individuals* are in a *sample* or *site*, there may be multiple *samples* in a *region* that may be defined by environment or governance or whatever, and all samples together are the *total* diversity observed), normalized by the overall diversity to produce a metric ranging (typically) from 0 to 1 (Wares 2016). Commonly (but often inaccurately) referred to as 'F-statistics' and derived from Wright's inbreeding coefficient *F* (1-($H_o$/$H_e$), 
+Almost all measures of differentiation of populations in a hierarchical framework are based on asking about the difference between overall diversity and mean diversity at a lower hierarchical scale (*individuals* are in a *sample* or *site*, there may be multiple *samples* in a *region* that may be defined by environment or governance or whatever, and all samples together are the *total* diversity observed), normalized by the overall diversity to produce a metric ranging (typically) from 0 to 1 (Wares 2016). Commonly (but often inaccurately) referred to as 'F-statistics' and derived from Wright's inbreeding coefficient *F* (1-($H_o$/$H_e$), *itself* is a contrast between observed and expected heterozygosity.
 
 <style>
 div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
@@ -1042,13 +1047,13 @@ div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
 
 2. What is $H_e$? 
 
-Well, what did you *expect*? Based on the standard assumptions of Hardy-Weinberg, we may expect higher or lower heterozygosity than we see **based on the allele frequencies** and their combinations into genotypes (remember for allele frequency *p* we expect a homozygous genotype for that allele at frequency $$p^2$$); either can trigger interesting hypotheses.
+Well, what did you *expect*? Based on the standard assumptions of Hardy-Weinberg, we may expect higher or lower heterozygosity than we see **based on the allele frequencies** and their combinations into genotypes. Remember, for allele frequency *p* we expect a homozygous genotype for that allele at frequency $$p^2$$ ; either deviation from the expectation can trigger interesting hypotheses.
 </div>
 </br>
 
-*itself* is a contrast between observed and expected heterozygosity. The variations in how this is calculated, and how it is referred to, depend on the type of genomic data and the underlying model of how we assess the relationships among alleles, partly summarized here: https://www.molecularecologist.com/2011/03/should-i-use-fst-gst-or-d-2/ and partly in the Wares (2016) reference that you'll read right about now.
+The variations in how this is calculated, and how it is referred to, depend on the type of genomic data and the underlying model of how we assess the relationships among alleles, partly summarized here: https://www.molecularecologist.com/2011/03/should-i-use-fst-gst-or-d-2/ and partly in the Wares (2016) reference that you'll read soon. It isn't a great resource to be honest but it does get the message across succinctly!
 
-The basic idea of these F-statistics is that the diversity is described in hierarchical levels: again, individuals in a sampled location, samples in a region, regions in the overall (total) distribution, for example. And, in one way or another they are asking about the proportional amount of genetic variation in a lower level of the hierarchy relative to a higher level. For example, if allele frequencies are exactly the same in two locations, then the amount and type of diversity in both locations are the same, and the diversity can all be found in the site/sample level as much as in the overall (total) sample. 
+The basic idea of these 'F-statistics' is that the diversity is described in hierarchical levels: again, individuals in a sampled location, samples in a region, regions in the overall (total) distribution, for example. And, in one way or another they are asking about the proportional amount of genetic variation in a lower level of the hierarchy relative to a higher level. For example, if allele frequencies are exactly the same in two locations, then the amount and type of diversity in both locations are the same, and the diversity can all be found in the site/sample level as much as in the overall (total) sample. 
 
 We will get more involved with these statistics soon and the appropriate usage, for now you should try seeing how distinct allele frequencies (at a single, bi-allelic marker) in two locations lead to different $F_{ST}$ for the samples (here, F is appropriate for evaluating a single, bi-allelic marker; 'S' is for sample, and 'T' is for the total diversity; the metric $F_{ST}$ therefore tells us about the extent to which the diversity in each sample is only a subset of the total diversity, or *relatively more inbred*).
 
@@ -1056,7 +1061,7 @@ We will get more involved with these statistics soon and the appropriate usage, 
 
 fstapp<-here("shiny_popgen-master","FST","fst_app.R")
 
-shinyAppFile(fstapp,options=list(width="130%",height=500))
+shinyAppFile(fstapp,options=list(width="100%",height=500))
 
 ```
 
@@ -1067,11 +1072,13 @@ div.blue { background-color:#e6f0ff; border-radius: 10px; padding: 40px;}
 <div class = "blue">
 **Take a quick note that if you repeat this simulation 10 times, for example, which would be the "truth" based on sampling *n* individuals across 10 loci that *actually* carry those distinct allele frequencies, you will see a lot of variance in results especially when *n* is small. Which value: $H_S$, $H_T$, or $F_{ST}$, is most stable, and how does it change as the allele frequencies vary? Which value tends to be most stochastic? If you were writing a research proposal, what sample of individuals would be best given the cost of collecting specimens and obtaining genomic markers?**
 
-We are also going to get some hands-on experience with this class of divergence metric using this exercise developed by brilliant colleague Dr. Katie Lotterhos: https://docs.google.com/document/d/1u0tSy5OgepJoFeZ_cHUEemCfQC79dAMIOZsJExDYGEo/edit#heading=h.clt2mf5prpxl 
+We are also soon going to get some hands-on experience with this class of divergence metric using this exercise developed by brilliant colleague Dr. Katie Lotterhos:
+
+https://docs.google.com/document/d/1u0tSy5OgepJoFeZ_cHUEemCfQC79dAMIOZsJExDYGEo/edit#heading=h.clt2mf5prpxl 
 
 </div>
 
-In this example, Fst is calculated directly using the ratio of $H_S$ (the observed heterozygosity in each sample, averaged) to $H_T$ (the observed heterozygosity in all samples combined). Other metrics for $"X"_{ST}$ as noted above depend on the marker used and the model used to summarize that mutational diversity, but to briefly think again about coalescent theory, it effectively comes back to the mean coalescent diversity $\theta$ within each sample relative to the overall $\theta$, which if you squinch your eyes closed and think really hard, you will see is highly related to the phylogenetic diversity we talkeed about earlier in this chapter. It's all related, and all basically boils down to what proportion of genomic variation is partitioned within and among different samples and groups of samples!
+In this example, Fst is calculated directly using the ratio of $H_S$ (the observed heterozygosity in each sample, averaged) to $H_T$ (the observed heterozygosity in all samples combined). Other metrics for $"X"_{ST}$ as noted above depend on the marker used and the model used to summarize that mutational diversity, but to briefly think again about coalescent theory, it effectively comes back to the mean coalescent diversity $\theta$ within each sample relative to the overall $\theta$, which if you squinch your eyes closed and think really hard, you will see is highly related to the phylogenetic diversity we talked about earlier in this chapter. It's all related, and all basically boils down to what proportion of genomic variation is partitioned within and among different samples and groups of samples!
 
 A fairly important element of these metrics, as mentioned previously, is that none of them are based on a standard distribution in probability theory; they rely on contingencies of how long a species or allele has been in a population which can influence its frequency, as well as the stochastic effects of generational variance in reproductive success and other evolutionary effects. As well as the variation caused by sampling - repeat that simulation in the last panel a few times without changing the actual frequencies of alleles, and see what happens with small samples and the consistency of estimates on Fst! 
 
@@ -1089,7 +1096,7 @@ Back when Dr. Wares was barely out of graduate school, he overheard a debate amo
 
 Naturally, it depends on the question you are addressing. 
 
-1. for coalescent stuff, there are diminishing returns with sample sizes above 10-20 individuals to represent a *population*. Wakeley. There are also diminishing returns on sequence data to sample more than about 10-20 loci (Hickerson). Expand on this.
+1. for coalescent stuff, there are diminishing returns with sample sizes above 10-20 individuals to represent a *sample* (location, time point, etc.; Wakeley 2008). There are also diminishing returns on sequence data to sample more than about 10-20 loci (M. Hickerson has a paper on this that I need to find). This concept was recognized back when it was harder to get 1000s of loci, so of course I do think we are getting better answers with each order of magnitude more markers!
 
 2. if you think about methods that rely on the variation in allele frequencies, of course your estimate of frequency improves with a higher sample size. For a long time, a rule of thumb was to sample 20-30 individuals from a site because the estimated frequency could then be resolved to the nearest 1/*n*; a small sample would mean imprecise frequency estimates. However, in recent years with methods that enable genotyping at very large numbers of loci, it has been considered that having so many loci enables a certain precision in estimating divergence metrics even if each individual locus has lower precision with a smaller sample size. 
 
@@ -1098,29 +1105,32 @@ Naturally, it depends on the question you are addressing.
 At some point we will likely read Prunier et al 2013 "Optimizing the trade-off between spatial and genetic sampling efforts in patchy populations: towards a better assessment of functional connectivity using an individual-based sampling scheme" ***Molecular Ecology doi: 10.1111/mec.12499*** what do you think - can we think of why there are advantages to lean towards one type of sampling or another for a particular project?
 
 
-
+<div class = "blue">
 ## Box C.2 Additional work with R
 
-***Experiential*** lets take a look at POPPR tutorial PartII.1-5, through "genotypic evenness, richness, and diversity" and the information on particular loci and types of data will be explored in this next chapter. Use the practice data they provide so that you have the ability to run such data, as we start discussing what they mean for our ability to infer demography, movement, and evolution in natural populations. **Totally voluntary for 2020 students!**
+***Experiential*** lets take a look at POPPR tutorial PartII.1-5, through "genotypic evenness, richness, and diversity" and the information on particular loci and types of data will be explored in this next chapter. Use the practice data they provide so that you have the ability to run such data, as we start discussing what they mean for our ability to infer demography, movement, and evolution in natural populations. **Again, totally voluntary for 2025 students!**
+</div>
 
 ## 4.4 Summary
 
 Now we have the basic building blocks for analysis of genomic data in molecular ecology: how much diversity is there in a sample, and how distinct is one sample from another? A key element of how to use these metrics, however, lies in the questions we ask about movement, mating, and variation in fitness - the realities of biology that will affect the fit of genomic data to our 'null' expectations. In this chapter we will talk about the scale at which individuals move among sampling locations, and how that leads to distinctions that can be quantified as "populations" that have some demographic and evolutionary independence from one another - and perhaps distinct interactions with the environment or with other organisms in their ecosystems.
 
+# Remainder of the book??
 
+In January 2025 - about a month later than intended because of some family health issues - I started revising this document significantly to improve its capability across operating systems, and to correct some lazy little errors that happen when there is little time for working on a teaching aid like this. I will build in remaining chapters later in Spring 2025, I hope!
 
 # ACKNOWLEDGEMENTS
 
-Still working on all proper citations but already have much thanks to Silas Tittes for Shiny apps, to Justin Bagley, Mark Scheuerell, and many others for help with R code checking, to things I've learned in the past year from Rachel Toczydlowski, to my entire lab group in 2019-2022 for their patience, to my entire Molecular Ecology class in 2020 and 2022, 2023, 2024, and 2025 for *their* patience, to Natalia Bayona-Vasquez and Todd Pierson for their assistance getting me worked towards the experiential mode of teaching this class, to Paula Pappalardo and Christine Ewers-Saucedo who guided me in many ways as a cautious coder and exploring new pathways of analysis, to Rick Grosberg and Rob Toonen and Alex Wilson and so many others.
+Still working on all proper citations and thanks but already have much thanks to Silas Tittes for Shiny apps, to Justin Bagley, Mark Scheuerell, and many others for help with R code checking, to things I've learned in the past year from Rachel Toczydlowski, to my entire lab group in 2019-2022 for their patience, to my entire Molecular Ecology class in 2020 and 2022, 2023, 2024, and 2025 for *their* patience, to Natalia Bayona-Vasquez and Todd Pierson for their assistance getting me worked towards the experiential mode of teaching this class, to Paula Pappalardo and Christine Ewers-Saucedo who guided me in many ways as a cautious coder and exploring new pathways of analysis, and so many others.
 
 
 # Extra Help files. Shiny Example 1. {#ShinyEx1}
  
-
+Written by Skye Remko, currently (2025) a PhD student at UGA from when she took the class in 2021
  
 **Hey! Are you a little lost trying to figure out what to do for the Genetic Drift and Bottlenecks Exercise? **
 
-Yes? Well that’s okay! I can offer you a helping hand 😊 (thank you, Skye Remko!)
+Yes? Well that’s okay! I can offer you a helping hand 😊 
 
 *(Before you go any further, be sure to create an Excel file similar to what is shown in the image below*)
 
