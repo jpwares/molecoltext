@@ -383,6 +383,7 @@ microbe<-here("MEImages","Brown2019Fig5.jpg")
 knitr::include_graphics(microbe) #oh, it worked!
 
 ```
+
 **Fig.2.5. The distinct microbial communities, shown using proportional color plots by individuals and by treatment, exhibit some variation among coral colonies when either algal turf or vermetid gastropods are present. From Anya Brown et al (2019) *Coral Reefs*. This case exhibits only slight variation among environmental treatment, which is why we will consider quantitative approaches to distinguishing samples or treatments in the next chapter and further in this text.** 
 
 The questions we may then ask include: how many distinct species in a sample? Is it higher diversity in one treatment or location than the other? Are the relative abundances of species the same in each of my samples, or do they vary in interpretable ways? (Mind you, if you aren't a microbiologist you may have a hard time knowing *why* different OTUs (operational taxonomic units, the sort-of-equivalence to species in bacteria and Archaea) are ecologically relevant, or how they are distinct metabolically or phenotypically. Overall, these questions require numeric or quantifiable measurements and will be addressed in the next unit.
@@ -399,6 +400,7 @@ barnacle<-here("MEImages","fig-1-1x-2.jpg")
 knitr::include_graphics(barnacle) #oh, it worked!
 
 ```
+
 **Fig.2.5a. A gene tree representation of the sequence similarity among mitochondrial sequences sampled from the barnacle Chthamalus fragilis on the east coast of North America.** 
 
 ```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
@@ -407,6 +409,7 @@ barnacle2<-here("MEImages","fig-3-1x-3.jpg")
 knitr::include_graphics(barnacle2) #oh, it worked!
 
 ```
+
 **Fig.2.5b. Spatial distribution of distinct phylogenetic clades shown in Fig.2.5a.** 
 
 
@@ -516,6 +519,7 @@ Intriguingly, we can also track mutations happening in long-lived and clonal org
 eucalyptus<-here("MEImages","eucalyptus.jpg")
 knitr::include_graphics(eucalyptus)
 ```
+
 **Fig.3.1 - From https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2364, showing how the 'phylogenetic' growth of *Eucalyptus* can be taken advantage of for studying somatic mutation rates in these trees and comparing with simpler 'model' organisms like *Arabidopsis*.**
 
 
@@ -651,6 +655,7 @@ First, lets revisit what population size *N* does. Because not every single indi
 pupfish<-here("MEImages","Cyprinodon_diabolis,_males-2.jpg")
 knitr::include_graphics(pupfish)
 ```
+
 **Fig.3-n. A pair of devils hole pupfishes, public domain, georef info etc available at https://en.wikipedia.org/wiki/Devils_Hole_pupfish#/media/File:Cyprinodon_diabolis,_males.jpg **
 
 The same could be said for the very few Devils Hole pupfish; they have a small population size that is absolutely constrained by the extent of their environment and food resources. If we start with an assumption of allele frequency - 2 alleles at equal frequency - how quickly does that allele frequency change? 
@@ -700,7 +705,7 @@ So, lets talk about the Wright-Fisher model. This means that you have a populati
 coaldisc<-here("shiny_popgen-master","Coalescence","discrete_time_app.R")
 shinyAppFile(coaldisc,options=list(width="100%",height=600))
 ```
-## Fig 3.n+1. above simulation is a bit like the mark-recapture evaluation of population size using multilocus genotypes discussed in the Luikart et al paper we read (see end of chapter for ref): you are making estimations about the population based on the proportion of that population you sample. The more of the population you sample -- in this case, all in the current generation --  of course many siblings and cousins and so on.
+** Fig 3.n+1. above simulation is a bit like the mark-recapture evaluation of population size using multilocus genotypes discussed in the Luikart et al paper we read (see end of chapter for ref): you are making estimations about the population based on the proportion of that population you sample. The more of the population you sample -- in this case, all in the current generation --  of course many siblings and cousins and so on.**
 
 A more useful/realistic version of this Shiny app has been recently coded/updated, all of these so far come from Dr. Silas Tittes by the way. This next one recognizes that we don't sample *n* individuals from a population of size *N* where *n*=*N*, we are assuming that our sample is a relatively tiny proportion of all diversity that is out there. 
 
@@ -710,7 +715,7 @@ newcoal<-here("13023_shiny_popgen-master","Coalescence","discrete_time_app.R")
 shinyAppFile(newcoal,options=list(width="100%",height=600))
 
 ```
-## Fig 3.n+2. so, our Wright-Fisher model then extends to ask about how n relates to N, effectively. We are sampling n things, but Nc (census size) is likely much larger and so the question is about how that “choosing the parent” process described above works when the parental generation is so much larger than what we sample. It means that the expected time to coalescent events is telling us about effective population size (Ne) in the same way that drift simulations tell us about that same weird parameter.
+**Fig 3.n+2. so, our Wright-Fisher model then extends to ask about how n relates to N, effectively. We are sampling n things, but Nc (census size) is likely much larger and so the question is about how that “choosing the parent” process described above works when the parental generation is so much larger than what we sample. It means that the expected time to coalescent events is telling us about effective population size (Ne) in the same way that drift simulations tell us about that same weird parameter.**
 
 
 The simulations are most useful if you mess around and see how they behave. If you set n=10 and generations =20 on the first panel, you can run this simulation several times and will see very different outcomes. This is a dramatically oversimplified version of looking at how coalescent theory works, because in this case the sample size *n* is identical to the population size *N*, so there are many rapid coalescent events - but of course as you increase *n* to its maximum (in this visualization) of 100, you cannot see the events as clearly. It is true that in very small populations (for example the Florida panthers in the late 1980s) all individuals sampled will have very recent common ancestors (both the biological and casual use of term "inbreeding"). But the dynamics of coalescent theory have broad implications for studying genomic diversity in populations of any magnitude. 
@@ -737,7 +742,8 @@ shinyAppFile(silascoal,options=list(width="100%",height=600))
 
 
 ```
-## Then this 3rd simulation is telling us about expected diversity on these genealogies given mutational diversity that scales with effective population size - so time is in units of Ne in a much deeper and continuous recognition of how these sampled lineages COULD be related to one another.
+
+**Then this 3rd simulation is telling us about expected diversity on these genealogies given mutational diversity that scales with effective population size - so time is in units of Ne in a much deeper and continuous recognition of how these sampled lineages COULD be related to one another.**
 
 The Shiny app for coalescent simulation in the above panel is more technically useful, because you can set the number of sequences sampled *n* as well as $\theta$, which you will remember is the product of the population size *N* and $\mu$ (and a scalar related to the number of gene copies). You see that because *N* is much larger than *n*, the *coalescence* of two sequences happens a much longer time in the past (and time itself is measured relative to $\theta$, so it is not absolute in units of generations or years). *Again, set up the parameters so that you can see that a large number of highly variable genealogies are consistent with this process, and mutations are randomly (Poisson distributed by time) placed on the tree*. Together, these generate the patterns of mutational polynmorphism that we expect when we use (W) and $\pi$ to estimate $\theta$. Where this will get far more interesting, again, is when the basic assumptions of that single population model are incorrect (Chapter 4).
 
@@ -830,7 +836,9 @@ For now, your job is to read and follow directions in Part I of the "population 
 
 # 4.05 Diversity in and among individuals
 
-I'm adding this late - thus the odd numbering - because I realized I hadn't addressed one peculiarity of sampling diversity. **It is harder to compare individuals than it is to compare samples of individuals.** One of the key reasons for this is that the diversity we are dealing with is often diploid (or worse). That means that a heterozygous variant in one individual can be difficult to categorize in terms of how distinct it is from the genotype of another individual, especially another heterozygous individual. Which pairs of haplotypes are contrasted? Methods like Bowcock's (1994) "proportion of shared alleles" and other methods have been attempted to obtain *genetic distances* among individuals when codominant markers are used, but they involve abstractions of the data that aren't very satisfactory (Robinson et al 2013). Recent approaches have tried using Hill numbers (more on them in this chapter) [ https://www.nature.com/articles/s41598-020-62362-8 ] to make hierarchical contrasts between individuals with respect to the patterns and frequency of polymorphism variation among them; I'll leave it for now to say it gets complicated and this is often why we characterize diversity for samples or populations as our primary tool. 
+I'm adding this late - thus the odd numbering - because I realized I hadn't addressed one peculiarity of sampling diversity. **It is harder to compare individuals than it is to compare samples of individuals.** One of the key reasons for this is that the diversity we are dealing with is often diploid (or worse). That means that a heterozygous variant in one individual can be difficult to categorize in terms of how distinct it is from the genotype of another individual, especially another heterozygous individual. Which pairs of haplotypes are contrasted? Methods like Bowcock's (1994) "proportion of shared alleles" and other methods have been attempted to obtain *genetic distances* among individuals when codominant markers are used. More recently, Hancock  et al (https://doi.org/10.1093/genetics/iyae094) have an updated form of this individual-by-individual comparison (in this case, 1 - [eq.3] provides a metric for pairwise divergence) that is used in estimating neighborhood and effective population sizes - but it is advanced for where we are at in this class!
+
+Other recent approaches have tried using Hill numbers (more on them in this chapter) [ https://www.nature.com/articles/s41598-020-62362-8 ] to make hierarchical contrasts between individuals with respect to the patterns and frequency of polymorphism variation among them; I'll leave it for now to say it gets complicated and this is often why we characterize diversity for samples or populations as our primary tool. 
 
 ## 4.1 Diversity in a single sample.
 
