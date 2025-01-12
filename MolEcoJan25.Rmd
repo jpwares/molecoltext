@@ -528,6 +528,9 @@ We should recognize that mutations are happening all the time, though not always
 How do we know that mutations happen all the time? First of all, a rather famous experiment by Luria and Delbrück showed that bacteria grown from a single cell in a culture medium until there are many millions of cells have a non-zero probability of a mutation affecting their tolerance to antibiotics. If the tolerance mutations only appeared *because* of the change in the environment, we would expect a fairly constant rate of response across replicate experiments; the high variance in outcomes mathematically showed that mutations were sometimes happening early in the growth of the culture (so more cells are resistant when plated on antibiotic medium), sometimes late (very few cells are resistant), or not at all. That tells us that mutations are independent from any *response* to the environment; some environments may promote mutagenicity, but the location and timing of mutations that arise are not specific to that environment.
 
 Intriguingly, we can also track mutations happening in long-lived and clonal organisms. A great example would be aspen trees (*Populus tremula*), which grow in massive clones with shared root systems. Distinct clones may be noted during autumn, as leaves turn from green to brilliant gold, because large patches of trees will all turn at the same time - but not synchronously with patches next to them. Sequencing portions of the genome from one edge of a clonal individual and then from a tree at the opposite edge assumes that the clone is expanding outwards from its original propagule (seed), and thus many years have passed since those two sequences came from the same cell. It is typical to find that these trees on opposite sides of the colony are genomically distinct (though still clonal!), and because each tree has its own reproductive tissues the gametes they produce will carry those distinct mutations. Similar approaches have been used to look at mutational diversity in other tree species (https://doi.org/10.1098/rspb.2019.2364 for *Eucalyptus*, Fig 3.1), and have even been able to use the growth form of trees to identify the actual rate per amount of tissue growth or per generation!
+
+Remember that a tree is a growing population of individual cells. Not all cells or lineages survive, but clearly more than do not - the survivors make a tree. So this is a population with a single origin, with a genealogy that leads to the branches of a growing population of cells. Pretty cool when you think of it like that.
+
 <br>
 
 
@@ -540,18 +543,19 @@ knitr::include_graphics(eucalyptus)
 
 
 
-A fascinating recent paper by Olsen, Levitan, and others (https://www.ncbi.nlm.nih.gov/pubmed/30707605 ) looked at this same question in corals in the Caribbean. Corals tend to start their life as either a tiny planula larva, created by the formation of a zygote from spawned eggs and sperm, or as a small chunk of coral that has broken off from a nearby colony. As the colony grows from either starting point, again mutations may happen in individual polyps (each polyp eats, photosynthesizes, and can reproduce, but share a common gastrovascular connection), and mutational diversity can be found between polyps on either side of the colony. What was really cool about this work (Olsen et al 2018, *Biological Bulletin*) was that they evaluated many coral colonies from 2 species, at different depths *and* different sizes. The two species have different growth forms and rates, so the genetic distance between polyps from the same colony depended on both size and species identity; even more interesting, the mutation rate was higher for shallow-water colonies, suggesting increased exposure to ultraviolet radiation from the sun.
+A fascinating recent paper by Olsen, Levitan, and others (https://www.ncbi.nlm.nih.gov/pubmed/30707605) looked at this same question in corals in the Caribbean. Many corals tend to start their life as either a tiny planula larva, created by the formation of a zygote from spawned eggs and sperm, or as a small chunk of coral that has broken off from a nearby colony. As the colony grows from either starting point, again mutations may happen in individual polyps (each polyp eats, photosynthesizes, and can reproduce, but share a common gastrovascular connection), and mutational diversity can be found between polyps on either side of the colony. What was really cool about this work (Olsen et al 2018, *Biological Bulletin*) was that they evaluated many coral colonies from 2 species, at different depths *and* different sizes. The two species have different growth forms and rates, so the genetic distance between polyps from the same colony depended on both size and species identity; even more interesting, the mutation rate was higher for shallow-water colonies, suggesting increased exposure to ultraviolet radiation from the sun.
 
 <style>
 div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
 </style>
 <div class = "rose">
+
 *The data in the Olsen et al paper came from microsatellite loci. As noted in Box B (Chapter 2), this is a method that depends on isolating and identifying regions in the genome with simple short repeat (SSR) sequences and then targeting them using PCR. The products are scored by their relative migration under electrophoresis, using a size standard that fluoresces a distinct color from the PCR amplicons so that the products can be scored to size. Though a particular allele may have 14 repeats of "AGT" (14 x 3 = 42nt), the PCR amplicon will include flanking regions that extend the fragment length so that there is a space for primers to match for PCR; thus that same allele may actually be a PCR amplicon that is (for example) 120 base pairs in length. The fragment length is generally what is scored, and in the best cases each allele is scored at length intervals that match the repeat element length (so for the example locus, we might see other alleles at 117, 123, 126 and so on). Later in this chapter we will see more about how mutational differences are counted among these fragments, but they offer a highly variable (good) but imperfect view of genome diversity that requires special consideration.*
 
 </div>
 <br>
 
-These examples from bacteria, trees, and corals are natural examples of "mutation accumulation" (MA) studies, which can easily be done (with time!) in lab organisms with short generation times, such as *Arabidopsis*, yeasts, phytoplankton, and so on. Often of course in order to do such work you not only need a short-generation organism that is amenable to culturing in the lab, but also the resources to sequence large amounts of the genome since the *location* of the mutations will also be, for the most part, random. To understand how mutation happens in the rest of diversity, biologists have looked at well-known geographic features that separated ancestral populations into two or more descendant populations (my favorite example being the Isthmus of Panama separating the Pacific and Caribbean basins), and can ask similar questions about how many mutations distinguish those populations.
+These examples from bacteria, trees, and corals are natural examples of "mutation accumulation" (MA) studies, which can easily be done (with time!) in lab organisms with short generation times, such as *Arabidopsis*, yeasts, phytoplankton, and so on. Often of course in order to do such work you not only need a short-generation organism that is amenable to culturing in the lab, but also the resources to sequence large amounts of the genome since the *location* of the mutations will also be, for the most part, random. To understand how mutation happens in the rest of diversity (larger, slower-developing organisms), biologists have often looked at well-known geographic features that separated ancestral populations into two or more descendant populations (my favorite example being the Isthmus of Panama separating the Pacific and Caribbean basins), and can ask similar questions about how many mutations distinguish those populations.
 
 Estimating the mutation rate, $\mu$ , from these long-term isolated populations requires that we make one additional assumption. Since we are only looking at the end-point of many hundreds or thousands of generations of isolation, many mutations will have arisen - and some will disappear quickly, some will stay in the population as segregating diversity, and some will go to 'fixation' (the novel mutation is now present in all members of the population). If we assume that the mutation has absolutely no good or bad qualities with respect to the survival or reproduction of individuals ("fitness"), then whether it increases in frequency each generation or decreases is pure stochastic luck. It depends on the fact that populations are finite in size, and that for unpredictable reasons not all individuals will have the same number of offspring - some zero, some one, some many. Because of this simple fact of variation in reproduction, the frequency of a mutation changes randomly each generation as shown in this simulation of **genetic drift**:
 
@@ -564,7 +568,7 @@ driftplot<-drift.selection(p0=0.2,Ne=500,w=c(1,1,1),ngen=500,nrep=10)
 
 ```
 
-The plot shown is based on simulating drift, as we have seen before in this class. In this case, the starting frequency was low (0.2) -- but not as low as a new mutation -- and the population size *N* is 500. So that we refresh in our minds how this works, there is also a Shiny app that lets you control these parameters (*n.b.*, unless otherwise noted, the Shiny popgen apps in this document are by Silas Tittes https://github.com/silastittes/shiny_popgen).
+The plot shown is based on simulating drift, as we have seen before in this class. In this case, the starting frequency was low (0.2) -- but not as low as a new mutation -- and the population size *N* is 500. Each distinctly colored line is an independent simulation of the same process. So that we refresh in our minds how this works, there is also a Shiny app that lets you control these parameters (*n.b.*, unless otherwise noted, the Shiny popgen apps in this document are by Silas Tittes https://github.com/silastittes/shiny_popgen).
 
 ```{r driftshiny}
 
@@ -602,7 +606,7 @@ OK, now close your eyes, we are going to think about a more complicated situatio
 As you can now recognize by looking at distinct replicates (colored lines in simulation above), given enough time relative to *N*, there will be plenty of instances in which a polymorphism goes to fixation in one location/replicate, and, relative to the "other" location/replicate would be a **substitution**.This small simulation is not truly realistic in terms of the starting frequency of a new mutation of course. If there are *N* individuals in a population, then a brand new mutation would appear at a frequency of 1/*N* (or really 1/2*N* for a diploid locus); but there would also be many more such opportunities across a whole genome, across many generations. Kimura's "neutral theory" predicts that the **probability of a mutation going to fixation in the future is equal to its frequency when observed**, so with the simulation above in the figure - given enough time - we would expect 20% of the simulations to go to fixation and become a substitution. With a new mutation, that would be a much lower probability of 1/*N*. However, in each generation you have an opportunity for mutations to happen on all sequences* in the population, in other words *N* times the mutation rate $\mu$. Long story short: **if the mutations are neither advantageous nor disadvantageous** (neutral, not selected for or against), *the rate of substitutions is equal to the rate of mutations*.
 
 <div class = "blue">
-*a quick aside on nomenclature: a mutation happens at a particular SINGLE location in a genome, but tracking the pattern of mutations typically involves a region of the genome which has been sequenced or is otherwise being analyzed. to distinguish from ALLELES which are the copies inherited generationally, and the entire CHROMOSOMES that these regions are small portions of, Hahn's (2019) textbook refers to simply "SEQUENCES". at all times, think carefully and communicate carefully about what level of diversity you are trying to describe! (locus, allele, paralog, ortholog, scaffold, and many other technical terms have sometimes overlapping meaning...)
+a quick aside on nomenclature: a mutation happens at a particular SINGLE location in a genome, but tracking the pattern of mutations typically involves a region of the genome which has been sequenced or is otherwise being analyzed. to distinguish from ALLELES which are the copies inherited generationally, and the entire CHROMOSOMES that these regions are small portions of, Hahn's (2019) textbook refers to simply "SEQUENCES". at all times, think carefully and communicate carefully about what level of diversity you are trying to describe! (locus, allele, paralog, ortholog, scaffold, and many other technical terms have sometimes overlapping meaning...)
 </div>
 
 
@@ -680,23 +684,11 @@ The same with respect to variation in reproductive sucess could be said for the 
 
 ```{r oakdevildrift,eval=TRUE} 
 #library(learnPopGen)
-#oh god I don't see the cache file this takes a LONG time because of first sim; get the cache working
-#oakdrift<-drift.selection(p0=0.5,Ne=5000,w=c(1,1,1),ngen=400,nrep=5) #for now not compiling
-#devildrift<-drift.selection(p0=0.5,Ne=100,w=c(1,1,1),ngen=400,nrep=5)
-
-#shinyAppFile("/shiny_popgen-master/Drift/drift_app.R",options=list(width="100%",height=600))
-# set this for specific params, read back in and plot for them
 
 popoak<-read.csv("drift-simOak.csv",header=T)
 #names(popoak)<-c('V1')
 ggplot(data = popoak, aes(x=generation, y=freq)) + geom_line(aes(group=sim,col=sim)) + ylim(0,1) 
 
-#ggplot(data = popoak, aes(x=generation, y=freq)) + geom_path(aes(colour=sim) + scale_y_continuous(limits=c(0,1),breaks=seq(0,1,0.2)))
-
-#ggplot(data = popoak, aes(x=generation, y=freq)) + geom_path(aes(colour=sim) + ylim(c(0,1)))
-
-#popoak2<-read.csv("drift-simOak2.csv",header=T)
-#ggplot(data = popoak2, aes(x=generation, y=freq)) + geom_line(aes(colour=sim))
 
 popdev<-read.csv("drift-simDev.csv",header=T)
 ggplot(data = popdev, aes(x=generation, y=freq)) + geom_line(aes(group=sim,col=sim)) + ylim(0,1)
@@ -748,15 +740,7 @@ Then, if you look at the next panel down, you are seeing the dynamics of coalesc
 #install.packages("coalesceR", repos="http://R-Forge.R-project.org") did not work right, try again
 #library(coalesceR)
 #coalescent.plot(n=10,ngen=20)
-#get package names
-#pckgs <- c("tidyverse", "shiny", "wesanderson")
 
-#determine if packages are installed already
-#miss <- pckgs[!pckgs %in% installed.packages()]
-
-#install missing packages
-#if(length(miss)) install.packages(miss, dependencies = TRUE)
-# going to try shiny_popgen but not sure how to include in Rmd yet...
 silascoal<-here("13023_shiny_popgen-master","Coalescence","SilasFeb4.R")
 shinyAppFile(silascoal,options=list(width="100%",height=600))
 
