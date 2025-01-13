@@ -20,7 +20,7 @@ library(knitr)
 library(rstudioapi)
 # Getting the path of your current open file
 current_path = rstudioapi::getActiveDocumentContext()$path 
-setwd(dirname(current_path )) #this line may throw error and need to be commented out, if so just be sure working directory is where this .Rmd lives!
+#setwd(dirname(current_path )) #this line may throw error and need to be commented out, if so just be sure working directory is where this .Rmd lives!
 print( getwd() )
 
 library(here)
