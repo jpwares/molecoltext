@@ -1,7 +1,7 @@
 ---
 title: "Molecular Ecology GENE 8420"
 author: "John Wares"
-date: "January 12 2025"
+date: "February 2, 2025"
 runtime: shiny
 #output: 
 #  html_document:
@@ -41,6 +41,12 @@ today<-Sys.Date()
 
 ```
 
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+
+cover<-here("MEImages","IMG_1288.jpeg")
+knitr::include_graphics(cover) #oh, it worked!
+
+```
 
 # 1. Introduction. What is this?
 
@@ -171,9 +177,10 @@ Finally, I'll note something I'm trying out in terms of verbiage. For a long tim
 
 ([**Chapter 4: **](#Ch4) Types of spatial diversity) is about the basic elements of alpha and beta diversity -- that is, the diversity at a single location and the difference in diversity across locations. As ecology is often focused on the distribution and abundance, these approaches let us more accurately define the prevalence of certain subsets of biodiversity so we can more accurately assign locations to distinct communities or systems. The 'space for time' argument applies both ecologically and genetically through the process of drift *at a minimum* (Hubbell, Vellend) so that we expect different locations to have different diversity in part because they are demographically independent; of course migration (and gene flow) will affect this and that is one of our major goals to understand in this field.
 
-### nothing below here included in this document as of Jan 11 2025
 
 ([**Chapter 5: **](#Ch5) Population models) and ([**Chapter 6: **](#Ch6) Adding in reality of landscapes) deal with basic evolutionary mechanisms and what they can do to molecular diversity; Generalizable population models and how to tell when the data indicate a more complex model, e.g. ***HWE and the coalescent***; an overview on finite population size: Ne and all the distinct ways it is measured, WHY IT AFFECTS DIVERGENCE RATE, and all the distinct ways it is only kind-of useful, from Hare et al 2011 (and Waples before him) to human evolution and even taking a swing at studies that compare "inbreeding" approaches to estimation of Ne with "temporal/variance" approaches (e.g. Turner et al 2002 and Alo et al 2004). We will talk about population models, mutation accumulation and biogeography to get at the rate $\mu$, basic information on movement in the sea based on genomic diversity and so on, what we know of recombination, and this all lets us get to ...
+
+### nothing below here included in this document as of Feb 2 2025
 
 ([**Chapter 7: **](#Ch7) Getting into selection etc.) where we deal somewhat with how knowing this baseline information helps us think about what selection does across distinct environments. This is often a target for research, but it takes so much baseline information to really understand outlier molecular diversity. 
 
@@ -1102,9 +1109,414 @@ At some point we will likely read Prunier et al 2013 "Optimizing the trade-off b
 
 Now we have the basic building blocks for analysis of genomic data in molecular ecology: how much diversity is there in a sample, and how distinct is one sample from another? A key element of how to use these metrics, however, lies in the questions we ask about movement, mating, and variation in fitness - the realities of biology that will affect the fit of genomic data to our 'null' expectations. In this chapter we will talk about the scale at which individuals move among sampling locations, and how that leads to distinctions that can be quantified as "populations" that have some demographic and evolutionary independence from one another - and perhaps distinct interactions with the environment or with other organisms in their ecosystems.
 
+# 5 We call them populations as a way to simplify 'where things are' {#Ch5}
+
+## 5.1 Population models and movement basics
+
+The figure below (5.1) shows some very basic schemes for how individuals might be thought to move from location to location in a regional study. Very few natural systems will fit these schemes well! However, they can be a starting point for thinking about overall movement of organisms, their offspring, or their propagules between generations. They capture these basics of movement in several ways. First, a "mainland-island" model was developed in the field of biogeography (Macarthur & Wilson) to consider the probabilities of diversity from a large mainland ecosystem moving to or invading a smaller offshore habitat, with probabilities of movement being dependent on distance from the mainland, size of the island, and so on. This model is useful for considering source-sink dynamics in population genetics (Robinson et al 2013 *Molecular Ecology*). An "island" model assumes all the habitats are of similar size with similar or equal probabilities of individuals moving among each site, while "stepping-stone" models assume migration only happens between neighboring sites. So, early studies assuming the "island" model might only report a single $F_{ST}$ value for the entire collection of samples; clearly we learned that this rarely matches the understanding we get when each pair of samples is evaluated for their own, pairwise, degree of isolation.
+
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+earlymig<-here("MEImages","earlymigmodels.jpg")
+knitr::include_graphics(earlymig)
+```
+**Fig.5-1. Basic - and mostly oversimplified - models of movement among 'demes' or presumed demographically distinct samples. A) Mainland-island model, also related to source-sink diversity questions. B) Infinite island, allowing for equal probabilities of migration to any site in the region. C and D) stepping-stone models, allowing for a particular rate of migration to the nearest location on the grid. Figure from apsnet.org/edcenter/disimpactmngmnt/topc/PopGenetics/Pages/GeneGenotypeFlow.aspx**
+ 
+Each of these cases are simplified versions of 'real' dispersal of offspring or juveniles because it is rarely biologically plausible that offspring are prevented from moving more than one 'step' in a habitat matrix; however, it may become less probable the further they go. This is called a 'dispersal kernel' and reflects the probability that offspring land and mature ("recruit") very close to their parent (perhaps gravity-dispersed seeds), or further away with typically diminishing probability with distance. Often these distributions are *leptokurtic* meaning most of the probability is closer to 0 dispersal distance than you would expect from a *normal* distribution, however there is a non-zero probability of dispersal to great distances. For example, dandelions have a wind-dispersed seed that is thought to have high dispersal potential; however roughly 99% of all seeds land within 10m of their parental flower. The remaining 1% convince many, many people to spray their lawns with herbicides for fear of little flowers emerging.
+
+<div class = "blue">
+In a way, this also reflects one of the concerns that can happen with analysis of microsatellite data using a stepwise-mutation model (SMM), which might assume that the number of short sequence repeats increases or decreases by a single repeat to reflect the mutation process distinguishing alleles. Yet, polymerase error also has a probability of skipping (or adding) two repeats, or three or more, in a single mutational event. Thus, more complex models allow for this probabilistic distribution of changes as well, but makes interpretation of temporal separation between allele sequences more challenging. In the limit of not knowing how mutations arise in such markers, the IAM may be a more robust way to analyse microsatellites.
+
+</div>
+
+We may also find that dispersal is not equally likely in all directions in a habitat matrix. In the next chapter we will talk about this in terms of landscapes and variation in dispersal potential, but a simpler way to think about is just biased dispersal in one direction. This might be caused by wind moving seeds or pollen (Kling & Ackerly 2021, doi:10.1073/pnas.2017317118); water flow moving fish eggs downstream before they hatch (Aló & Turner 2004, *Hybognathus amarus*), or ocean currents tending to displace the larvae of an oyster 'downstream' along a coast (Fig 5-2).
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+pw07<-here("MEImages","pw07.jpg")
+knitr::include_graphics(pw07)
+```
+**Fig.5-2 from Pringle & Wares 2007, MEPS. One can imagine that offspring disperse in ways that lead to a high variance in where they mature (whether a seed, a larva, a juvenile) and how far that is from their parent. This figure shows what that pattern looks like if there is also a bias in the direction of dispersal caused by wind or downstream flow in rivers or ocean currents.**
+
+Importantly, when there is dispersal from one location to another, this is one of the components of ecology that can change gene or allele frequencies away from our equilibrium or null assumptions discussed in previous chapters. As a very simple example, Hardy-Weinberg expectations for genotypes are based on allele frequencies in the previous generation. If an immigrant arrives from a distinct location, it may change those allele frequencies or even add novel genomic diversity to the sample being analyzed. Broadly speaking, the higher the movement of individuals from site to site, the more similar their allele frequencies and genomic diversity will be (Fig 5-3). This can also be viewed across space and time in a different way (Fig 5-4A) where distinct diversity (by whatever marker type or sequencing) is viewed at different locations across a region, and through time there is low dispersal among sites and drift otherwise maintaining the dominant genomic diversity within that region. In (5-4B) you see an example where asymmetric movement across the ecosystem can quickly homogenize genomic diversity.
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+driftmig<-here("MEImages","5drift5mig.jpg")
+knitr::include_graphics(driftmig)
+```
+**Fig.5-3. On the left, simulation of 5 distinct locations starting at the same allele frequency and each being fully independent, with only drift operating (population size 100). On the right, the same 5 distinct locations with the same population size, but with high dispersal from site to site, homogenizing the allele frequencies among locations.**
+
+
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+wp08<-here("MEImages","wp08_1.jpg")
+knitr::include_graphics(wp08)
+```
+**Fig.5-4 from Wares & Pringle 2008. (A) if there is no bias in dispersal, and different diversity is found in different parts of the organismal range, then through time drift and random dispersal from site to site will change the pattern somewhat but movement is relatively slow relative to drift. (B) if there is a bias in dispersal, then many migrants will arrive from upstream habitats and that diversity will begin to dominate a larger portion of the organismal range.**
+
+What this all means gets very complicated with respect to how we estimate and evaluate *effective* population size (Caballero & Wang, Whitlock, others). The relationship of different *demes* (used as an ecological proxy for "population", suggesting that they are demographically independent... but that is a hypothesis we are testing with molecular data!) can lead to much higher genomic diversity in a species if there is low migration among sites (because each site will have different mutational diversity 'fixed' by drift and other mechanisms) than if they are linked by high dispersal among locations, and diversity may be substantially lower than you expect if there is asymmetric or source-sink dispersal among sites, e.g. one subregion provides almost all the persistent diversity for the entire distribution (Fig 5-5).
+
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+wp082c<-here("MEImages","wp08_2c.jpg")
+knitr::include_graphics(wp082c)
+```
+**Fig.5-5. from Wares & Pringle 2008. Asymmetric dispersal actually means that new mutational diversity only persists according to neutral drift expectations at the upstream edge of an asymmetric migration scenario; new diversity that originates downstream is lost faster than we would expect because of immigrants arriving from upstream to change the diversity.**
+
+Ultimately our goal in using molecular data to understand *how organisms move* will help us better understand how life history variation has consequences for evolution and adaptation. As noted above, how organisms move affects how genomic diversity is distributed through a species' range, and even how much genomic diversity there is to respond to environmental challenges. Within the context of this set of questions then, we first may want to ask about whether diversity is distributed *continuously* or *hierarchically* across this spatial range.
+
+## 5.2 dispersal as an equilibrium model, limits to dispersal as violations of that model
+
+When Dr. Wares was in graduate school, a brilliant but intimidating faculty mentor once pointed out to him that the genomic diversity captured through sequencing or genotyping at different locations may show that each location is distinct from one another, but we can ask whether or not that difference in diversity is consistent with an *equilibrium* between mutation, drift, and migration capability alone. This is related to the stepping-stone models of movement noted above, and is often called *isolation by distance* or IBD (Wright, 1943). **This is somewhat distinct from a *hierarchical* model where there are distinct 'sets' of populations dependent on their spatial arrangement.**
+
+First of all, if **movement** among sites (I hate to use *migration*, which technically refers to the cyclic movement of birds and insects and fish etc. seasonally or following resources - we are really talking about *dispersal* and *gene flow* here) is very high, then as noted above all of the sites will have similar genomic diversity and allele frequencies, and our measures of differentiation such as $F_{ST}$ will be close to zero - effectively they all operate as a single *population* across that scale.
+
+If, however, movement is not sufficient to homogenize the genomic diversity among sites, then drift leads to different allele frequencies and we know from last chapter that this leads to measurable deviation from Hardy-Weinberg when all sites are considered together. That is, total heterozygosity is much higher than expected given the diversity found at sites within the total sample. Or, in the sense of coalescent theory and our sequence-based models, we have higher $\theta$ when estimated from all sampled diversity than when estimated from diversity at individual sites, *and* the distribution of that mutational diversity will lead to (W) and $\pi$ not being equivalent estimates of $\theta$!
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+napkin<-here("MEImages","IMG_6411.jpg")
+knitr::include_graphics(napkin)
+```
+**Fig.5-6. An oversimplified version of how coalecent patterns help us identify 'non-equilibrium' patterns. Yes, it was added to the book during COVID isolation and thus pretty crude! This coalescent gene tree shows the true ("known") genealogical relationship among 8 DNA sequences, and the small ovals represent mutational events on that tree. First of all, recognize that mutational data will not always distinguish all sequences, this is a non-random illustration! Second, calculations are given for Watterson's $\theta$ and $\pi$ considering that sequences 1-4 were sampled from location A and sequences 5-8 from location B. As noted in Chapter 3, we expect that (W) and $\pi$ should lead to similar numerical estimates of $\theta$ if a sample follows the standard coalescent (one panmictic population, no selection, no change in size). Within each site, the low sample size means there is high variation expected, so statistically those numbers are perhaps not different, but the deviation overall is *much higher when all data are considered together*. If the difference ($\pi$ - (W)) >> 1, it may suggest that the diversity comes from demographically independent sites (among other explanations that we will return to in a later chapter).**
+
+So... one way or the other you can calculate an $F_{ST}$ analog (even with the sequence data, where we can calculate as ($\pi$(tot) - $\pi$(average site diversity)/$\pi$(tot), or (7.91-2.5)/7.91 = 0.68) among sample locations. Good job! Now, if there is an *equilibrium* explanation for the diversity overall, meaning that drift towards distinct allele frequencies or distinct diversity is limited by movement among sites, then we expect the influence of movement on genomic diversity to be less for sites that are spatially further apart. Sites that are close to each other would be more homogeneous than sites that are distant, and so there will be a linear relationship between our genomic distance and our spatial distance. 
+
+If this is true, there will be a non-zero positive correlation between pairwise genomic distance measures and pairwise spatial distance (because of non-independence among these many data points, i.e. the distance by railway from Washington DC to San Francisco is not independent of the distance of either of those cities to Chicago, this correlation must be tested permutationally with a Mantel test). The slope of this correlation has been used in some cases to estimate the likely mean dispersal of offspring, e.g. (Kinlan & Gaines). By that logic, an organism that can disperse 2km per generation will have a steeper slope than an organism that disperses on average 20km per generation.
+
+However, a good fit to a model has to be evaluated carefully. It is important to think carefully about whether a null model that you reject is the correct null model! (see Hahn 2008, doi.org/10.1111/j.1558-5646.2007.00308.x ) After all, if there is very different diversity on opposite sides of a geographic or environmental boundary, it may appear that nearby sites *in general* have similar diversity and distant sites have dissimilar diversity. An example from the barnacle *Balanus glandula* shows that there are two major mitochondrial lineages, one dominating in the northern part of the range and the other dominating in the southern part of the range (Wares & Skoczen 2019), with a strong transition along the central California coast. If $\phi$st values are calculated among many locations, the overall pattern may *look like* isolation by distance, but if we evaluate an IBD pattern *within* each of those primary lineages (still distributed across 100s of kilometers each), the pattern disappears - showing something more environmentally determined and spatially distinct is an important mechanism and it is not just about dispersal-drift equilibrium (Figure 5-7).
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+notIBD<-here("MEImages","notIBD.jpg")
+knitr::include_graphics(notIBD)
+```
+**Fig.5-7. First of all, note again how the authors indicate the genetic distance as 'Fst' but it is most certainly $\phi$st, and yes I'm making fun of my own paper. More importantly, the apparent IBD pattern in the top panel should still hold up in the bottom panel IF the overall distribution of genomic diversity is simply an equilibrium between dispersal and drift; because it does not we recognize there is hierarchical structure that appears to be driven by changing marine environment.**
+
+When some element of the external environment imposes some "structure" on the diversity across the range - perhaps a river prevents movement across it, or a mountain range, or an environmental discontinuity of some sort that limits movement or requires different diversity to match the environment (e.g. selection), we consider this *hierarchical* population structure. This literally means that being on one side or the other of that environmental discontinuity allows you to make a prediction about the kind of diversity you find there. Of course, not until you analyze further to diagnose this type of structure!
+
+<style>
+div.rose { background-color:#ffc4ef; border-radius: 10px; padding: 40px;}
+</style>
+<div class = "rose">
+
+A word on sampling...we have indirectly considered the sample size of individuals from a site; you know that more individuals leads to a more accurate estimate of allele frequency and $F_{ST}$-type statistics. We have discussed that each single gene region is like a single quadrat to estimate diversity, and in particular because of genomic recombination there is a strength in inferring the history of individuals from several samples by using multiple loci. So *how many locations should you sample to understand the range of an organism*? It depends on your question of course.
+
+Some questions define their spatial sampling very readily: the plants on serpentine soils *vs.* those on non-serpentine soils (work by Jessica Wilcox-Wright and others); the snapping shrimp on either side of the Isthmus of Panama (Nancy Knowlton's work which we have read). But when you are trying to determine something of broader, descriptive value about an organism it is not always clear how to sample. If you sample the eastern and western distributional boundaries, are the northern and southern of equal interest relative to your question? How densely in the middle of the range? How important is it that their habitat is discontinuous, as in rivers or rocky outcrops at the southern end of the Appalachians?
+
+What is important to recognize about the number of sites sampled is that it provides resolution into the nature of hierarchy and dispersal that affect the distribution of genomic diversity and the potential for adaptation. Sampling completely and continuously is not possible and is actually mathematically complicated (Wilkins & Wakeley 2002, but see Prunier et al 2013 doi 10.1111/mec.1499), but recognizing that more spatial samples enable the distinction between equilibrium and hierarchical models in a number of ways means this is another element in determining the cost - in labor and funding - of a project like this.
+
+</div>
+
+When there are enough spatial samples for the statistics to tell us something interesting, we can further consider the spatial hierarchy of our samples. Individuals are sampled at locations (**s**ites, **s**amples, **s**ubpopulations, stick with **s**!) which are within distinct **regions** across the landscape, and all the regional samples together are our **total** sample from an organism. One would think that it would be common to use the subscripts **s**, **r**, and **t** for these levels for $F_{ST}$ type statistics, but for reasons I have not had explained to me - and I've looked, but not hard - the regional level (comprising one or more sampled locations) is often symbolized with a **C**. 
+
+*Collection?*
+*Confederacy?*
+*Campsite?*
+*Concatenation?*
+
+I'm serious. Some programs (e.g. **Arlequin** or *POPPR*) will refer to this with the subscript *R*, but in general you will see an $F_{CT}$ statistic reported; when the value $F_{SC}$ is close to zero it means there is little "structure" or inbreeding associated with the samples *within* regions and so those regions do an adequate job of summarizing that there is hierarchical structure; as $F_{SC}$ deviates from zero, it suggests more regions may need to be delimited as there is important spatial structure among samples within one or more of the regional collections.
+
+For some organisms, there may be an excess of homozygosity at each locus because of life history strategy like self-fertilization and this is diagnosed in part by a non-zero $F_{IS}$ which refers to inbreeding at the level of the individual relative to the sample. Other hierarchical levels can be defined if sampling is sufficient enough to ask about additional ways in which diversity is partitioned across a system; the key here is that with this approach, your partitions (regions, samples, etc) are in part chosen or defined by the researcher - they are hypotheses to be tested (particularly regional groups of samples).
+
+## 5.3 letting the data tell you how individuals 'belong' to distinct populations
+
+So when we define a spatial model, we are asking about how our genomic data 'fit' that model; if there are two or more regions that have limited movement between them, we expect to see a high value of $F_{CT}$ overall as well as some high values of $F_{ST}$ (for comparisons of sites on either side of those environmental or geographic boundaries) and some low values of $F_{ST}$ (for pairwise comparisons among sites within the same region, for example). These approaches may miss, however, the true pattern of movement and introgression among sites because considerable genomic and genotypic variation may be found within the same spatial or temporal sample.
+
+In recent years, it has been of value to instead ask how individual multi-locus genotypes themselves - rather than an aggregate of genotypes from a predefined location - can be assigned to evolutionarily distinct populations. There are both model-based and non-model based approaches for this. In the first instance, our *model* for a population can be Hardy-Weinberg Equilibrium. We know what to predict about genotype frequencies given the observed allele frequencies; when this doesn't fit our prediction - for example, if there is an excess of homozygous genotypes - one good explanation would be that those genotypes belong to distinct *populations* (here in the evolutionary sense, not the same as the sample location necessarily). 
+
+A simple version of this is called the *Wahlund effect* - imagine two very closely related (so you cannot visually distinguish them, in this example) but not interbreeding snails that have different spatial ranges but a small area of overlap. You know now that because the time they have been diverged from a common ancestor allows allele frequencies to change via drift (as well as other mechanisms), that each snail species would likely have different genotype frequencies when studying the same gene regions. This will tend to lead to higher levels of the homozygous genotypes of high-frequency alleles in each population to appear in the sample location, and thus a $\chi$-square test will reject the Hardy-Weinberg equilibrium and we must ponder why (Fig. 5-8). 
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+micewahlund<-here("MEImages","micewahlund.jpg")
+knitr::include_graphics(micewahlund)
+```
+**Fig.5-8 from http://courses.washington.edu/gs453/lectures/lec11.pdf. An artificial example of a Wahlund effect - where the mice are captured, they are all either *AA* or *aa* genotypes.**
+
+So we can see that if we just knew which of the two populations to assign each individual into, we would see there are two distinct populations and each of those *does* satisfy our HWE model! This is the logic underlying an approach (and popular software program) called **Structure** (Pritchard et al 2000, *Genetics*) analysis. The biologist studying a sample of genotype data proposes a number of actual evolutionary populations (*K*). The analysis uses a complicated resampling method of the genotypes to attempt to fit each individual multilocus genotype into one of the *K* possible populations. In the snail and mice examples above, *K*=2. Of course, *K*=1 means that your data are a good HWE fit without any additional inferred population structure. A typical analysis using the **Structure** approach would inquire about values of *K* from 1 to the # of sample locations, and would find the optimal value of *K* based on serially improving the fit of the data to HWE in each of the *K* populations; if *K*+1 does not greatly improve that statistical fit, then we can use the *K* with the greatest improvement over *K*-1 as a probable explanation of our data (this is known as the 'Evanno method' from Evanno et al. (200x).)
+
+A great example of this comes from the painted bunting data we already glimpsed in Chapter 3 (Fig 5-9). The authors collected a large number (1000s) of single-nucleotide polymorphism (SNP) data using reduced-representation genomic sequencing via restriction-assisted digest (RAD) approaches; this means each individual SNP retained (and identified using complex bioinformatics, from many millions of individual DNA sequences recovered) is likely very far from others on the same chromosome, or on different chromosomes, so many of them are unlinked and would be independent bi-allelic assessments of genomic (and genotypic) diversity. Each SNP can be queried for whether it is homozygous or heterozygous within each individual and across all individuals, and the allele frequency calculated - predicting what we *expect* the genotype frequencies to be under HWE. Across many loci, this gives a tremendous amount of information for assessing the deviation from HWE, and how that deviation is reduced by increasing *K* iteratively. 
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+battey<-here("MEImages","Battey1.jpg")
+knitr::include_graphics(battey)
+```
+**Fig.5-9 figure from Battey et al (2017) with population structure analysis on painted buntings. Here, the best fit to the multilocus SNP data collected by the authors is shown as *K*=3 and ilustrated with the bar plots where each individuals probable assignment to each of the 3 populations is illustrated by distinct colors. This allows for both the uncertainty of assignment because of polymorphisms that are maintained in multiple distinct populations, as well as the potential for recent introgression (successful mating of individuals from distinct populations of origin).**
+
+Of course, some life histories - such as predominant selfing in some plants - mean that we don't expect HWE even in a single evolutionary population! In this case, the *Structure* method will not be an appropriate analysis, and even at best we have to remember that analytical approaches to determining *K* are basically generating a hypothesis, not testing one. Often, a biologist will have their own prior information about distinct populations or regional groupings, and both the intuition of the biologist as well as the outcome of such an analysis must be carefully considered.
+
+A method for assigning genotypes to distinct groupings that does not rely on HWE involves calculating 'principal components' from the data, basically identifying the overall degree to which multilocus genotypes consistently differ from one another. I won't pretend this is mathematically easy (here is a relatively straightforward explanation: https://builtin.com/data-science/step-step-explanation-principal-component-analysis), but the goal is to reduce a high-dimension data set (each locus is its own dimension, eg. the frequency of allele *A* along an axis) to the two or three composite dimensions that explain the most variance among those many data. This is a purely mathematical transformation with no specific model (such as HWE) leading to expectations. There are still decisions to be made about how many groupings of data there are after the principal components analysis, and this is done with what is called 'discriminant analysis' and a popular approach is called DAPC - discriminant analysis of principal components (Jombart et al 2008, Jombart et al 2010). You can see an example of this in the lower left panel of Figure 5-9, and when the two approaches agree - all the better for trusting the outcome! [ we will read more on this later this semester ]
+
+The details of how *Structure* is run, how to do *DAPC*, [and/or *LEA*, *ConStruct*] and how to feel good about the answers that emerge from these, are beyond our current scope. The Battey et al paper above is an example of how these tools are used very well, and reading the Pritchard (2000) and Jombart et al (2008, 2010) papers are of course an important start in using and interpreting these inference tools. Just remember, they are good at making objective decisions on what the data appear to tell us, but think of this as a hypothesis that needs more thought, more support, and possibly more data.
+
+What is the big picture, the modern view, of all of this? You may have noticed a distinction between isolation-by-distance and hierarchical patterns of genomic diversity, and of course those are not entirely exclusive.Even when using methods like *Structure* or DAPC as above, there are situations in which increasing the number of populations *K* keeps improving the fit of the data to the model -- that starts to suggest, again, *isolation by distance*. And even in situations that suggest *isolation by distance*, you may find that there are hierarchical patterns hidden within, as in Figure 5-7. (That instance in the barnacle *Balanus glandula* appears to be maintained by natural selection as well as habitat availability; Galindo et al 2010, Wares & Skoczen 2019, Wares et al. 2021). So, can we cope with evaluating a more complex model? As with all such cases, a more complex model does require more information to test it, but these are being developed.
+
+In recent years, approaches have combined an understanding that there is both the possibility of evolutionarily divergent lineages (perhaps because of transient allopatry, or adaptation, or other mechanisms) that are *also* distributed across a landscape in a way that is influenced by the drift-dispersal equilibrium. As such, we need to be able to allow for the fact that isolation by distance exists so that we can more clearly recognize the distinct evolutionary lineages within a set of samples, or a species, or whatever the focus may be. New approaches like the program **ConStruct** (Bradburd et al 2018; Fig 5-10) are starting to build this additional realism into our analysis. 
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+bradburd<-here("MEImages","Bradburdfig1.jpg")
+knitr::include_graphics(bradburd)
+```
+**Fig.5-10 figure from Bradburd et al 2018 https://doi.org/10.1534/genetics.118.301333 showing a combined approach to evaluating hierachical genomic structure - caused by a number of evolutionary mechanisms - that still allows for the fact that diversity moves across a landscape at a rate limited by natural history. Here, *K*=3 is shown, and the lineages are distinct but the distributions of allelic and genotypic diversity that those lineages include allow for isolation by distance across samples.**
+
+<div class = "blue">
+## Box C.3 Additional work with R
+
+***Experiential work, optional*** As with in earlier chapters, an option is to work with the POPPR tutorial PartII.6-10, through "discriminant analysis of principal components" and the information on particular loci and types of data will be explored in this next chapter. Use the practice data they provide so that you have the ability to run such data, as we start discussing what they mean for our ability to infer demography, movement, and evolution in natural populations. 
+</div>
+
+## 5.4 Why all this complexity?
+
+We want to understand how genomic diversity is distributed across a landscape because it tells us a lot about how natural history variation - types of dispersal (even polymorphism in dispersal type! Zakas & Wares 2012), mating, competition and conflict, or even disequilibrium patterns caused by responses of populations after glaciation, introduction, or other environmental changes - can be more fully characterized. The better we understand this distribution of diversity because of shifts in available habitat and movement, the better we will be able to understand how different parts of a genome respond to the environment through adaptation (later chapter), and so gain a more complete understanding of why diversity in genomes, in populations, in species, in communities -- is distributed on this planet the way it is (Eo et al 2008).
+
+
+# 6.1 Trying these skills out with real data? {#Ch6}
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+mosquitoes<-here("MEImages","mosquitoes_Nc_Ne_ohmy.png")
+knitr::include_graphics(mosquitoes)
+```
+
+One of the most important contributions molecular data have made to ecology is in the interpretation of movement and isolation among populations. Questions about movement and isolation tell us about the potential for metapopulation structure, cryptic diversity, the mechanisms that assist or limit movement for an organism of a given life history, the extent to which movement is symmetric or not, the likelihood of propagule diversity reaching new habitats, and more. 
+
+In the past decade it has become common to discuss this under the term "landscape genetics", though as discussed previously it might be more appropriate to say "landscape genomics" - and of course there are variants for 'seascape', 'riverscape' (Davis et al 2018, doi.org/10.1002/wat2.1269), and more. **How do the structural and directional elements of a studied area influence the movement of diversity?**
+
+As the scale of time gets greater, the same questions tend towards identifying broad divisions on a landscape, and the divergence of populations may become great enough that temporal estimates of divergence can be incorporated - these are the tools of what has been known as 'phylogeography' (Avise 2000), though that field originated in the application of phylogenetic, rather than population genetic, principles to understand hidden patterns of diversity. The approach outlined here, using population genetic approaches, allows a whole range of subtlety and model evaluation that is important for dissecting ecologically relevant movement and isolation.
+
+We might start by revisiting Figure 5-7, illustrating *isolation by distance* in the barnacle *Balanus glandula*. Remember that we are asking, broadly, how organisms disperse across an area. Some organisms can be tagged or tracked, but for many organisms it is more efficient - or only possible - to *infer* patterns of movement from the molecular/mathematical relationships we have worked with so far. A barnacle is a great example for this, because the adults cannot move at all (they cement themselves to the substrate) but their offspring are typically going to spend weeks drifting in the ocean and feeding before they are competent to settle, and so we can ask about how those larvae disperse while recognizing that the ocean itself strongly influences this dispersal. 
+
+**The more data we have, however, the more opportunities there are for some loci to appear to behave as *exceptions.* What does that mean?** 
+
+Organisms are containers for chromosomes, genes, loci. If offspring disperse a certain distance *x* each generation, on average, that has an effect on how readily the diversity at each locus moves through the landscape. So, in the case of *isolation by distance* we can recognize that *x* << the size of the spatial domain, and thus more distant samples of individuals are likely to have distinct allele frequencies - or possibly entirely distinct alleles, period. The example shown in Chapter 5 is based on only a single mitochondrial gene region. We presume that if the genomic diversity we study across spatial samples only varies because of limitations to movement, then if we looked at 10 loci they would all show a similar pattern: geographically distant samples have higher values of $F_{ST}$ than proximal samples, and it is repeated across loci because they are all following the same pattern of genealogical relationships. The same should be true for 100 loci, 1000 loci, and so on - there will be considerable *variance* allowed among these loci because, as we have discussed, each locus has some statistical independence from others because of recombination, *and* there is variance expected even under the standard coalescent model for how long ago sampled diversity has a **most recent common ancestor**.
+
+However, the more loci you sample there is also a growing likelihood that some of that diversity is not selectively neutral. Certainly, some component of the genomes found in an organism are functionally related to the performance of a genotype in a particular environment. There may be variation across a geographic range for thermal tolerance, or spawning or flowering time; some genes are specifically part of the reproductive or metabolic architecture of the organism. 
+
+A basic assumption in working with genomic data, then, is that *all* of the genome is subject to the influences of demography and movement. Only smaller windows of the genome are directly or indirectly affected by natural selection. 
+
+```{r corn, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+cornchr<-here("MEImages","cornchr10.jpeg")
+knitr::include_graphics(cornchr)
+```
+
+So for example in the image above, this is illustrated by looking at the effects of domestication of maize (corn) from its wild progenitor, teosinte (Tian et al 2009 doi.org/10.1073/pnas.090112210). The y-axis is our old friend $\pi$ or nucleotide diversity. Across the portion of chromosome 10, where the genes that control seed 'shattering' in teosinte have been strongly selected for keeping all the kernels together, there is a window of effectively no genomic diversity relative to teosinte or neighboring parts of the chromosome. Selection has made this region very different, and makes this region have a very recent time to most recent common ancestor because of the strong selection imposed upon it.
+
+In other cases, gene regions will exhibit much higher divergence among samples than is typical for the rest of the genome. These 'outlier' loci have to be considered as candidates for evolving under different rules than the "neutral" loci that are primarily affected by demography and movement. Though we will come back to this topic later in Chapter 7, it is important to realize that we have to consider both the inherent statistical variance among loci in generating answers about movement and population size, as well as knowing that a subset of them are simply following different rules! 
+
+Here we will take a step away from this text and explore some data directly, to get a better feel for how the analyses involved in molecular ecology are more often a set of inquiries about how readily different hypotheses can be distinguished. There is no '*push one button and get the answer*' approach because the organisms, their genomic structure and diversity, and the landscapes/seascapes they are found in are unique to every such study.
+
+<div class="blue">
+## Box C.4 Additional work with R
+
+**The document "BalanusPopGen.Rmd" is in the same directory as the textbook markdown file. Your assignment for the latter part of the course, Exercise 5, is to work through the first assignment in that file (up through the pink box!). But we will get to that in about a month, 2025 students!**
+
+
+A brief discussion on "best practices" and "best principles". Code is being provided in the documents for this class... BY NO MEANS should you assume this to be the best code, it is code that has worked for particular functions, *well enough*. It is easy to mistake an example in a class as the exemplar for the method. The rate that data availability, computation power, code efficiency, and novel analytical and presentation approaches evolve means that I have to remind you now, that the examples I'm providing is not something to follow for your own work, but may help you frame out what you need and what you know is not sufficient.
+
+
+</div>
+
+## 6.2 More detailed questions
+
+(*n.b., in Spring 2025 this exercise comes later but the concepts can be things we think about now*)
+
+After you have evaluated the data in BalanusPopGen.Rmd - thinking about the goals of the data as well as expectations under neutrality and random mating - a first question to ask is about how the data fit equilibrium models. In chapter 3 we thought about mutations arising, and genetic drift operating relative to the *effective* population size. In chapter 4 we considered statistics that measure the deviations from what we would expect if all individuals were sampled from a single randomly-mating population. In chapter 5 we thought about the models of movement of individuals across a landscape/seascape/riverscape, *et cetera*.
+
+So, a first approach to take with real data is often about exploration of the data in terms of deviating from the simplest model: *panmixia*, or an inability to reject the null hypothesis that *location* provides no additional information about the diversity sampled at that location. Effectively, we cannot start talking about isolation by distance, or spatial population structure, until we see if our samples deviate from the standard, single-randomly-mating-population model.
+
+## 6.2.1 GENE FLOW (MOVEMENT) and DRIFT IN EQUILIBRIUM
+
+Now that we are coming back to these topics, remember that:
+
+* migration is a term better used for seasonal or cyclic movement. *e.g.*, neotropical bird or whale migration
+* movement is my ***m*** term for dispersal, rather than "migration", we are talking about genes moving, and...
+* those genes have to persist through survival or introgression of that diversity for the movement to be picked up as *gene flow*
+
+This next item is a little more complicated to code correctly to appear in the textbook, though I'm working towards that. We will use a more complex drift simulator written by CJ Battey (*https://github.com/cjbattey/driftR*). Though it is a Shiny app, I will provide the code for you to run it by copying the text below into the R Console, and running each line. Actually, if you hit the "play" button at upper right corner of the code chunk below (when viewing this document in RStudio), it will run and work just fine...I will work out how to make this in-line but for now this should be fine :)
+
+
+```{r driftR, echo=TRUE, eval=FALSE} 
+
+pkgs <- c("plyr","reshape","ggplot2","magrittr","viridis","shiny")
+dl_pkgs <- subset(pkgs,!pkgs %in% rownames(installed.packages()))
+if(length(dl_pkgs)!=0){
+  for(i in dl_pkgs) install.packages(i)
+}
+library(shiny)
+runGitHub(username="cjbattey",repo="driftR")
+
+```
+
+<style>
+div.green { background-color:#99ff99; border-radius: 10px; padding: 40px;}
+</style>
+<div class = "green">
+
+Spring 2025 grad students: I want to think about this simulation tool a little bit differently. I want you to think - through "forward" simulation of drift - how quickly can selection or adaptation of particular genomic diversity change the pattern of diversity? In a span of time that is relevant to your organism and question, what difference in fitness for a given environment becomes quite important *relative to the diversity that is  unlinked to these functional or phenotypic differences you perceive*?
+
+A paper I wish I'd already squeezed into the schedule, and still might: Koskinen et al. 2002 (10.1038/nature01029) showed dramatic life history shifts among populations of grayling (*Thymallus*) that had only been separated for a couple dozen generations, with large responses relative to the genetic drift that had occurred in that time. Like, the fish have been in these ponds for nearly a century now, and drift has affected many allele frequencies -- this can be measured with microsatellites and patterns of $F_{st}$. The traits, however, are likely polygenic and affected by the temperature and depth and other biotic factors of those ponds, and so their variation may be large with respect to the neutral patterns. That, eventually, is what we are looking for to consider the evolution of the biodiversity we are focused on.
+
+So I'd love you to sketch a one-page note, with a sharpie scrawl over a print-out of one of your simulations or similar effort, that explains what you learn from messing with this drift/selection/migration simulation and making an argument for how important you think **natural selection** should be for your system to pay attention to its consequences. How strong does the relative fitness consequence need to be? How can you describe what this does to *e.g.* $F_{ST}$ for individual loci that are affected relative to those that are in linkage equilibrium?
+
+For example, the Shiny app can run at default parameters (pretty strong fitness differences, no mutation, some migration among replicate samples) and the more you replicate those with simulations where there is NO selection, you should start to form an opinion of how particular environments may influence particular genotypes on a timescale that is important to you.
+
+
+</div>
+</br>
+
+How we explore the data to begin with typically depends on the *type* of data, of course. A study that returns DNA sequence data might explore with basic questions of whether *location* provides information about diversity using a metric like Hudson's Snn or $\phi_{ST}$, in each case there is a prior assumption being made that *location* ("site") has potential to be informative about evolutionary populations. These metrics as declared above are asking about overall deviation from *panmixia*. Snn is asking if the genetic similarity between pairs of sequences is related to the location (same location or not), and has a null expectation of 1/*n* where there are *n* locations sampled. Of course, your sampling scheme may make such an expectation of little value but the goal of such a metric is simply to maximize the value of DNA sequence diversity (many variable sites) given a small sample size. Similarly, Xst metrics overall may tell us if there is deviation from Xst=0 but don't tell us much about patterns in the data that can be explored hierarchically or continuously.
+
+Continuing with sequence data, then, it may make sense to evaluate all pairs of locations sampled to generate a matrix that describes the deviation from null/panmixia in all possible ways. Examining such a matrix often begins to tell us a lot about where there are subtleties or larger patterns that will need to be considered. Of course, data that is allelic - microsatellites, SNPs, or similar - that can be considered with pairwise Xst approaches (the X depends on the model, which often depends on the marker, you will recall) will also apply here. 
+
+WHEN we look at the **BalanusPopGen.Rmd** assignment, the code chunk following the first data assignment generates pairwise **F**st for the SNP data being evaluated. (Why Fst?) Take a look at these results and ask yourself these questions:
+
+1. are all or most values close to zero, indicating panmixia?
+2. if 1 is not true (and recognizing the populations are listed in latitudinal order), is the deviation from 0 gradual? Or is there the potential for hierarchical population structure among these data?
+
+So that you take the time to do this, and think about the questions, I'm going to make it harder to scan ahead in the text by adding this photo of a pangolin:
+</br>
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+pangolin<-here("MEImages","pangolinLG.jpg")
+knitr::include_graphics(pangolin)
+```
+**Fig.6-1 a beautiful pangolin. Photo credit: International Fund for Animal Welfare.**
+</br>
+</br>
+So, you should have thoughts right now about how cool pangolins are and that we should be doing more to protect them, but you may have also recognized that the data we are considering for *Balanus* are pretty clearly rejecting panmixia among all sampled locations, and that there is a pretty obvious jump in Fst values between the top half of the samples and the lower half in the matrix. At this point, you have already recognized something important about landscape and seascape genomics: even when an organism has the potential for very broad dispersal each generation, we are often surprised to learn about the underlying environment from these data because they show that many species exhibit population structure in places that *have no obvious barriers to dispersal* (Palumbi 1992).
+
+Since we have multilocus data, we can also ask whether or not there is a clear hierarchy or structure to the data without using a prior assumption about sample locations being equivalent to populations. Remember that two sample locations could each contain two very different sets of genotypes, and if the two types of organisms are at the same frequency the Xst value would be ZERO! (Which metric would tell you to pay more attention?)
+
+So, to explore these data without making assumptions about the membership of individuals to particular evolutionary populations, we might ask whether the data tell us about their 'fit' to distinct groupings. In Chapter 5, we discussed using the deviation from HWE as a genetic model that allows some types of optimization of data across *K* 'populations'. Specifically, Figure 5-9 illustrates a chart at the bottom using this sort of analysis, often called a "structure plot" generically referring to the program **Structure** (Pritchard et al 2000). To the upper left of that plot is a principal components analysis (PCA) of the same data, showing a concordant result of *K=3* populations that are distinguishable. The PCA approach does not use a genetic model but an approach that separates data points along axes that summarize a tremendous amount of variation in the data...
+
+https://en.wikipedia.org/wiki/Principal_component_analysis
+
+Basically, we use it to reduce the number of dimensions of a data set to try and identify clear patterns from being able to visualize a plot of the data in those reduced dimensions (typically, 2). In recent years, population genomics has taken advantage of combining this approach with discriminant analysis (Jombart et al 2010), which helps us optimize not just the visualization but also the most appropriate numer of groups of data points in that visualization. This is called 'discriminant analysis of principal components' or DAPC.
+
+We aren't going to get deep into the weeds with this method in this text; additional exploration and definitely reading the paper(s) by Jombart are needed to become proficient at this. But in the *BalanusPopGen.Rmd* file, lets now explore the data using this approach to understand what it can tell us and how sensitive the results are to our assumptions. Look in the code chunk called 'dapc1' and what you will need to do is actually get a little bit interactive with the data and this exploration of how many clusters are in the data. It has two steps: choosing how many of the principal components to keep for finding clusters (the more, the more information you have - not sure I'm the right guy to ask about whether it is bad to include more), and then using that information to identify the Bayesian Information Criterion value for how that information fits a large number of data clusters. The lowest BIC value is assumed to be the best fit. Try this now!
+
+*n.b.: obviously not including enough information may make it difficult to adequately distinguish the population structure; why not use all information? https://adegenet.r-forge.r-project.org/files/tutorial-dapc.pdf (section 4.1) explains this in terms of model-fitting, effectively - as with almost all statistical model fitting - we would like to use as few parameters as possible to describe an adequate model. Again, the finer points are beyond the scope of what we are dealing with, but play around with these parameters to start getting a sense of what it means.*
+
+Now that you have done this, how many evolutionarily distinct or effective groups do you think exist in *B. glandula*? You have likely convinced yourself - to the extent you feel comfortable interpreting these data already - that there are 2, perhaps 3 populations in this set of individual genotypes. The code in **BalanusPopGen.Rmd**, chunk *dapc1* then goes on to provide a 2-dimensional way to plot this output for two discriminant axes and then for one, because most of the information is in a single dimension that corresponds (in this case!) with latitude along the coast. When you look at these plots, do you imagine there may be more population hierarchical structure than just "two populations"? That's fair.
+
+I'll just add that we don't want to let statistics take over our field :) Sometimes, you will have biological priors - information you know about phenotype, or behavior, or function, that drive the question and maybe guide you when there is ambiguity between different possible analytical options. Sometimes, you may know that the only useful answer is whether there is any hierarchical structure at all, or none - in the case of limited management for example. The balance of objective analytical outcomes and informed decisions about what to do with those outcomes is a hallmark of becoming a good biologist!
+
+So, lets take one additional look at how the data could be clustered in a non-genetic model. A recently developed approach "sparse non-negative matrix factorization", see http://membres-timc.imag.fr/Olivier.Francois/snmf/index.htm for more details on this, provides very efficient estimation of ancestry coefficients (how much of an individual appears to be derived from population *n* of *K*) for highly multilocus data. Again, the code is in **BalanusPopGen.Rmd** for you to work through, and this is our last exercise for this section. Just for now, run the code in chunk 'snmf' and don't worry too much about the code, lets think about what it tells us about the different results for K=2 or K=3.
+
+(Why not always use the HWE-based model in the program Structure? Well - is your organism tetraploid? Clonal? Selfing? Mixed mating? There are all sorts of biological realities that can make the assumption of HWE itself untenable!)
+
+When you run that code chunk you will get 4 plots. The first is a lot like the BIC plot - where the cross-entropy is minimized is a good idea of the 'best' model of population evolutionary hierarchical structure. When I run it, K=2 is where the cross-entropy is minimized. I also show results for K=3, which may be argued for, and K=5... where you will start to see some chaos in interpretation that, at a minimum, will be hard for you (or me, a barnacle expert) to explain. Play around with that last line, what happens with higher values of K? What does K=4 look like? What do you think makes most sense, given what you have seen from earlier preliminary analyses?
+
+Now, think back to earlier chapters and ask yourself: **"could there be hierarchical structure, *as well as* isolation-by-distance, across a set of individuals collected from diverse locations?"**
+</br>
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+pangolin<-here("MEImages","pangolinLG.jpg")
+knitr::include_graphics(pangolin)
+```
+**Fig.6-2 a beautiful pangolin, AGAIN. Photo credit: International Fund for Animal Welfare.**
+</br>
+
+Because you probably hadn't really given much thought to pangolins before today, but now you think "what other crazy biology might be out there, and how might these data help us understand how they move and interact, breed and grow?"
+
+With this we will conclude this part of working with the *Balanus* data, and will come back to it again in later chapters of this text. You can start to think about additional questions: where do the populations start to separate, and by what process? Is it an ancient pattern reinforced by current environment, or is the species being pulled apart by active adaptation? 
+
+## 6.3 Additional time, additional realism
+
+### 6.3.1 Additional time
+
+It is worth noting that the example *B. glandula* data that we worked through (2025: will work through!) during this unit represents a relatively ancient separation of populations (roughly 500kya) that are not re-mixing for reasons I will get into in a later unit. The origins of landscape genomics are rooted in a time when there were fewer data available, and the questions being asked tended to be more about lineage isolation and cryptic diversity originating in geological events. The field of 'phylogeography' (Avise 2000) utilized methods from phylogenetics or molecular evolution to infer ancient isolation events that were profoundly informative about the processes of diversification. With increasing abilities to collect multilocus data, the questions being asked are more subtle questions of movement and behavioral interactions.
+
+Even in deeper divergence scenarios, the lessons of population genetics and coalescent theory are relevant. The signature that one population has diverged into two that do not interact reproductively - over whatever scale they are collected at - will show up as a Wahlund effect, as $\pi$ being greater where they overlap than when they are separated. The lessons we learned earlier about estimation of the mutation rate µ from known divergences of populations are a key insight for interpreting the more subtle patterns that are possible with more diversity being sampled across the genome. In fact, even our interpretations of divergence require knowledge of the population genetic signatures of single populations.
+
+The larger a population is - that would be the census size N - all else being equal, we may expect that the effective population size Ne is larger. There are a variety of reasons that is not as straightforward as we would think, and we will get to that later in the class. But certainly if Ne is larger for one species than another, that is *in part* diagnosed by the additional diversity of that population, and interpreted as diversity that has accrued over a longer number of generations since it all had a Most Recent Common Ancestor. Larger effective populations harbor older diversity than smaller ones!
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+EdBeer<-here("MEImages","EdwardsBeerli1.jpg")
+knitr::include_graphics(EdBeer)
+```
+**Fig.6-3 is Figure 1 from Scott Edwards & Peter Beerli, Evolution, 54(6), 2000, pp. 1839–1854.**
+</br>
+What does that mean for interpreting the divergence of populations, at any temporal scale? Lets look at a now-classic paper by Scott Edwards and Peter Beerli. In their 2000 *Evolution* paper, (Figure 6-3) they predicated our estimates of when two populations diverged from one another on recognizing that a large ancestral population would have a large theta, and so the TMRCA for that ancestral population has to be accounted for in considering the time of divergence given data from those two populations. 
+
+***But we don't know much about ancestral populations, do we Dr. Wares?***
+
+Well. No. Remember a lot of what we do in the field of molecular ecology is a form of inference - we are extending what we can see with what can be understood from genomic diversity. *Try not to go crazy and tell too-detailed a story, and you will be OK.* In this case, although there are more computationally intensive ways to get at more complex models for this (later sections), one of the simplest models - and often quite effective - is to assume that the daughter populations (the two populations being evaluated for their divergence time) have similar demographics as their ancestral population. 
+
+How would we investigate this? Remember we aren't working with counts of individuals, but diversity as it is represented from a population of a given (changing) size, with a particular mutation rate, on a locus with a particular ploidy and inheritance mode. SO, $\theta$ (or an estimator, $\pi$) is evaluated from each population, and we make a simplifying assumption and average the two. If your populations are of wildly different sizes, you will probably want to read on to more complicated ways to ask this question. 
+
+What this gives us is a classic equation representing *net nucleotide divergence*,
+
+<style>
+div.mango { background-color:#FFBF34; border-radius: 5px; padding: 20px;}
+</style>
+<div class = "mango">
+$d_{A}$=$d_{xy}$-[($d_{x}$+$d_{y}$/2)
+</div>
+
+What does that tell you? The mean divergence of alleles compared across populations, minus the mean divergence (read: diversity, e.g. $\pi$) within populations (representing a *model* of what the ancestral population looked like demographically). That sets the actual divergence time, $\tau$, at a timepoint a bit more recent than the divergence between populations alone would estimate. This is what Figure 6-3 is illustrating, so go back and take another look at that to interpret this math.
+
+Now, take a hypothetical. Two species of fish live in a large river; erosion and other geologic change in a nearby watershed 'captures' the upstream portion of the first river, moving those upstream populations into the second river and ending gene flow between the (now) two populations. This is not an uncommon process - sometimes it happens very quickly as with the shift of glacial melt rivers, sometimes very slowly as with the Casiquiare River in Venezuela that currently connects the Orinoco and Amazon. But a good example for our hypothetical above would be the 'capture' of the Tallulah and Chattooga Rivers in NE Georgia from the Chattahoochee basin into the Savannah basin which has led to the isolation of distinct aquatic species.
+
+In our case, the two species of fish vary dramatically in $N_{e}$, one quite large, one quite small. The geologic event happens at the same time, which one will exhibit the greater genomic divergence $d_{rivers}$? The one with a large population size, or the one with a small population size as measured by $N_{e}$, and why? The divergence time $\tau$ is equal, and we will assume the mutation rate $\mu$ at loci we look at is equal, and so you can extend that logic to recognize that for the two very different species, in this case $d_{A}$ will be equal. 
+
+This is what Edwards & Beerli (2000) were focused on, less the esoteric elements of population genetics - though they have both done extraordinary work in this realm - and more asking whether all of the pairs of eastern and western sister species of birds, like yellow-shafted and red-shafted flickers, diverged based on the same prehistoric/geologic event or not. Mike Hickerson and colleagues have extended this population genetics inquiry into being able to ask for multiple pairs of taxa separated by particular boundaries whether or not there was a single, or multiple, events leading to divergence and speciation - relying on our understanding of how populations of a given $\theta$ respond to processes that separate them into multiple daughter populations with limited gene flow.
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+Hick06<-here("MEImages","Hickerson06.png")
+knitr::include_graphics(Hick06)
+```
+**Fig.6-3.5 is Figure from Hickerson 2006, doi: 10.1186/1471-2105-8-268.**
+</br>
+
+A large component of what was known as 'phylogeography', then, is now about using multiple species and assumptions of relatively similar values for $\mu$ to reconstruct ancient events of isolation. In this way we learn more about paleo-environments and their influence on patterns of biodiversity at multiple scales. 
+
+## 6.3.2 Additional realism (parameters)
+
+In earlier sections, samples have been seen along a gradient of 'quite similar' (e.g. Xst ~ 0) to 'not similar' (e.g. Xst >> 0, K>1, etc.). Along with these distinctions, there is also the potential that the mechanism by which two or more locations have a given (dis)similarity measure is more complicated than random/stochastic diffusion or distance-based movement.
+
+1. dispersal kernels
+
+Put simply, a *dispersal kernel* is just an expectation of movement. Basically it is the posterior distribution function we presume for an organism's movement from where it was born (or zygote formed). Naïvely we might assume that a red-winged blackbird would have relatively high likelihood of being observed 1km from its nest site a year later; a modest likelihood of being observed 10km from its nest site a year later; a low likelihood of being observed 100km from its nest site. The shape of that distribution is of course hard to determine for most organisms.
+
+Many times the function by which we compare these distributions are really about simple manipulation of the variance of the distribution around the mean. If we think of a "standard normal", Gaussian distribution, the mean displacement/dispersal of an individual is 0 (equal likelihood in any direction), with variance of one unit. The below figure also shows examples where the distribution is much 'narrower' or *leptokurtic* - something that might fit an organism that has poor dispersal in general but may be assisted in movement (algal mats, animal fur, etc.) as well as an example where the dispersal is greater than expected from the origin point.
+
+```{r, out.width='90%', fig.align='center', fig.cap='...',echo=FALSE}
+normalpdf<-here("MEImages","normalpdf.jpg")
+knitr::include_graphics(normalpdf)
+```
+**Fig.6-4 from the Wikipedia entry for "normal distribution"**
+
+Additionally, the green line in Fig 6-4 represents a case where the distribution is *displaced* from the origin (the 0 point). We have to remember that some organisms are dispersing via wind, rivers, ocean currents, and are more likely to move in some directions than others. What gets really intriguing about this is it starts to indicate where diversity originates, and whether the distributions of organisms include 'sink' populations that are either not demographically viable or that tend to host diversity that originates from another 'source'.
+
+Obviously, gene flow homogenizes diversity. So, asymmetric gene flow works the same way, except that the diversity in the recipient population tends to be replaced by diversity from the source. This not only influences a measure like $X_{st}$ to be lower, but means a smaller portion of the spatial range is effectively contributing diversity to the overall range. Lets think about asymmetric gene flow using the term *advection*. In other words, some force - wind, currents - is displacing offspring in one direction from the mother. If that force is 0, then we return to a more random/diffusion model for how individuals disperse, and if that force is >>0, it will tend to dominate what happens to offspring or propagules. Figure **5-4** illustrates this.
+
+So, what would this asymmetric dispersal *look like* with molecular data? The example shown in Figure 5-4 is sort of an idealized situation to consider metapopulation dynamics - where each location/habitat has a certain probability of going extinct and being replaced/recolonized from another location. A classic metapopulation model is of course an oversimplification of this process, which we will deal with more in the next unit, but diversity at one location being regularly replaced by diversity from another is an example of this, and in coastal populations the network of sites is effectively one-dimensional, so it is easy to think about. Overall however the dynamics of metapopulations can be complex (Pannell & Charlesworth 2000; doi 10.1098/rstb.2000.0740); as mentioned above, it means that measures like $F_{st}$ *on their own* cannot be trusted to accurately reflect the pattern of gene flow and diversity in a system. Overall isolation by distance patterns are flattened (J. Pringle, TBD), and overall diversity throughout the range tends to be reduced (Wares & Pringle 2008). 
+
+Thus, some biologists go to the extra effort to find consilience between patterns of divergence and the likely *source* region for that divergence (Ewers-Saucedo et al. 2016), or use parent-offspring analysis (dealt with more later in the text) to note the typical displacement of offspring in the system (Peery et al 2015, Wethey/Hilbish papers on hindcasting). There are also computational approaches including "Markov Chain Monte Carlo" (MCMC) approaches that allow parameterization of values such as $\theta$ and movement (*m*) rates from DNA sequence polymorphism data (e.g. Beerli's MIGRATE package); with proper design of such an analysis one can infer whether there are higher likelihoods for models that involve multiple migration parameters (eg different parameters in different parts of the system, or asymmetric migration) than if there is a single parameter explaining all such patterns (Zakas et al 2009). At this point (writing well ahead of teaching this unit), I'm thinking it is a good time to have us read one of these papers rather than me try to re-describe it all, so:
+
+**Paper TBD to read for next week:**
+
+Finally, we can think about additional dimensions or factors separating our sampled locations. In chapter 5 we considered *isolation by distance* where divergence metrics scale with the Euclidean distance between sample locations, typically tested nonparametrically using a Mantel test because, at a minimum, the spatial distances among sites are not independent from one another - they are a function of the landscape itself. That landscape however also has rivers, mountains and elevational gradients, and land use factors that themselves may limit movement/dispersal. 
+
+In recent decades, approaches with the moniker "isolation by resistance" have added some realism to these questions about the mechanisms of isolation among sampled locations. For example, Eo et al (DOI:10.1007/s10592-009-9926-9) evaluated pairwise population differentiation among southeastern U.S. populations of quail. The Euclidean distance among pairs of sites on the same side of the Appalachians may reflect the ability of quail to disperse, but when contrasts are made between sites on opposite sides of elevational plateus and mountains, the physical distance a quail must fly becomes considerably longer as they choose not to fly above certain elevations. Similar work has been done considering well-characterized marine current patterns near Santa Barbara and how those currents drive the pairwise divergence of populations of marine whelks (White et al 2010, doi: 10.1098/rspb.2009.2214).
+
+## 6.4 Summary
+
+The idea we are grappling with now is that we are trying to see that as data improves, our models can improve. When there are only a handful of markers, we have a certain power to distinguish models of equilibrium or hierarchical, maybe variation in gene flow among sites. As the amount of data - markers, locations, individuals - increases... well, we start getting at movement and how it is integrated across generations in the genomes of propagules and parents. Movement is a really difficult part of ecology. Some of our colleagues use tags, or collars, or remote sensing to learn about organismal movement. We are getting closer to these efforts with molecular data in terms of the resolution and sensitivity. But movement is a really difficult part of ecology, and because of that it is a difficult part of evolutionary biology, and vice-versa.
+
+Here we have gone into just the shallow end of the pool in terms of trying to represent the reality of movement. It requires really understanding the biology - development, dispersal mechanisms, interactions with the abiotic - to formulate good hypotheses and models about movement and see how genomic data help us reconstruct this. Without genomic data it might have been difficult to understand that anoles move, directionally, among Caribbean islands via hurricanes (Calsbeek et al 2003)! And movement is not always effective in terms of gene flow. Remember some models are useful, all are wrong. In the intent to find the *description* or model of movement - like vectors, with directions and magnitudes - our ability to generate complex models can reflect a lot about general patterns in nature through seeing how the environment forces diversity to move in certain ways. Wares et al (2001) recognized that the intraspecific diversity of a species will often reflect the environmental dynamics that lead to broader, community-level transitions. 
+
+<div class="blue">
+## Box C.5 Additional work with R
+
+To practice with having substantial amounts of data - similar to our experience with the *B. glandula* data - we can now finish the exploration of "Part III" of the POPPR tutorial.
+
+https://grunwaldlab.github.io/Population_Genetics_in_R/ 
+
+</div>
+
 # Remainder of the book??
 
 In January 2025 - about a month later than intended because of some family health issues - I started revising this document significantly to improve its capability across operating systems, and to correct some lazy little errors that happen when there is little time for working on a teaching aid like this. I will build in remaining chapters later in Spring 2025, I hope!
+
+In February 2025, I added Chapter 5 and 6 back in :)
+
 
 # ACKNOWLEDGEMENTS
 
