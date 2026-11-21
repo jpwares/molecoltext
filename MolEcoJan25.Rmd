@@ -121,12 +121,12 @@ The upside is that it is more of a living document. It means that as data change
 
 library(learnPopGen)
 
-drift.selection(p0=0.4,Ne=500,w=c(1,1,1),ngen=400,nrep=4)
+drift.selection(p0=0.4,Ne=500,w=c(1,1,1),ngen=200,nrep=4)
 
 ```
 
 
-I'm putting this text together using R Markdown in particular so that examples can be incorporated that students can then work with to try and understand how varying the input information affects our expectations about the molecular data used to answer ecological questions. For example, the code chunk above - and the figure it produces - not only illustrates *genetic drift* (here, an example where one of 2 alleles is initiated in a population at a frequency of 0.1, and the "effective population size" about which we will learn more, is 500; there are 4 replicate simulations - in fact you should notice that the figure is distinct every time you run this document!), but actually provides the code for the illustration that can be modified as knowledge of the process becomes more advanced (when looking at the R Markdown code document itself in *RStudio*, if you hit the green 'play' button in the upper right corner of the "code chunk" you can do the simulation over and over, and you can look at the code and probably figure out quickly how to change the parameters it runs under. In fact, you can change those parameters right now in RStudio, re-run the document, and your textbook will be different from everyone else's based on this figure alone). 
+I'm putting this text together using R Markdown in particular so that examples can be incorporated that students can then work with to try and understand how varying the input information affects our expectations about the molecular data used to answer ecological questions. For example, the code chunk above - and the figure it produces - not only illustrates *genetic drift* (here, an example where one of 2 alleles is initiated in a population at a frequency of 0.4, and the "effective population size" about which we will learn more, is 500; there are 4 replicate simulations - in fact you should notice that the figure is distinct every time you run this document!), but actually provides the code for the illustration that can be modified as knowledge of the process becomes more advanced (when looking at the R Markdown code document itself in *RStudio*, if you hit the green 'play' button in the upper right corner of the "code chunk" you can do the simulation over and over, and you can look at the code and probably figure out quickly how to change the parameters it runs under. In fact, you can change those parameters right now in RStudio, re-run the document, and your textbook will be different from everyone else's based on this figure alone). 
 
 By organizing this material the way I think it may come across to beginning students in the field, I hope to avoid the personal puzzle of when I initially shifted this class from 8000-level (intermediate grad course) to 4000-level (advanced undergrads with fewer prerequisites) by clarifying these probabilistic processes with illustrations based on simulations that the students can themselves repeat. I've since taken it back to the grad-only level because of the overall fit to the curricular needs of students at the University of Georgia and the landscape of other related courses.
 
@@ -143,7 +143,7 @@ For other users of this document, please note: I use a lot of examples I am fami
 
 Plus, I can imagine now I can just look in here for some of the papers I want others to refer to, you know - what was that paper I cited about *XXXXXX*? Oh yeah it was in chapter 4...However, with this being written in the work-at-home era of **COVID**, some references will be scant pointers to the actual resource and I hope you will forgive me when I know who I'm pulling from but can't find it right away. Someday this will be full of hyperlinks and DOIs but for now it is a dog looking at a finger pointing at the moon, so to speak.
 
-Also, by my estimation, it is only about 25% done to the level I'd like. So remember that as you try to use it.
+**Also, by my estimation, it is only about 25% done to the level I'd like (still true in late 2026). So remember that as you try to use it.**
 
 </div>
 
@@ -194,9 +194,13 @@ That sets us up for ([**Chapter 8: **](#Ch8) The phenotype and quantitative trai
 ([**Chapter 10: **](#Ch10) Intuition and surprises) deals with where the field is going and spends some time focusing on the 'natural history awareness' of the analyses we have learned; often key insights come from seeing how data behave or misbehave given your preconceptions.
 
 
-**Week 1 suggested readings:**
+**Week 1 REQUIRED readings:**
 
 Travis (2020): https://www.journals.uchicago.edu/doi/pdfplus/10.1086/708765 is a fun read especially for early-career scientists thinking about how we make decisions about what to study.
+
+Reding et al (2012): https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1365-294X.2012.05595.x a basic mitochondrial study of diversity in bobcats, but gives us a chance to think about how we group diversity using genomic data.
+
+**Suggested readings that may complement your goals**
 
 Marmeisse et al. 2013 https://nph.onlinelibrary.wiley.com/doi/epdf/10.1111/nph.12205 to think about what molecular tools can tell us about diversity and ecosystem function; though it sounds like they are excited about the genomic tools, reading between the lines they are excited about inferences of symbiosis, function, and interaction in fungi!
 
