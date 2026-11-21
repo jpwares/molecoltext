@@ -336,7 +336,17 @@ but it will work for any gene that provides sufficient resolution. For this reas
 
 (note to consider: analysis of data describing the "barcode" variation between species or the metagenetic studies of microbial diversity in different samples of habitats both tend to rely on *haploid*, *low recombination* regions of inherited genomic diversity. All of the same rules apply when we are dealing with *diploid*, whole-genome scaffolds that may have important elements of recombinatory diversity, but we are starting with these simplest genomic elements to get the ground rules set.)
 
-Now, an interesting part of this that we are going to explore in more detail in class: the distinction between species shown above, where there is divergence between the species greater than you find within a species, is entirely driven by *time.* Divergence (*d*) is equal to some factor (more on this later) of the mutation rate $\mu$ multiplied by time, *t*. This is true no matter what kind of divergence between homologous genomic fragments! So, the data in Figure 2.2 includes both *alleles* within a gene copy which vary within a species (and that variation relates to the time since their most recent common ancestor); *species* that carry that gene copy (listed in italics next to each of the tips of the tree, which themselves reflect genomic variation - the species have diverged over time, of course); and gene copies (*paralogs*) that appear to have diverged **before the species did**.
+
+<style>
+div.orange { background-color:#FFAD00; border-radius: 10px; padding: 40px;}
+</style>
+<div class = "orange">
+**Now, an interesting part of this that we are going to explore in more detail in class: the distinction between species shown above, where there is divergence between the species greater than you find within a species, is entirely driven by *time.* **
+</div>
+
+
+
+Divergence (*d*) is equal to some factor (more on this later) of the mutation rate $\mu$ multiplied by time, *t*. This is true no matter what kind of divergence between homologous genomic fragments! So, the data in Figure 2.2 includes both *alleles* within a gene copy which vary within a species (and that variation relates to the time since their most recent common ancestor); *species* that carry that gene copy (listed in italics next to each of the tips of the tree, which themselves reflect genomic variation - the species have diverged over time, of course); and gene copies (*paralogs*) that appear to have diverged **before the species did**.
 
 In all cases, time and isolation leads to that genomic variation -- and we won't always know which component of isolation is the cause of two DNA fragments being distinct. Again, we will discuss this more in class, because it is a real brain-twister.
 
